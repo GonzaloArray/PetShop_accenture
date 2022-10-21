@@ -1,0 +1,36 @@
+:root{
+    --white: #fff;
+
+    --font: 'Nunito', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul, li{
+    list-style: none;
+}
+a{
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+body{
+    font-family: var(--font);
+}
+/* clases */
+.fuente__pequeña{
+    font-size: 13px;
+}
+.vwValue{
+    height: 17vw;
+    object-fit: cover;
+}
+.objContain{
+    object-fit: contain;
+}
