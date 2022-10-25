@@ -1,40 +1,148 @@
-:root{
-    --white: #fffcf7;
+:root {
+    --white: #f0ede8;
     --blank: #000;
-    --primario: #e5854b;
+    --primario: #F57923;
+    --primario-black: #f1741a;
     --secundario: #4e9469;
     --terciario: #31AEC0;
     --terciario-sombra: #069dd3;
+
+
     --font: 'Nunito', sans-serif;
+    --font2: 'Roboto', sans-serif;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-ul, li{
+
+ul,
+li {
     list-style: none;
 }
-a{
+
+a {
     color: var(--white);
     text-decoration: none;
     font-weight: 600;
+    font-family: var(--font2);
 }
-img{
+
+a:hover {
+    color: var(--terciario);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font2);
+}
+
+p {
+    font-family: var(--font);
+}
+
+img {
     max-width: 100%;
     height: auto;
 }
-body{
-    font-family: var(--font);
+
+input[type="search"] {
+    outline: none;
 }
+
 /* clases */
-.fuente__pequeña{
+.fuente__pequeña {
     font-size: 13px;
 }
-.vwValue{
+
+.vwValue {
     height: 17vw;
     object-fit: cover;
 }
-.objContain{
+
+.objContain {
     object-fit: contain;
+}
+
+.z-index {
+    z-index: 2;
+}
+
+.bg-primario {
+    background-color: var(--primario);
+}
+
+.bg-primario-black {
+    background-color: var(--primario-black);
+}
+
+.bg-blanco {
+    background-color: var(--white);
+}
+
+.bg-terciario {
+    background-color: var(--terciario);
+}
+
+.bg-terciario-sombra {
+    background-color: var(--terciario-sombra);
+}
+
+.border-terciario {
+    border-bottom: 2px solid;
+}
+
+.height {
+    height: 20rem;
+}
+
+.card-imagen {
+    object-fit: contain;
+    width: 100%;
+    height: 25vh;
+}
+
+.line {
+    line-height: 0;
+}
+.card-hover{
+    position: relative;
+}
+.card-hover:hover > .text-hidden{
+    color: rgba(48, 47, 47, 0.685);
+    transition: .3s linear;
+    padding: .5rem 1rem;
+    width: 100%;
+    background-color: #fff;
+}
+.card-hover:hover > .text-hidden p{
+    font-size: 14px;
+}
+.card-hover:hover > .text-hidden h5{
+    font-size: 12px;
+}
+.text-hidden{
+    transition: .3s linear;
+    padding: .5rem 1rem;
+}
+.text-hidden > h5 {
+    font-size: 0;
+}
+.text-hidden > p {
+    font-size: 0;
+}
+.flex-auto{
+    flex: 100%;
+}
+.fs-7{
+    font-size: 12px;
+}
+.notFound {
+    width: 50%;
 }
