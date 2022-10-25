@@ -1,6 +1,10 @@
 :root{
-    --white: #fff;
-
+    --white: #fffcf7;
+    --blank: #000;
+    --primario: #e5854b;
+    --secundario: #4e9469;
+    --terciario: #31AEC0;
+    --terciario-sombra: #069dd3;
     --font: 'Nunito', sans-serif;
 }
 *{
