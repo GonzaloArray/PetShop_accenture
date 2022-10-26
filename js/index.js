@@ -41,7 +41,6 @@ createApp({
         if (JSON.parse(localStorage.getItem('carrito'))) {
             this.cesta = JSON.parse(localStorage.getItem('carrito'));
         }
-
     },
     mounted() {
     },
@@ -111,7 +110,11 @@ createApp({
         },
         //Contact
         enviarsubmit() {
-        alert('anda')
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+            )
         }
     },
     computed: {
@@ -217,7 +220,6 @@ createApp({
 
             } else {
                 this.productos = filtro1;
-
 
             }
         },
