@@ -31,6 +31,9 @@ createApp({
 
             // Error Fetch
             error: '',
+
+            //contacto
+            seleccionado: [],
         }
     },
     created() {
@@ -105,9 +108,11 @@ createApp({
 
             this.cesta = valor;
             localStorage.setItem('carrito', JSON.stringify(this.cesta));
+        },
+        //Contact
+        enviarsubmit() {
+        alert('anda')
         }
-
-
     },
     computed: {
         superFiltro() {
@@ -229,7 +234,7 @@ createApp({
                 cant = cant + this.cesta[key].cant;
             }
             return cant;
-        }
+        },
 
     }
 }).mount('#app')
