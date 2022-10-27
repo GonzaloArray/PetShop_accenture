@@ -49,7 +49,12 @@
     justify-content: center;
 }
 .logos{
-    width: 6rem;
+    width: 4rem;
+}
+@media (min-width: 769px) {
+    .logos{
+        width: 6rem;
+    }
 }
 .adopcion{
     background-color: var(--primario-black);
