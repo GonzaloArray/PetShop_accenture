@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>101Patita - Principal</title>
+
+    <!-- Fivicon -->
+    <link rel="shortcut icon" href="./img/loguitos/favicon.svg" type="image/x-icon">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;800&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Style Css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/cambiodecolorNAV.css">
+    <link rel="stylesheet" href="./css/style2.css">
+</head>
+
+<body class="bg-blanco">
+    <div id="app">
+        <header>
+            <section class="bg-negro">
+                <div class="container d-flex justify-content-between text-light py-1">
+                    <p class="m-0 fw-bold">EN</p>
+                    <div class="d-flex">
+                        <a class="me-3" href=""><img src="../img/icon/instagram.svg" alt="Instagram"></a>
+                        <a class="me-3" href=""><img src="../img/icon/facebook.svg" alt="Facebook 101Patita"></a>
+                        <a class="me-3" href=""><img src="../img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a>
+                        <a href=""><img src="../img/icon/dogAdopta.svg" alt="Adopta 101patita"></a>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <nav class="position-sticky top-0 start-0 end-0 navbar navbar-expand-lg navbar-light z-index p-0">
+            <div class="d-md-flex flex-md-column shadow justify-content-between w-100">
+                <div class="bg-primario-black py-2 py-lg-1">
+                    <div class="container d-flex justify-content-between flex-wrap">
+                        <a class="navbar-brand" href="#"><img class="logo" src="./img/loguitos/favicon.svg"
+                                alt="Logo 101Patitas"></a>
+                        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <img src="./img/icon/menu.svg" alt="Menu hamburguesa">
+                        </button>
+
+                        <div class="d-flex align-items-center">
+                            <form class="">
+                                <div class="d-flex rounded-pill position-relative">
+                                    <input class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
+                                        type="search" placeholder="Search" aria-label="Search">
+                                    <button class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"
+                                        type="submit"><img src="./img/icon/search.svg" alt="Buscador search"></button>
+                                </div>
+                            </form>
+
+                            <a class="d-none d-lg-block ms-3 btn btn-dark rounded-pill" href="#"><img
+                                    src="./img/icon/user.svg" alt="User Login"></a>
+                            <div class="position-relative ms-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-dark rounded-pill dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="./img/icon/carrito.svg" alt="Carrito compra">
+                                    </button>
+
+                                    <ul class="dropdown-menu widhtCard px-3" aria-labelledby="dropdownMenuButton1">
+                                        <div class="text-dark" v-for="productoAdd in cesta">
+                                            <li class="d-flex justify-content-start align-items-center my-2">
+
+                                                <img class="logo" :src="productoAdd.producto.imagen"
+                                                    :alt="productoAdd.producto.nombre">
+
+                                                <span
+                                                    class="px-2 fw-bold text-light bg-primary mx-2 rounded-1">{{productoAdd.cant}}</span>
+
+                                                {{productoAdd.producto.nombre}} - ${{productoAdd.cant *
+                                                productoAdd.producto.precio}}
+
+                                                <button
+                                                    class="px-2 pb-1 btn-danger ms-2 text-light fw-bold rounded-circle"
+                                                    @click.stop="quitarCesta(productoAdd.producto._id)">x</button>
+                                            </li>
+                                        </div>
+
+                                        <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
+                                            ${{cestaTotal}}</a>
+                                    </ul>
+                                </div>
+                                <div class="position-absolute top-0">
+                                    <p class="px-1 bg-blanco rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
+                                </div>
+                            </div>
+                            <p class="my-0 ms-2 d-none d-lg-block btn btn-dark rounded-pill">${{cestaTotal}}</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <section class="bg-primario collapse navbar-collapse" id="navbarScroll">
+                    <div class="container d-flex m-auto align-items-center justify-content-center flex-wrap py-2">
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="./img/iconosNav/shopping.svg" alt="Productos">
+                                Productos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="./html/juguetes.html"><img class="mb-1 me-2"
+                                            src="./img/iconosNav/toys.svg" alt="Productos de juguetes"> Juguetes</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./html/medicamentos.html"><img class="mb-1 me-2"
+                                            src="./img/iconosNav/medicine.svg" alt="Productos de medicina">
+                                        Medicina</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="./html/productos.html">
+                                        <img class="mb-1 me-2" src="./img/iconosNav/allProducts.svg"
+                                            alt="Todos los productos">Todos los productos</a></li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="./img/iconosNav/cat.svg" alt="Productos Gatos">
+                                Gatitos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="./img/iconosNav/fish.svg" alt="Productos">
+                                Pez
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="./img/iconosNav/bird.svg" alt="Productos">
+                                Pajaritos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="./img/iconosNav/roedores.svg" alt="Productos">
+                                Roedores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+
+                        <a class="nav-link text-light" href="./html/contacto.html">
+                            <img class="mb-1" src="./img/iconosNav/otros.svg" alt="Contactos">
+                            Contactanos
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </nav>
+        <main class="container-lg mt-5">
+            <!-- Indice -->
+            <h1 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Home</span></h1>
+
+            <!-- Bienvenida -->
+                <div class="row pt-5 align-items-center text-center flex-column">
+                    <h2 class="fw-bold fs-4 col-3 mb-5">Bienvenidos A 101apatita</h2>
+                    <img src="./img/loguitos/banner_animalitos.svg" style="width:48rem;" alt="">          
+                    <div class="d-flex" >
+                        <img src="./img/imgIndex/patitas.png" alt="" style="width: 10rem; height: 20rem;">
+                        <p class="presentacion fw-bold col-8">Somos una empresa familiar creada para ofrecer lo mejor para nuestras mascotas.
+                            Nació por el amor que tenemos por nuestros Bucky's, y decidimos crear una empresa que ayude a todos
+                            a encontrar buenos productos a precios razonables, ayudar a otros a definir que es lo mejor para su
+                            mascota dentro de sus posibilidades.
+                            Nuestro principal objetivo es otorgar productos de calidad aprobada por nosotros, esto quiere decir
+                            que No vendemos alimentos o productos que nosotros no usaríamos en nuestras propias mascotas.
+                            Compartimos nuestro amor hacia las mascotas, por lo que les brindamos la mejor calidad de atención y
+                            el asesoramiento necesario para su cuidado y protección.
+                            Contamos con gran variedad de alimentos balanceados, y de a poco estamos sumando más y más
+                            productos!</p>
+                        <img class="patita2" src="./img/imgIndex/patitas.png" alt="" style="width: 10rem; height: 20rem;">
+                    </div>
+                </div>
+
+            <!-- Futuros enlaces de mascotas  -->
+            <div class="d-flex justify-content-evenly my-5 flex-wrap">
+                <img src="./img/loguitos/iconoGatito.svg" alt="" class="logos">
+                <img src="./img/loguitos/iconoPerrito.svg" alt="" class="logos">
+                <img src="./img/loguitos/iconoPez.svg" alt="" class="logos">
+                <img src="./img/loguitos/iconoPajarito.svg" alt="" class="logos">
+                <img src="./img/loguitos/icono huesito.svg" class="logos" alt="">
+            </div>
+
+
+            <!-- Banner de adopta no compres -->
+            <div class="adopcion d-flex justify-content-center align-items-center py-4 border-1 border border-dark position-relative">
+                <h5 class="fs-2 m-0 text-center text-light">Adopta, no compres...</h5>
+                <img class="position-absolute logo-adopte" src="./img/loguitos/logo_nuevo.svg" alt="Adopta no compres">
+                <img src="./img/loguitos/perrito_animado_noAdoptes.svg" class="position-absolute perrito-adopte"
+                    alt="Perrito animado, adopta no compres"><!-- agregar animacion -->
+            </div>
+
+            <!-- Animales en adoptcion -->
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Adopción</span></h2>
+
+            <div class="animales-adopcion d-flex flex-wrap mb-5">
+                <!-- <h3 class="fw-bold fs-6">Adopta con un solo click</h3> -->
+                <div v-for=" perritos in perritosAdoptar">
+                    <div>
+                        <!-- Imagenes -->
+                        <!-- Chiky imagen: "https://i.imgur.com/VI5FoK7.jpg" -->
+                        <!-- Lula imagen: "https://i.imgur.com/JasYOI5.jpg" -->
+                        <!-- Pochi y Misha imagen: "https://i.imgur.com/1n8j3NK.jpg", -->
+                        <!-- Poli imagen: "https://i.imgur.com/FUVQqgm.jpg" -->
+                        <h2>{{perritos.nombre}}</h2>
+                    </div>
+                </div>
+                
+                </div> -->
+            </div>
+
+            <!-- Carousel con ofertas -->
+            <!-- Animales en adoptcion -->
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Nuestros Ofertas</span></h2>
+            <div id="carouselExampleInterval" class="carousel slide bg-dark" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <!-- <img src="./img/loguitos/carousel_alimento.svg" class="vwValue" alt="Anuncio Alimentos"> -->
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <!-- <img src="./img/loguitos/carousel_bebedero.svg" class="vwValue" alt="Anuncio Bebedero"> -->
+                    </div>
+                    <div class="carousel-item">
+                        <!-- <img src="./img/loguitos/carousel_seguro.svg" class="vwValue" alt="Anuncio Seguro"> -->
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-- Espacio para banner de details de formas de pago sucursales -->
+            <section class="metodosPago">
+                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Metodos de Pago</span></h2>
+                <div>
+                    <H2 class="text-center">Metodos de pago</H2>
+                </div>
+            </section>
+
+            <!-- Section de medicamentos y juguetes -->
+            <section class="my-5">
+                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Nuestras Secciones</span></h2>
+                <div class="row g-2 g-lg-5">
+                    <section class="col-12 col-md-6">
+                        <div class="bg-terciario rounded-3 hover-shawdon py-2 py-md-0">
+                            <a href="./html/juguetes.html" class="d-flex hoverPet justify-content-evenly align-items-center">
+                                <img class="seccionProducto__index" src="./img/imgIndex/perro.png" alt="Seccion Juguetes">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <h2 class="fw-bold fs-3">Juguetes</h2>
+                                    <p class="w-75 m-0 text-center">Los mejores productos para tú mascota.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+                    <section class="col-12 col-md-6">
+                        <div class="bg-terciario rounded-3 hover-shawdon py-2 py-md-0">
+                            <a href="./html/medicamentos.html" class="d-flex hoverPet justify-content-evenly align-items-center">
+                                <img class="seccionProducto__index" src="./img/imgIndex/gato.png" alt="Seccion Juguetes">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <h2 class="fw-bold fs-3">Medicamentos</h2>
+                                    <p class="w-75 m-0 text-center">Los mejor para la salud de tú mascota.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class=" bg-primario-black border border-dark my-3">
+            <div class="row px-0 py-4 m-auto container d-none d-sm-flex">
+                <h2 class="col-4 fs-5 text-light m-0">Nosotros</h2>
+                <h2 class="col-4 fs-5 text-light m-0">Tienda Online</h2>
+                <h2 class="col-4 fs-5 text-light m-0">Suscripción</h2>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-xs-12">
+                    <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Nosotros</h2>
+                    <div class="single_footer">
+                        <ul class="text-center text-sm-start">
+                            <li><a href="#">Sobre 101apatita</a></li>
+                            <li><a href="#">Trabaja con nosotros</a></li>
+                            <li><a href="#">Sucursales</a></li>
+                            <li><a href="#">Proovedores</a></li>
+                            <li><a href="#">Franquicias</a></li>
+                            <li><a href="#">Volver a Inicio</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--- END COL -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Tienda Online</h2>
+                    <div class="single_footer">
+                        <ul class="text-center text-sm-start">
+                            <li><a href="#">Envio Programado</a></li>
+                            <li><a href="#">Formas de Entrega</a></li>
+                            <li><a href="#">Descuentos Bancarios</a></li>
+                            <li><a href="#">Cyber Monday 2022</a></li>
+                            <li><a href="#">Hot Sale 2022</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--- END COL -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Suscripción</h2>
+                    <div>
+                        <div class="mt-4 mt-sm-0">
+                            <form class="d-flex subscribe__input">
+                                <input type="text" class="border-0 " placeholder="Ingrese su correo">
+                                <button type="button" class=""><i class="fas fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="social_profile">
+                        <ul class="d-flex justify-content-center justify-content-sm-start">
+                            <li><a href="#"><img src="./img/icon/instagram.svg" alt="Instagram"></a></li>
+                            <li><a href="#"><img src="./img/icon/facebook.svg" alt="Facebook 101Patita"></a></li>
+                            <li><a href="#"><img src="./img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <p class="copyright">Grupo 3 - Mindhud © 2022 <a href="#"><span id="sfooter">101apatita</span></a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
