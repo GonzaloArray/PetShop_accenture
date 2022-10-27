@@ -1,0 +1,47 @@
+:root {
+    --navColor: #F8DCC5;
+    --primario-black: #f1741a;    
+}
+#nav{
+    /*borde para poder separar el nav del main, porque no me toma el color piel*/
+    border-bottom: 1px solid;
+}
+.logo{
+    width: 3rem;
+}
+h1{
+    color: var(--primario-black);
+}
+.loguitos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logos{
+    width: 6rem;
+    margin: 1rem;
+}
+.adopcion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primario-black);
+    height: 5rem;
+}
+.animales-adopcion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+}
+.animales-adopcion-ind{
+    width: 10rem;
+    height: 8rem;
+    margin: .6rem;;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+}
+.presentacion{
+    font-weight: bolder;
+}
