@@ -111,7 +111,11 @@ createApp({
         },
         //Contact
         enviarsubmit() {
-        alert('anda')
+        Swal.fire({
+            icon: 'success',
+            title: 'Gracias por contactarnos',
+            text: 'El email se ha enviado correctamente',
+            })
         }
     },
     computed: {

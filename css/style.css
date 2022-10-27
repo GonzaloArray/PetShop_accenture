@@ -156,6 +156,13 @@ input[type="search"] {
     padding-top: 80px;
     padding-bottom: 40px;
 }
+
+.footercontact {
+        background: var(--secundario);
+        /* padding-top: 80px; */
+        /* padding-bottom: 40px; */
+        margin-bottom: 0%;
+}
 /*END FOOTER SOCIAL DESIGN*/
 @media only screen and (max-width:768px) { 
     .single_footer{margin-bottom:30px;}
