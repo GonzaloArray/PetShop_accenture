@@ -36,7 +36,7 @@ createApp({
             seleccionado: [],
 
             // Adoptción
-            perritosAdoptar : [
+            perritosAdoptar: [
                 {
                     nombre: 'Chiky',
                     descripción: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
@@ -142,11 +142,11 @@ createApp({
         },
         //Contact
         enviarsubmit() {
-        
-        Swal.fire({
-            icon: 'success',
-            title: 'Gracias por contactarnos',
-            text: 'El email se ha enviado correctamente',
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Gracias por contactarnos',
+                text: 'El email se ha enviado correctamente',
             })
 
         }
@@ -207,7 +207,7 @@ createApp({
             if (filtro3Juguete.length == 0 || filtro3Medicina.length == 0) {
                 this.productoSeccion.medicamentos = filtro1Medicine;
                 this.productoSeccion.juguetes = filtro1Juguete;
-            }else{
+            } else {
                 this.productoSeccion.juguetes = filtro3Juguete;
                 this.productoSeccion.medicamentos = filtro3Medicina;
             }
@@ -262,7 +262,15 @@ createApp({
             for (key in this.cesta) {
                 suma = suma + (this.cesta[key].producto.precio * this.cesta[key].cant);
             }
-            return suma;
+            let valor = Number(suma);
+
+            // Config
+            /* const myObj = {
+                style: "currency",
+                currency: "ARG"
+            } */
+            let text = valor.toLocaleString("es-AR");
+            return text;
         },
         cantTotal() {
             let cant = 0;

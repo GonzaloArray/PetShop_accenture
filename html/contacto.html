@@ -84,7 +84,7 @@
                                                 <span
                                                     class="px-2 fw-bold text-light bg-primary mx-2 rounded-1">{{productoAdd.cant}}</span>
 
-                                                {{productoAdd.producto.nombre}} : {{productoAdd.cant *
+                                                {{productoAdd.producto.nombre}} - ${{productoAdd.cant *
                                                 productoAdd.producto.precio}}
 
                                                 <button
@@ -94,15 +94,14 @@
                                         </div>
 
                                         <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
-                                            ${{cestaTotal.toFixed(2)}}</a>
+                                            ${{cestaTotal}}</a>
                                     </ul>
                                 </div>
                                 <div class="position-absolute top-0">
                                     <p class="px-1 bg-blanco rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
                                 </div>
                             </div>
-                            <a class="ms-2 d-none d-lg-block btn btn-dark rounded-pill"
-                                href="#">${{cestaTotal.toFixed(2)}}<i class="fa-solid fa-sort-down ms-1"></i></a>
+                            <p class="my-0 ms-2 d-none d-lg-block btn btn-dark rounded-pill">${{cestaTotal}}</p>
 
                         </div>
                     </div>
