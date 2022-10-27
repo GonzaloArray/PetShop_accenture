@@ -501,6 +501,11 @@ input[type="text"] {
         bottom: -25px;
     }
     .adoptarWidth{
+        width: 60%;
+    }
+}
+@media (min-width: 1600px) {
+    .adoptarWidth{
         width: 70%;
     }
 }
