@@ -501,6 +501,83 @@ input[type="text"] {
         bottom: -25px;
     }
     .adoptarWidth{
+        width: 60%;
+    }
+}
+@media (min-width: 1600px) {
+    .adoptarWidth{
         width: 70%;
     }
+}
+
+/* Agregando estilos cambiosdecolorNAV.css */
+.logo{
+    width: 3rem;
+}
+.loguitos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logos{
+    width: 4rem;
+}
+@media (min-width: 769px) {
+    .logos{
+        width: 6rem;
+    }
+}
+.adopcion{
+    background-color: #31AEC0;
+}
+.logo-adopte{
+    width: 4rem;
+    left: 1rem;
+    display: none;
+}
+.perrito-adopte{
+    width: 4rem;
+    right: .5rem;
+    bottom: -1px;
+}
+@media (min-width: 568px) {
+    .logo-adopte{
+        display: block;
+        width:5rem;
+        left: 3rem;
+    }
+    .perrito-adopte{
+        width: 8rem;
+        right: 2rem;
+        bottom: -1px;
+    }
+}
+@media (min-width: 768px) {
+    .logo-adopte{
+        width:7rem;
+        left: 5rem;
+    }
+    .perrito-adopte{
+        width: 10rem;
+        right: 5rem;
+        bottom: -1px;
+    }
+}
+
+.animales-adopcion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+}
+.animales-adopcion-ind{
+    width: 13rem;
+    height: 9rem;
+    margin: .6rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+}
+.linkPaginas{
+    width: 50rem;
 }
