@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>101Patita - Principal</title>
 
+    <!-- Fivicon -->
+    <link rel="shortcut icon" href="./img/loguitos/favicon.svg" type="image/x-icon">
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -47,12 +50,12 @@
             <div class="d-md-flex flex-md-column shadow justify-content-between w-100">
                 <div class="bg-primario-black py-2 py-lg-1">
                     <div class="container d-flex justify-content-between flex-wrap">
-                        <a class="navbar-brand" href="../index.html"><img class="logo" src="../img/loguitos/favicon.svg"
+                        <a class="navbar-brand" href="#"><img class="logo" src="./img/loguitos/favicon.svg"
                                 alt="Logo 101Patitas"></a>
                         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                             aria-label="Toggle navigation">
-                            <img src="../img/icon/menu.svg" alt="Menu hamburguesa">
+                            <img src="./img/icon/menu.svg" alt="Menu hamburguesa">
                         </button>
 
                         <div class="d-flex align-items-center">
@@ -61,17 +64,17 @@
                                     <input class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
                                         type="search" placeholder="Search" aria-label="Search">
                                     <button class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"
-                                        type="submit"><img src="../img/icon/search.svg" alt="Buscador search"></button>
+                                        type="submit"><img src="./img/icon/search.svg" alt="Buscador search"></button>
                                 </div>
                             </form>
 
                             <a class="d-none d-lg-block ms-3 btn btn-dark rounded-pill" href="#"><img
-                                    src="../img/icon/user.svg" alt="User Login"></a>
+                                    src="./img/icon/user.svg" alt="User Login"></a>
                             <div class="position-relative ms-2">
                                 <div class="dropdown">
                                     <button class="btn btn-dark rounded-pill dropdown-toggle" type="button"
                                         id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="../img/icon/carrito.svg" alt="Carrito compra">
+                                        <img src="./img/icon/carrito.svg" alt="Carrito compra">
                                     </button>
 
                                     <ul class="dropdown-menu widhtCard px-3" aria-labelledby="dropdownMenuButton1">
@@ -84,7 +87,7 @@
                                                 <span
                                                     class="px-2 fw-bold text-light bg-primary mx-2 rounded-1">{{productoAdd.cant}}</span>
 
-                                                {{productoAdd.producto.nombre}} : {{productoAdd.cant *
+                                                {{productoAdd.producto.nombre}} - ${{productoAdd.cant *
                                                 productoAdd.producto.precio}}
 
                                                 <button
@@ -113,28 +116,28 @@
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="mb-1" src="../img/iconosNav/shopping.svg" alt="Productos">
+                                <img class="mb-1" src="./img/iconosNav/shopping.svg" alt="Productos">
                                 Productos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="./juguetes.html"><img class="mb-1 me-2"
-                                            src="../img/iconosNav/toys.svg" alt="Productos de juguetes"> Juguetes</a>
+                                <li><a class="dropdown-item" href="./html/juguetes.html"><img class="mb-1 me-2"
+                                            src="./img/iconosNav/toys.svg" alt="Productos de juguetes"> Juguetes</a>
                                 </li>
-                                <li><a class="dropdown-item" href="./medicamentos.html"><img class="mb-1 me-2"
-                                            src="../img/iconosNav/medicine.svg" alt="Productos de medicina">
+                                <li><a class="dropdown-item" href="./html/medicamentos.html"><img class="mb-1 me-2"
+                                            src="./img/iconosNav/medicine.svg" alt="Productos de medicina">
                                         Medicina</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="./productos.html">
-                                        <img class="mb-1 me-2" src="../img/iconosNav/allProducts.svg"
+                                <li><a class="dropdown-item" href="./html/productos.html">
+                                        <img class="mb-1 me-2" src="./img/iconosNav/allProducts.svg"
                                             alt="Todos los productos">Todos los productos</a></li>
                             </ul>
                         </li>
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="mb-1" src="../img/iconosNav/cat.svg" alt="Productos Gatos">
+                                <img class="mb-1" src="./img/iconosNav/cat.svg" alt="Productos Gatos">
                                 Gatitos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -149,7 +152,7 @@
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="mb-1" src="../img/iconosNav/fish.svg" alt="Productos">
+                                <img class="mb-1" src="./img/iconosNav/fish.svg" alt="Productos">
                                 Pez
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -166,7 +169,7 @@
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="mb-1" src="../img/iconosNav/bird.svg" alt="Productos">
+                                <img class="mb-1" src="./img/iconosNav/bird.svg" alt="Productos">
                                 Pajaritos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -181,7 +184,7 @@
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Productos">
+                                <img class="mb-1" src="./img/iconosNav/roedores.svg" alt="Productos">
                                 Roedores
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -195,7 +198,7 @@
                         </li>
 
                         <a class="nav-link text-light" href="./html/contacto.html">
-                            <img class="mb-1" src="../img/iconosNav/otros.svg" alt="Contactos">
+                            <img class="mb-1" src="./img/iconosNav/otros.svg" alt="Contactos">
                             Contactanos
                         </a>
                     </div>
@@ -352,6 +355,7 @@
                             <li><a href="#">Sucursales</a></li>
                             <li><a href="#">Proovedores</a></li>
                             <li><a href="#">Franquicias</a></li>
+                            <li><a href="#">Volver a Inicio</a></li>
                         </ul>
                     </div>
                 </div>
