@@ -272,7 +272,7 @@
                 <!-- <h3 class="fw-bold fs-6">Adopta con un solo click</h3> -->
                 <div class="col-6 col-sm-3" v-for=" perritos in perritosAdoptar">
                     <div>
-                        <a target="_blank" :href="'./html/detailsAdopcion.html?id='+perritos.id">
+                        <a :href="'./html/detailsAdopcion.html?id='+perritos.id">
                             <img cla :src="perritos.imagen" :alt="perritos.nombre">
                         </a>
                     </div>
