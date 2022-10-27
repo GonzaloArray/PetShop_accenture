@@ -431,8 +431,32 @@ input[type="text"] {
 .seccionProducto__index{
     width: 5rem;
 }
+.seccionProducto__productos{
+    width: 5rem;
+    padding: .5rem;
+}
 @media (min-width: 768px) {
+    .seccionProducto__productos{
+        width: 4.7rem;
+        padding: .5rem;
+    }
+}
+@media (min-width: 1200px) {
     .seccionProducto__index{
-        width: 30%;
+        width: 150px;
+    }
+    .seccionProducto__productos{
+        width: 114px;
+        padding: 1.1rem 0;
+    }
+}
+
+/* Seccion productos */
+.fs-per{
+    font-size: 13px;
+}
+@media (min-width: 768px) {
+    .fs-per{
+        font-size: 16px;
     }
 }
