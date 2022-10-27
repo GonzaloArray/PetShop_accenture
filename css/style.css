@@ -90,9 +90,6 @@ input[type="text"]::placeholder {
     object-fit: contain;
 }
 
-.z-index {
-    z-index: 2;
-}
 
 .bg-primario {
     background-color: var(--primario);
@@ -112,6 +109,9 @@ input[type="text"]::placeholder {
 
 .bg-terciario-sombra {
     background-color: var(--terciario-sombra);
+}
+.text-terciario{
+    color: var(--terciario);
 }
 
 .border-terciario {
@@ -458,5 +458,49 @@ input[type="text"] {
 @media (min-width: 768px) {
     .fs-per{
         font-size: 16px;
+    }
+}
+
+/* Index Home */
+.bienvenida{
+    width: 15rem;
+}
+.animacionBienvenida{
+    width: 5Drem;
+}
+.z-index{
+    z-index: 1;
+}
+.z-index2{
+    z-index: 2;
+}
+.animacionBienvenida{
+    width: 6rem;
+}
+/* Details adopcion */
+.adoptarWidth{
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .bienvenida{
+        width: 20rem;
+        left: 2%;
+        bottom: -25px;
+    }
+    .animacionBienvenida{
+        width: 7rem;
+    }
+    .adoptarWidth{
+        width: 80%;
+    }
+}
+@media (min-width: 1000px) {
+    .bienvenida{
+        width: 20rem;
+        left: 12%;
+        bottom: -25px;
+    }
+    .adoptarWidth{
+        width: 70%;
     }
 }

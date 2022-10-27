@@ -39,33 +39,42 @@ createApp({
             perritosAdoptar: [
                 {
                     nombre: 'Chiky',
-                    descripción: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
                     telefono: '+54 9 11 23123221',
                     ciudad: 'Buenos Aires',
                     id: '1',
+                    imagen: 'https://i.imgur.com/VI5FoK7.jpg',
+                    tipo: "Perro"
                 },
                 {
                     nombre: 'Lula',
-                    descripción: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
                     telefono: '+54 9 11 23123221',
                     ciudad: 'Buenos Aires',
                     id: '2',
+                    imagen: 'https://i.imgur.com/JasYOI5.jpg',
+                    tipo: "Perro"
                 },
                 {
                     nombre: 'Pochi y Misha',
-                    descripción: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
                     telefono: '+54 9 11 23123221',
                     ciudad: 'Buenos Aires',
                     id: '3',
+                    imagen: 'https://i.imgur.com/1n8j3NK.jpg',
+                    tipo: "Perro y Gato"
                 },
                 {
                     nombre: 'Poli',
-                    descripción: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
                     telefono: '+54 9 11 23123221',
                     ciudad: 'Buenos Aires',
                     id: '4',
+                    imagen: 'https://i.imgur.com/FUVQqgm.jpg',
+                    tipo: "Perro"
                 },
-            ]
+            ],
+            adoptar: [],
         }
     },
     created() {
@@ -100,6 +109,10 @@ createApp({
                     this.backup = this.productos;
                     this.backupJuguete = this.productoSeccion.juguetes;
                     this.backupMedicina = this.productoSeccion.medicamentos;
+
+                    // details
+                    let id = new URLSearchParams(location.search).get('id');
+                    this.adoptar = this.perritosAdoptar.find(element => element.id === id);
 
                 })
                 .catch(() => {
@@ -264,11 +277,6 @@ createApp({
             }
             let valor = Number(suma);
 
-            // Config
-            /* const myObj = {
-                style: "currency",
-                currency: "ARG"
-            } */
             let text = valor.toLocaleString("es-AR");
             return text;
         },
