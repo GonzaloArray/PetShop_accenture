@@ -41,7 +41,6 @@ createApp({
         if (JSON.parse(localStorage.getItem('carrito'))) {
             this.cesta = JSON.parse(localStorage.getItem('carrito'));
         }
-
     },
     mounted() {
     },
@@ -111,11 +110,13 @@ createApp({
         },
         //Contact
         enviarsubmit() {
+        
         Swal.fire({
             icon: 'success',
             title: 'Gracias por contactarnos',
             text: 'El email se ha enviado correctamente',
             })
+
         }
     },
     computed: {
@@ -221,7 +222,6 @@ createApp({
 
             } else {
                 this.productos = filtro1;
-
 
             }
         },
