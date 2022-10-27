@@ -22,11 +22,22 @@ h1{
     margin: 1rem;
 }
 .adopcion{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: var(--primario-black);
     height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    background-color: #31AEC0;
+}
+.logo-adopte{
+    width:7rem;
+    left: 5rem;
+}
+.perrito-adopte{
+    width: 10rem;
+    right: 5rem;
+    bottom: -1px;
 }
 .animales-adopcion{
     display: flex;
