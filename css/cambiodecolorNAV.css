@@ -1,11 +1,45 @@
 :root {
-    --navColor: #F8DCC5;
-    --primario-black: #f1741a;    
+    --primario-footer: #DA7B60;
+    --secundario: #4e9469;
+    --terciario: #31AEC0;
+    --terciario-sombra: #069dd3;
+
+
+    --font: 'Nunito', sans-serif;
+    --font2: 'Roboto', sans-serif;
 }
-#nav{
-    /*borde para poder separar el nav del main, porque no me toma el color piel*/
-    border-bottom: 1px solid;
+
+/* TODO: COSAS A SACAR del style original */
+/* .single_footer h4 {
+    font-weight: 700;
+    }
+
+    .copyright{
+            border-top: 1px solid rgba(255, 255, 255, 0.4); 
+    }
+    .social_profile ul li a {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .subscribe__input {
+        color: #333;
+    }
+    */
+
+.h4footer{
+    font-weight: lighter !important;
+    background-color: var(--primario-black);
 }
+.copyright{
+    border-top: 1px solid var(--primario-footer) !important; 
+}
+.social_profile ul li a {
+    border: 1px solid var(--primario-footer);
+}
+.subscribe__input {
+    background-color: var(--primario-footer);
+    color: var(--terciario-sombra);
+}
+/* Termina cosas que reemplazar o sacar del style original */
 .logo{
     width: 3rem;
 }
@@ -46,13 +80,17 @@ h1{
     height: 10rem;
 }
 .animales-adopcion-ind{
-    width: 10rem;
-    height: 8rem;
-    margin: .6rem;;
+    width: 13rem;
+    height: 9rem;
+    margin: .6rem;
     justify-content: center;
     align-items: center;
     border-radius: .5rem;
 }
 .presentacion{
     font-weight: bolder;
+}
+.linkPaginas{
+    width: 50rem;
+    
 }
