@@ -38,28 +38,28 @@ createApp({
             // Adoptción
             perritosAdoptar : [
                 {
-                    name: 'Chiky',
+                    nombre: 'Chiky',
                     descripción: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
                     telefono: '+54 9 11 23123221',
                     ciudad: 'Buenos Aires',
                     id: '1',
                 },
                 {
-                    name: 'Lula',
+                    nombre: 'Lula',
                     descripción: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
                     telefono: '+54 9 11 23123221',
                     ciudad: 'Buenos Aires',
                     id: '2',
                 },
                 {
-                    name: 'Pochi y Misha',
+                    nombre: 'Pochi y Misha',
                     descripción: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
                     telefono: '+54 9 11 23123221',
                     ciudad: 'Buenos Aires',
                     id: '3',
                 },
                 {
-                    name: 'Poli',
+                    nombre: 'Poli',
                     descripción: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
                     telefono: '+54 9 11 23123221',
                     ciudad: 'Buenos Aires',

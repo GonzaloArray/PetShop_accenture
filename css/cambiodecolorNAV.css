@@ -25,20 +25,8 @@
     }
     */
 
-.h4footer{
-    font-weight: lighter !important;
-    background-color: var(--primario-black);
-}
-.copyright{
-    border-top: 1px solid var(--primario-footer) !important; 
-}
-.social_profile ul li a {
-    border: 1px solid var(--primario-footer);
-}
-.subscribe__input {
-    background-color: var(--primario-footer);
-    color: var(--terciario-sombra);
-}
+
+
 /* Termina cosas que reemplazar o sacar del style original */
 .logo{
     width: 3rem;
@@ -57,23 +45,42 @@
     }
 }
 .adopcion{
-    background-color: var(--primario-black);
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid;
     background-color: #31AEC0;
 }
 .logo-adopte{
-    width:7rem;
-    left: 5rem;
+    width: 4rem;
+    left: 1rem;
+    display: none;
 }
 .perrito-adopte{
-    width: 10rem;
-    right: 5rem;
+    width: 4rem;
+    right: .5rem;
     bottom: -1px;
 }
+@media (min-width: 568px) {
+    .logo-adopte{
+        display: block;
+        width:5rem;
+        left: 3rem;
+    }
+    .perrito-adopte{
+        width: 8rem;
+        right: 2rem;
+        bottom: -1px;
+    }
+}
+@media (min-width: 768px) {
+    .logo-adopte{
+        width:7rem;
+        left: 5rem;
+    }
+    .perrito-adopte{
+        width: 10rem;
+        right: 5rem;
+        bottom: -1px;
+    }
+}
+
 .animales-adopcion{
     display: flex;
     justify-content: center;
