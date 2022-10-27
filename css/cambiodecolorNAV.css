@@ -43,9 +43,6 @@
 .logo{
     width: 3rem;
 }
-h1{
-    color: var(--primario-black);
-}
 .loguitos{
     display: flex;
     align-items: center;
@@ -53,7 +50,6 @@ h1{
 }
 .logos{
     width: 6rem;
-    margin: 1rem;
 }
 .adopcion{
     background-color: var(--primario-black);
@@ -92,5 +88,4 @@ h1{
 }
 .linkPaginas{
     width: 50rem;
-    
 }

@@ -22,7 +22,13 @@ ul,
 li {
     list-style: none;
 }
-
+button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
 a {
     color: var(--white);
     text-decoration: none;
@@ -171,9 +177,6 @@ input[type="search"] {
 
 .footercontact {
     background: var(--secundario);
-    /* padding-top: 80px; */
-    /* padding-bottom: 40px; */
-    margin-bottom: 0%;
 }
 
 /*END FOOTER SOCIAL DESIGN*/
@@ -299,14 +302,6 @@ input[type="search"] {
     color: var(--terciario);
 }
 
-button {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-}
-
 /*END NEWSLETTER CSS*/
 
 /*START SOCIAL PROFILE CSS*/
@@ -427,4 +422,15 @@ input[type="text"] {
 /* Carrito */
 .widhtCard {
     width: 24rem;
+}
+
+/* border */
+.border-top-orange{
+    border-top: 1px solid var(--primario);
+}
+.border-orange{
+    border: 1px solid var(--primario);
+}
+.active{
+    text-shadow: 2px 1px 1px #0007;
 }
