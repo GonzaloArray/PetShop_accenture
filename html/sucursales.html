@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>101Patita - Productos</title>
+
+    <link rel="shortcut icon" href="../img/loguitos/favicon.svg" type="image/x-icon">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;800&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Style Css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleHEADERYFOOTER.css">
+    <link rel="stylesheet" href="../css/style2.css">
+
+</head>
+
+<body class="bg-blanco">
+    <div id="app">
+        <header>
+            <section class="bg-negro">
+                <div class="container d-flex justify-content-between text-light py-1">
+                    <p class="m-0 fw-bold">EN</p>
+                    <div class="d-flex">
+                        <a class="me-3" href=""><img src="../img/icon/instagram.svg" alt="Instagram"></a>
+                        <a class="me-3" href=""><img src="../img/icon/facebook.svg" alt="Facebook 101Patita"></a>
+                        <a class="me-3" href=""><img src="../img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a>
+                        <a href=""><img src="../img/icon/dogAdopta.svg" alt="Adopta 101patita"></a>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <nav class="position-sticky top-0 start-0 end-0 navbar navbar-expand-lg navbar-light z-index p-0">
+            <div class="d-md-flex flex-md-column shadow justify-content-between w-100">
+                <div class="bg-primario-black py-2 py-lg-1">
+                    <div class="container d-flex justify-content-between flex-wrap">
+                        <a class="navbar-brand" href="../index.html"><img class="logo" src="../img/loguitos/favicon.svg"
+                                alt="Logo 101Patitas"></a>
+                        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <img src="../img/icon/menu.svg" alt="Menu hamburguesa">
+                        </button>
+
+                        <div class="d-flex align-items-center">
+                            <form class="">
+                                <div class="d-flex rounded-pill position-relative">
+                                    <input class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
+                                        type="search" placeholder="Search" aria-label="Search">
+                                    <button class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"
+                                        type="submit"><img src="../img/icon/search.svg" alt="Buscador search"></button>
+                                </div>
+                            </form>
+
+                            <a class="d-none d-lg-block ms-3 btn btn-dark rounded-pill" href="#"><img
+                                    src="../img/icon/user.svg" alt="User Login"></a>
+                            <div class="position-relative ms-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-dark rounded-pill dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="../img/icon/carrito.svg" alt="Carrito compra">
+                                    </button>
+
+                                    <ul class="dropdown-menu widhtCard px-3" aria-labelledby="dropdownMenuButton1">
+                                        <div class="text-dark" v-for="productoAdd in cesta">
+                                            <li class="d-flex justify-content-start align-items-center my-2">
+
+                                                <img class="logo" :src="productoAdd.producto.imagen"
+                                                    :alt="productoAdd.producto.nombre">
+
+                                                <span
+                                                    class="px-2 fw-bold text-light bg-primary mx-2 rounded-1">{{productoAdd.cant}}</span>
+
+                                                {{productoAdd.producto.nombre}} - ${{productoAdd.cant *
+                                                productoAdd.producto.precio}}
+
+                                                <button
+                                                    class="px-2 pb-1 btn-danger ms-2 text-light fw-bold rounded-circle"
+                                                    @click.stop="quitarCesta(productoAdd.producto._id)">x</button>
+                                            </li>
+                                        </div>
+
+                                        <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
+                                            ${{cestaTotal}}</a>
+                                    </ul>
+                                </div>
+                                <div class="position-absolute top-0">
+                                    <p class="px-1 bg-blanco rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
+                                </div>
+                            </div>
+                            <p class="my-0 ms-2 d-none d-lg-block btn btn-dark rounded-pill">${{cestaTotal}}</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <section class="bg-primario collapse navbar-collapse" id="navbarScroll">
+                    <div class="container d-flex m-auto align-items-center justify-content-center flex-wrap py-2">
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="../img/iconosNav/shopping.svg" alt="Productos">
+                                Productos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="./juguetes.html"><img class="mb-1 me-2"
+                                            src="../img/iconosNav/toys.svg" alt="Productos de juguetes"> Juguetes</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./medicamentos.html"><img class="mb-1 me-2"
+                                            src="../img/iconosNav/medicine.svg" alt="Productos de medicina">
+                                        Medicina</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="./productos.html">
+                                        <img class="mb-1 me-2" src="../img/iconosNav/allProducts.svg"
+                                            alt="Todos los productos">Todos los productos</a></li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="../img/iconosNav/cat.svg" alt="Productos Gatos">
+                                Gatitos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="../img/iconosNav/fish.svg" alt="Productos">
+                                Pez
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="../img/iconosNav/bird.svg" alt="Productos">
+                                Pajaritos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Productos">
+                                Roedores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <a class="nav-link text-light" href="./contacto.html">
+                            <img class="mb-1" src="../img/iconosNav/otros.svg" alt="Contactos">
+                            Contactanos
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </nav>
+
+
+            <div class="col-md-6 mx-3 my-2 mt-4">
+                <h2 class="mt-5">Seleccioná Tu Localidad</h2>
+                <form>
+                    <select v-model="seleccionado" class="form-select mb-3">
+                        <option selected value="formulario1" class="seleccionado">Almagro</option>
+                        <option value="formulario2">Nuñez</option>
+                        <option value="formulario3">Loma Hermosa</option>
+                        <option value="formulario4">Hurlingham</option>
+                        <option value="formulario5">San Antonio de Areco</option>
+                    </select>
+                </form>
+                <form v-if="seleccionado == 'formulario1'">
+                    <div class="mb-3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.7443856592877!2d-58.419713784614856!3d-34.610624665370906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca5f7da052d5%3A0x8494ff16ad5ca1a6!2sRivadavia%203601%2C%20C1204AAB%20CABA!5e0!3m2!1ses-419!2sar!4v1666902085332!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        <h3>ALMAGRO: Rivadavia 3601 C1204AAB CABA</h3>
+                        <p>Telefono:<a href="tel:+5491155865572"> +54 9 11 5586 5572</a></p>
+                        <p>Mail:<a href="mailto:sucursalAlmagro@101apatita.com">sucursalAlmagro@101apatita.com</a></p>
+                        <p>Lunes a viernes: 8 a 20:30 hs</p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <p>Domingos: 10 a 20 hs</p>
+                        <p>Feriados: 10 a 19 hs</p>
+                        <h4>Veterinaria</h4>
+                        <p>Mail:<a href="mailto:VetSucursalAlmagro@101apatita.com">sucursalAlmagro@101apatita.com</a></p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <img class="iconSucursales" src="../img/loguitos/iconoCutPaw.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogCut.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogJerLineal.svg">
+                    </div>
+                </form>
+
+                <!-- 2 -->
+
+                <form v-if="seleccionado == 'formulario2'">
+                    <div class="mb-3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.90178022534!2d-58.48283518519695!3d-34.556042162483244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb69207872d79%3A0x91d85c4dfc3c006f!2zTsO6w7FleiAzOTI5!5e0!3m2!1ses-419!2sar!4v1666895358253!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        <h3>NUÑEZ: Av. Dr. Ricardo Balbín 3585, Belgrano, Buenos Aires</h3>
+                        <p>Telefono:<a href="tel:+5491125469873"> +54 9 11 2546 9873</a></p>
+                        <p>Mail:<a href="mailto:sucursalNuñez@101apatita.com">sucursalNuñez@101apatita.com</a></p>
+                        <p>Lunes a viernes: 8 a 20:30 hs</p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <p>Domingos: 10 a 20 hs</p>
+                        <p>Feriados: 10 a 19 hs</p>
+                        <h4>Veterinaria</h4>
+                        <p>Mail:<a href="mailto:VetSucursalNuñez@101apatita.com">sucursalNuñez@101apatita.com</a></p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <img class="iconSucursales" src="../img/loguitos/iconoCutPaw.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogCut.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogJerLineal.svg">
+                    </div>
+                </form>
+
+                <!-- 3 -->
+
+                <form v-if="seleccionado == 'formulario3'">
+                    <div class="mb-3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.375233282003!2d-58.6099478851965!3d-34.56937086318775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb97bb081377d%3A0x41dffa087f808024!2sAFW%2C%20Churruca%209255%2C%20B1657%20Loma%20Hermosa%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1666895337854!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        <h3>LOMAHERMOSA: AFW, Churruca 9255, B1657 Loma Hermosa, Provincia de Buenos Aires</h3>
+                        <p>Telefono:<a href="tel:+5491166416821"> +54 9 11 6641 6821</a></p>
+                        <p>Mail:<a href="mailto:sucursallomaHermosa@101apatita.com">sucursallomaHermosa@101apatita.com</a></p>
+                        <p>Lunes a viernes: 8 a 20:30 hs</p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <p>Domingos: 10 a 20 hs</p>
+                        <p>Feriados: 10 a 19 hs</p>
+                        <h4>Veterinaria</h4>
+                        <p>Mail:<a href="mailto:VetSucursalLomaHermosa@101apatita.com">sucursalLomaHermosa@101apatita.com</a></p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <img class="iconSucursales" src="../img/loguitos/iconoCutPaw.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogCut.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogJerLineal.svg">
+                    </div>
+                </form> 
+
+                <!-- 4 -->
+
+                <form v-if="seleccionado == 'formulario4'">
+                    <div class="mb-3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.67166081688!2d-58.63536548519589!3d-34.58717366412907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb947cb24bce7%3A0x26dca84821dde039!2sTambo%20Nuevo%201489%2C%20Hurlingham%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1666895451220!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        <h3>HURLINGHAM: C978+4P Hurlingham, Provincia de Buenos Airess</h3>
+                        <p>Telefono:<a href="tel:+5491114478836"> +54 9 11 1447 8836</a></p>
+                        <p>Mail:<a href="mailto:sucursalHurlingham@101apatita.com">sucursalHurlingham@101apatita.com</a></p>
+                        <p>Lunes a viernes: 8 a 20:30 hs</p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <p>Domingos: 10 a 20 hs</p>
+                        <p>Feriados: 10 a 19 hs</p>
+                        <h4>Veterinaria</h4>
+                        <p>Mail:<a href="mailto:VetSucursalHurlingham@101apatita.com">sucursalHurlingham@101apatita.com</a></p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <img class="iconSucursales" src="../img/loguitos/iconoCutPaw.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogCut.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogJerLineal.svg">
+                    </div>
+                </form> 
+                <form v-if="seleccionado == 'formulario5'">
+                    <div class="mb-3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3298.2007632371824!2d-59.47142508520821!3d-34.24342044602937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bb9555a786eb79%3A0x11f4587d96d69cc!2sRivadavia%20158%2C%20San%20Antonio%20de%20Areco%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1666895655101!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        <h3>San Antonio de Areco: QG4J+J8 San Antonio de Areco, Provincia de Buenos Aires</h3>
+                        <p>Telefono:<a href="tel:+5491193567512"> +54 9 11 9356 7512</a></p>
+                        <p>Mail:<a href="mailto:sucursalS.A.Areco@101apatita.com">sucursalS.A.Areco@101apatita.com</a></p>
+                        <p>Lunes a viernes: 8 a 20:30 hs</p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <p>Domingos: 10 a 20 hs</p>
+                        <p>Feriados: 10 a 19 hs</p>
+                        <h4>Veterinaria</h4>
+                        <p>Mail:<a href="mailto:VetSucursalS.A.Areco@101apatita.com">sucursalS.A.Areco@101apatita.com</a></p>
+                        <p>Sabados: 9 a 20:30 hs</p>
+                        <img class="iconSucursales" src="../img/loguitos/iconoCutPaw.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogCut.svg">
+                        <img class="iconSucursales" src="../img/loguitos/iconoDogJerLineal.svg">
+                    </div>
+                </form> 
+                
+            </div>
+
+        <footer class="footer">
+            <div class=" bg-primario-black border border-dark my-3">
+                <div class="row px-0 py-4 m-auto container d-none d-sm-flex">
+                    <h2 class="col-4 fs-5 text-light m-0">Nosotros</h2>
+                    <h2 class="col-4 fs-5 text-light m-0">Tienda Online</h2>
+                    <h2 class="col-4 fs-5 text-light m-0">Suscripción</h2>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Nosotros</h2>
+                        <div class="single_footer">
+                            <ul class="text-center text-sm-start">
+                                <li><a href="#">Sobre 101apatita</a></li>
+                                <li><a href="#">Trabaja con nosotros</a></li>
+                                <li><a href="#">Sucursales</a></li>
+                                <li><a href="#">Proovedores</a></li>
+                                <li><a href="#">Franquicias</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--- END COL -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Tienda Online</h2>
+                        <div class="single_footer">
+                            <ul class="text-center text-sm-start">
+                                <li><a href="#">Envio Programado</a></li>
+                                <li><a href="#">Formas de Entrega</a></li>
+                                <li><a href="#">Descuentos Bancarios</a></li>
+                                <li><a href="#">Cyber Monday 2022</a></li>
+                                <li><a href="#">Hot Sale 2022</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--- END COL -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Suscripción</h2>
+                        <div>
+                            <div class="mt-4 mt-sm-0">
+                                <form class="d-flex subscribe__input">
+                                    <input type="text" class="border-0 " placeholder="Ingrese su correo">
+                                    <button type="button" class=""><i class="fas fa-paper-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="social_profile">
+                            <ul class="d-flex justify-content-center justify-content-sm-start">
+                                <li><a href="#"><img src="../img/icon/instagram.svg" alt="Instagram"></a></li>
+                                <li><a href="#"><img src="../img/icon/facebook.svg" alt="Facebook 101Patita"></a></li>
+                                <li><a href="#"><img src="../img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <p class="copyright">Grupo 3 - Mindhud © 2022 <a href="#"><span
+                                    id="sfooter">101apatita</span></a>.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Script bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+        <script src="../js/index.js"></script>
+</body>
+
+</html>
