@@ -280,7 +280,7 @@
 
             <!-- Carousel con ofertas -->
             <!-- Animales en adoptcion -->
-            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
                     src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Novedades</span></h2>
 
             <div id="carouselExampleInterval" class="carousel slide bg-dark" data-bs-ride="carousel">
@@ -307,14 +307,15 @@
                 </button>
             </div>
 
-            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
                     src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Ofertas en Juguetes
                     más
                     vendidos</span></h2>
             <section class="row g-2">
                 <div class="col-6 col-md-3 position-relative" v-for=" producto in primerosProductos">
-                    <img class="card-imagen" :src="producto.imagen" alt="">
-
+                    <a :href="'./html/detailsCard.html?id='+producto._id">
+                        <img class="card-imagen" :src="producto.imagen" :alt="producto.nombre">
+                    </a>
                     <img class="position-absolute ms-3 start-0 top-0 descuento" src="./img/imgIndex/descuento.png"
                         :alt="producto.nombre">
                 </div>
@@ -426,7 +427,7 @@
                         <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Nosotros</h2>
                         <div class="single_footer">
                             <ul class="text-center text-sm-start">
-                                <li><a href="#">Sobre 101apatita</a></li>
+                                <li><a href="#">Sobre 101Apatita</a></li>
                                 <li><a href="#">Trabaja con nosotros</a></li>
                                 <li><a href="./html/sucursales.html">Sucursales</a></li>
                                 <li><a href="#">Proovedores</a></li>

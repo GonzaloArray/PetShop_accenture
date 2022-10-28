@@ -45,7 +45,7 @@ try {
                         ciudad: 'Buenos Aires',
                         id: '1',
                         imagen: 'https://i.imgur.com/VI5FoK7.jpg',
-                        tipo: "Perro"
+                        tipo: "5 meses"
                     },
                     {
                         nombre: 'Lula',
@@ -54,7 +54,7 @@ try {
                         ciudad: 'Buenos Aires',
                         id: '2',
                         imagen: 'https://i.imgur.com/JasYOI5.jpg',
-                        tipo: "Perro"
+                        tipo: "1 año"
                     },
                     {
                         nombre: 'Pochi y Misha',
@@ -63,16 +63,16 @@ try {
                         ciudad: 'Buenos Aires',
                         id: '3',
                         imagen: 'https://i.imgur.com/1n8j3NK.jpg',
-                        tipo: "Perro y Gato"
+                        tipo: "3 y 4 años"
                     },
                     {
                         nombre: 'Poli',
-                        descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                        descripcion: 'Este animalito necesita de tu amor, comunicate con nosotros.',
                         telefono: '+54 9 11 23123221',
                         ciudad: 'Buenos Aires',
                         id: '4',
                         imagen: 'https://i.imgur.com/FUVQqgm.jpg',
-                        tipo: "Perro"
+                        tipo: "2 años"
                     },
                 ],
                 adoptar: [],
