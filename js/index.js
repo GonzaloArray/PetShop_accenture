@@ -75,6 +75,13 @@ createApp({
                 },
             ],
             adoptar: [],
+            //tarjeta
+            numerostarjeta: [],
+            fechaexpiracion: [],
+            codigoseguridad: [],
+            cuotas: [],
+            nombreyapellido: [],
+            
         }
     },
     created() {
