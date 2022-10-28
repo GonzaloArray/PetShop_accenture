@@ -75,6 +75,10 @@ createApp({
                 },
             ],
             adoptar: [],
+
+            // Los primeros 4 productos
+            primerosProductos: [],
+            primerosProductosMedi: [],
         }
     },
     created() {
@@ -109,6 +113,12 @@ createApp({
                     this.backup = this.productos;
                     this.backupJuguete = this.productoSeccion.juguetes;
                     this.backupMedicina = this.productoSeccion.medicamentos;
+
+                    // Primeros productos
+                    this.primerosProductos = this.productoSeccion.juguetes.slice(0, 4);
+                    this.primerosProductosMedi = this.productoSeccion.medicamentos.slice(0, 4);
+
+                    console.log(this.primerosProductos);
 
                     // details
                     let id = new URLSearchParams(location.search).get('id');
