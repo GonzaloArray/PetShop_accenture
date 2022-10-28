@@ -1,0 +1,279 @@
+.caja-flex-medios-de-pago{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 2px; 
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 8%), 0 3px 2px 0 rgb(0 0 0 / 10%); 
+  padding: 40px 50px;
+}
+
+.logo-ahora-12{
+  padding-right: 80px;
+  border-right: 1px solid #ECECEC; 
+  text-align: center; 
+  bakcground: pink;
+  	
+}
+.caja-texto-ahora-12{
+  margin-left: 80px;
+}
+
+.caja-pages-2{
+  margin-top: 30px;
+	border-radius: 2px; 
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 8%), 0 3px 2px 0 rgb(0 0 0 / 10%); 
+  padding: 40px 100px;
+  width: 90%;
+  margin: auto;
+}
+
+.caja-logos-principal{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+  margin: 2px;
+}
+.caja-logos-principal-2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start; 
+  align-items: center;
+  margin: 2px;
+}
+
+.caja-logos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 50px;
+  background: #F7F7F7;
+  margin: 2px;
+}
+.caja-flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 95%;
+  margin: auto;
+}
+
+.caja-izq{
+  margin-top: 30px;
+  align-self: flex-start;
+  margin-right: 80px;
+  width: 60%;
+}
+.caja-der{
+  margin-top: 30px;
+  width: 40%;
+  align-self: flex-end;
+}
+
+/* tarjetas credito */
+
+.tarjeta-visa{
+  height: 21px;
+  width: 63px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -49px;
+ 
+}
+
+.tarjeta-amex{
+  height: 28px;
+  width: 28px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -150px;
+}
+
+.tarjeta-mercado-pago{
+  height: 27px;
+  width: 38px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -1049px;
+}
+.tarjeta-naranja{
+  height: 34px;
+  width: 24px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -300px;
+}
+
+.tarjeta-cabal{
+  height: 17px;
+  width: 52px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-default_2x_1559e30f-28b9-4034-a584-43a90168131a.png?v=1615859412");
+  background-size: 72px 1498px;
+  background-position: 0 -500px;
+}
+
+.tarjeta-shopping{
+  height: 42px;
+  width: 40px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -392px;
+}
+
+.tarjeta-cencosud{
+  height: 41px;
+  width: 27px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -445px;
+}
+
+.tarjeta-dinners{
+  height: 16px;
+  width: 62px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-default_2x_1559e30f-28b9-4034-a584-43a90168131a.png?v=1615859412");
+  background-size: 72px 1498px;
+  background-position: 0px -200px;
+}
+
+.tarjeta-argencard{
+  height: 28px;
+  width: 28px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -550px;
+}
+
+.tarjeta-cordobesa{
+  height: 25px;
+  width: 64px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -998px;
+}
+
+.tarjeta-cmr{
+  height: 31px;
+  width: 42px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -949px;
+}
+
+.tarjeta-mastercard{
+  height: 36px;
+  width: 46px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -100px;
+}
+
+
+/* tarjetas debito */
+
+.tarjeta-maestro{
+  height: 38px;
+  width: 44px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -1199px;
+}
+
+.tarjeta-master-deb{
+  height: 26px;
+  width: 49px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-default_2x_1559e30f-28b9-4034-a584-43a90168131a.png?v=1615859412");
+  background-size: 72px 1498px;
+  background-position: 0 -1148px;
+}
+
+.tarjeta-cabal-deb{
+  height: 24px;
+  width: 52px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-default_2x_1559e30f-28b9-4034-a584-43a90168131a.png?v=1615859412");
+  background-size: 72px 1498px;
+  background-position: 0 -1298px;
+}
+
+.tarjeta-visa-deb{
+  height: 16px;
+  width: 58px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-default_2x_1559e30f-28b9-4034-a584-43a90168131a.png?v=1615859412");
+  background-size: 72px 1498px;
+  background-position: 0 -1248px;
+}
+
+.tarjeta-mercado-pago{
+  height: 20px;
+  width: 72px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-default_2x_1559e30f-28b9-4034-a584-43a90168131a.png?v=1615859412");
+  background-size: 72px 1498px;
+  background-position: 0 0px;
+}
+
+/* efectivo */
+
+.tarjeta-pago-facil{
+  height: 31px;
+  width: 31px;
+  background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-large.png?v=1615834079");
+  background-position: 0 -600px;
+}
+
+.tarjeta-rapipago{
+  height: 11px;
+  width: 56px;
+   background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-default_2x_1559e30f-28b9-4034-a584-43a90168131a.png?v=1615859412");
+  background-size: 72px 1498px;
+  background-position: 0 -650px;
+}
+
+.tarjeta-provincia{
+  height: 24px;
+  width: 54px;
+   background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-default_2x_1559e30f-28b9-4034-a584-43a90168131a.png?v=1615859412");
+  background-size: 72px 1498px;
+  background-position: 0 -800px;
+}
+
+.tarjeta-mercado-credito{
+  height: 20px;
+  width: 74px;
+   background: url("https://cdn.shopify.com/s/files/1/0517/6282/3347/files/payment-methods-default_2x_1559e30f-28b9-4034-a584-43a90168131a.png?v=1615859412");
+  background-size: 72px 1498px;
+  background-position: 0 -1097px;
+  background-repeat: no-repeat;
+}
+/* responsive medios de pago */
+@media (max-width: 767px){
+  .caja-flex-medios-de-pago{
+    flex-direction: column;
+  }
+  .logo-ahora-12{
+  padding-right: 0;
+  border-right: none; 
+  text-align: center; 
+  	
+}
+.caja-texto-ahora-12{
+  margin-left: 0px;
+  text-align: center;
+}
+.caja-pages-2{
+  padding: 40px 20px;
+}
+.caja-flex{
+  flex-direction: column;
+  width: 95%;
+}
+  .caja-logos-principal-2{
+    justify-content: center;
+  }
+.caja-izq{
+  align-self: center;
+  margin-right: 0px;
+  width: 100%;
+  text-align: center;
+}
+.caja-der{
+  width: 100%;
+  align-self: center;
+  text-align: center;
+}
+}
