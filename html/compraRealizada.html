@@ -5,13 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/promociones.css">
-    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="shortcut icon" href="../img/loguitos/favicon.svg" type="image/x-icon">
 
+
+    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- css -->
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cambiodecolorNAV.css">
+
 
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +28,7 @@
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;800&family=Roboto:wght@300;400;500;700&display=swap"
         rel="stylesheet">
 
-
-    <title>101Apatita - Promociones</title>
+    <title>101Apatita - Contactanos</title>
 </head>
 
 <body>
@@ -104,7 +111,7 @@
                     </div>
                 </div>
 
-                <section class="bg-primario collapse navbar-collapse py-2" id="navbarScroll">
+                <section class="bg-primario collapse navbar-collapse" id="navbarScroll">
                     <div class="container d-flex m-auto align-items-center justify-content-center flex-wrap py-2">
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
@@ -124,8 +131,7 @@
                                 </li>
                                 <li><a class="dropdown-item" href="./productos.html">
                                         <img class="mb-1 me-2" src="../img/iconosNav/allProducts.svg"
-                                            alt="Todos los productos">Todos los
-                                        productos</a></li>
+                                            alt="Todos los productos">Todos los productos</a></li>
                             </ul>
                         </li>
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
@@ -175,175 +181,75 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
-                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Productos">
-                                Roedores
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <a class="nav-link text-light" href="./contacto.html">
-                            <img class="mb-1" src="../img/iconosNav/otros.svg" alt="Contactos">
-                            Contactanos
+                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end"
+                            href="./promocionesbancarias.html">
+                            <div class="btn rounded-pill bg-primario-black text-light">
+                                <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Contactos">
+                                Promociones
+                            </div>
+                        </a>
+                        <a class="nav-link text-light col-6 col-md-2" href="./contacto.html">
+                            <div class="btn rounded-pill bg-primario-black text-light">
+                                <img class="mb-1" src="../img/iconosNav/otros.svg" alt="Contactos">
+                                Contactanos
+                            </div>
                         </a>
                     </div>
                 </section>
             </div>
         </nav>
-        <main class="container">
-            <!-- INICIO CAJA AHORA 12 -->
-            <div class="caja-flex-medios-de-pago">
-                <div class="logo-ahora-12 mb-5 mb-md-2">
-                    <img src="https://cdn.shopify.com/s/files/1/0517/6282/3347/files/logo-ahora-12.png?v=1615835158"
-                        width="90" alt="logo-ahora-12">
-                </div>
+        <main class="container flex-auto position-relative">
+            <!-- Indice -->
+            <h1 class="text-start fw-bold fs-5 mt-5 border-bottom border-2 border-terciario pb-2">Compra <img
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-success">Compra Exitosa!</span>
+            </h1>
 
-                <div class="caja-texto-ahora-12">
-                    <h3 class="texto-destacado">12 CUOTAS SIN INTERES CON TARJETAS BANCARIAS A TRAVES DE MERCADOPAGO
-                    </h3>
-                    <p>*Valido para todas las tarjetas de credito bancarias adheridas al plan AHORA 12</p>
-                </div>
-            </div>
-            <!-- FIN CAJA AHORA 12 -->
+            <section class="row position-relative pb-5 pb-md-0">
+                <div class="col-12 col-md-8">
+                    <h2 class="my-3 fs-5">Tus productos comprados</h2>
+                    <div class="text-dark" v-for="productoAdd in productoSuccess">
+                        <div class="d-flex my-2">
 
-            <!-- INICIO CAJA MERCADO PAGO -->
-            <div class="caja-flex-medios-de-pago">
-                <div style="text-align: center;">
-                    <h3 class="texto-destacado">CUOTAS SIN INTERES DE MERCADOPAGO</h3>
-                    <p>Las promociones exclusivas de mercadopago las podes encontrar en: <a
-                            href="https://www.mercadopago.com.ar/cuotas"
-                            target="_blank">www.mercadopago.com.ar/cuotas</a></p>
-                </div>
-            </div>
-            <!-- FIN CAJA MERCADO PAGO -->
+                            <img class="logo" :src="productoAdd.producto.imagen" :alt="productoAdd.producto.nombre">
 
-            <!-- INICIO CAJA CREDITO -->
-            <div style="margin-top: 30px;" class="caja-pages-2">
-                <div style="text-align: center;">
-                    <h3 class="texto-destacado">MERCADO PAGO</h3>
-                    <p>A traves de mercadopago podes seleccionar las siguientes opciones:</p>
-
-                </div>
-                <div style="margin-top: 40px;">
-                    <div style="text-align: center;">
-                        <h4>Tarjeta de crédito</h4>
-                    </div>
-                    <div class="caja-logos-principal">
-                        <div class="caja-logos"><span class="tarjeta-visa"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-amex"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-mercado-pago"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-naranja"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-cabal"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-shopping"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-cencosud"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-dinners logos-2"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-argencard"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-cordobesa"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-cmr"></span></div>
-
-                        <div class="caja-logos"><span class="tarjeta-mastercard"></span></div>
-
-                    </div>
-                </div>
-                <!-- FIN CAJA CREDITO -->
-
-                <!-- INICIO CAJA DEBITO -->
-                <div class="caja-flex">
-                    <div class="caja-izq">
-                        <div>
-                            <h4>Tarjeta de débito</h4>
-                        </div>
-                        <div class="caja-logos-principal-2">
-                            <div class="caja-logos"><span class="tarjeta-maestro"></span></div>
-
-                            <div class="caja-logos"><span class="tarjeta-master-deb"></span></div>
-
-                            <div class="caja-logos"><span class="tarjeta-cabal-deb"></span></div>
-
-                            <div class="caja-logos"><span class="tarjeta-visa-deb"></span></div>
-
+                            <div class="d-flex flex-wrap justify-content-start align-items-center flex-wrap">
+                                <span
+                                    class="px-2 fw-bold text-light bg-primary mx-2 rounded-1">{{productoAdd.cant}}</span>
+                                <p class="m-0">{{productoAdd.producto.nombre}} - ${{productoAdd.cant *
+                                    productoAdd.producto.precio}}</p>
+                            </div>
                         </div>
                     </div>
+                    <p class="mt-5">Ya estan siendo preparados y listo para enviar a su domicilio, si tiene algún
+                        problema con el pedido o se equivoco de domicilio <a class="text-success"
+                            href="./contacto.html">Contactenos.</a></p>
 
-                    <div class="caja-der">
-                        <div>
-                            <h4>Disponible en Mercado Pago</h4>
-                        </div>
-
-                        <div class="caja-logos-principal-2">
-                            <div class="caja-logos"><span class="tarjeta-mercado-pago"></span></div>
-                        </div>
-
-                    </div>
-
+                    <p>Podes mantener tus productos comprados o deseas <button @click="vaciarCarrito"
+                            class="ms-2 btn btn-success">Vaciar Carrito!</button></p>
+                    <a class="text-dark" href="./productos.html">Seguir comprando!</a>
                 </div>
-                <!-- FIN CAJA DEBITO -->
+            </section>
+            <img class="d-none d-md-block position-absolute bottom-0 end-0 img-success"
+                src="../img/compras/comprassuccess.svg" alt="Compra realizada">
 
-
-                <!-- INICIO CAJA EFECTIVO -->
-                <div class="caja-flex">
-                    <div class="caja-izq">
-                        <div>
-                            <h4>Efectivo</h4>
-                        </div>
-                        <div class="caja-logos-principal-2">
-                            <div class="caja-logos"><span class="tarjeta-pago-facil"></span></div>
-
-                            <div class="caja-logos"><span class="tarjeta-rapipago"></span></div>
-
-                            <div class="caja-logos"><span class="tarjeta-provincia"></span></div>
-                        </div>
-                    </div>
-
-                    <div class="caja-der">
-                        <div>
-                            <h4>Mercado crédito</h4>
-                        </div>
-
-                        <div class="caja-logos-principal-2">
-                            <div class="caja-logos"><span class="tarjeta-mercado-credito"></span></div>
-                        </div>
-
-                    </div>
-
-                </div> <!-- FIN CAJA EFECTIVO -->
-            </div>
         </main>
-        <footer class="footercontact mt-5">
+        <footer class="footercontact">
             <div class="container pt-5 position-relative">
                 <a href="../index.html"><img
                         class="logos position-absolute border-orange top-0 bottom-0 mt-4 mt-md-3 bg-white p-2 rounded-2"
                         src="../img/loguitos/logo_nuevo.svg" alt="Logo 101Apatita"></a>
                 <div class="col-lg-12 col-sm-12 col-xs-12">
-                    <p class="py-3 m-0 text-center border-top-orange text-light">Grupo 3 © 2022 <a class=""
-                            href="#"><span class="text-light" id="sfooter">101Apatita.</span></a></p>
+                    <p class="py-3 m-0 text-center border-top-orange text-light">Grupo 3 © 2022 <a href="#"><span
+                                id="sfooter">101Apatita</span></a>.</p>
                 </div>
             </div>
         </footer>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-            crossorigin="anonymous"></script>
-        <script src="../js/index.js"></script>
     </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="../js/index.js"></script>
 </body>
 
 </html>

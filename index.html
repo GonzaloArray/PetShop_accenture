@@ -23,11 +23,11 @@
         rel="stylesheet">
 
     <!-- Vue -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vue@3.2.29/dist/vue.global.js"></script>
+
 
     <!-- Style Css -->
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/cambiodecolorNAV.css">
 
 </head>
 
@@ -50,7 +50,7 @@
             <div class="d-md-flex flex-md-column shadow justify-content-between w-100">
                 <div class="bg-primario-black py-2 py-lg-1">
                     <div class="container d-flex justify-content-between flex-wrap">
-                        <a class="navbar-brand" href="#"><img class="logo" src="./img/loguitos/favicon.svg"
+                        <a class="navbar-brand" href="#"><img class="logos" src="./img/loguitos/logo_nuevo.png"
                                 alt="Logo 101Patitas"></a>
                         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
@@ -100,7 +100,7 @@
                                             ${{cestaTotal}}</a>
 
                                         <div v-if="cesta.length > 0">
-                                            <button class="fw-bold btn btn-success w-100">Comprar Producto</button>
+                                            <a href="./html/seccionTarjeta.html" class="fw-bold btn btn-success w-100">Comprar Producto</a>
                                         </div>
                                     </ul>
                                 </div>
@@ -145,12 +145,7 @@
                                 Gatitos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Proximamente</a></li>
                             </ul>
                         </li>
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
@@ -185,25 +180,17 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
-                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="mb-1" src="./img/iconosNav/roedores.svg" alt="Productos">
-                                Roedores
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-
-                        <a class="nav-link text-light" href="./html/contacto.html">
-                            <img class="mb-1" src="./img/iconosNav/otros.svg" alt="Contactos">
-                            Contactanos
+                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end" href="./html/promocionesbancarias.html">
+                            <div class="btn rounded-pill bg-primario-black text-light">
+                                <img class="mb-1" src="./img/iconosNav/roedores.svg" alt="Contactos">
+                                Promociones
+                            </div>
+                        </a>
+                        <a class="nav-link text-light col-6 col-md-2" href="./html/contacto.html">
+                            <div class="btn rounded-pill bg-primario-black text-light">
+                                <img class="mb-1" src="./img/iconosNav/otros.svg" alt="Contactos">
+                                Contactanos
+                            </div>
                         </a>
                     </div>
                 </section>
@@ -269,7 +256,7 @@
             </div>
 
             <!-- Animales en adoptcion -->
-            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
                     src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Adopción</span></h2>
 
             <h3 class="fs-6">Adopta con solo un click <img src="./img/icon/dogAdoptaBlack.svg" alt=""></h3>
@@ -287,8 +274,7 @@
             <!-- Carousel con ofertas -->
             <!-- Animales en adoptcion -->
             <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
-                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Nuestras
-                    Ofertas</span></h2>
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Novedades</span></h2>
 
             <div id="carouselExampleInterval" class="carousel slide bg-dark" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -315,7 +301,8 @@
             </div>
 
             <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
-                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Juguetes más
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Ofertas en Juguetes
+                    más
                     vendidos</span></h2>
             <section class="row g-2">
                 <div class="col-6 col-md-3 position-relative" v-for=" producto in primerosProductos">
@@ -326,8 +313,9 @@
                 </div>
             </section>
 
-            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
-                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Medicamentos
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Ofertas en
+                    Medicamentos
                     recomendados</span></h2>
             <section class="row g-2">
                 <div class="col-6 col-md-3 position-relative" v-for=" producto in primerosProductosMedi">
@@ -340,31 +328,37 @@
 
             <!-- Espacio para banner de details de formas de pago sucursales -->
             <section class="metodosPago">
-                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
+                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
                         src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Metodos de
                         Pago</span></h2>
                 <div class="row">
-                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                    <a href=""
+                        class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
                         <img class="logos" src="./img/loguitos/icon_one.svg" alt="">
                         <p class="text-dark mt-2">Horarios</p>
                     </a>
-                    <a href="" class="col-6 col-sm-4 col-md-2  d-flex justify-content-center flex-column align-items-center">
+                    <a href="./html/sucursales.html"
+                        class="col-6 col-sm-4 col-md-2  d-flex justify-content-center flex-column align-items-center">
                         <img class="logos" src="./img/loguitos/icon_two.svg" alt="">
                         <p class="text-dark mt-2">Sucursales</p>
                     </a>
-                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                    <a href=""
+                        class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
                         <img class="logos" src="./img/loguitos/icon_three.svg" alt="">
                         <p class="text-dark mt-2">Medios de Pago</p>
                     </a>
-                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                    <a href=""
+                        class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
                         <img class="logos" src="./img/loguitos/icon_four.svg" alt="">
                         <p class="text-dark mt-2">Sustentabilidad</p>
                     </a>
-                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                    <a href=""
+                        class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
                         <img class="logos" src="./img/loguitos/icon_five.svg" alt="">
                         <p class="text-dark mt-2">Compra Local</p>
                     </a>
-                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                    <a href=""
+                        class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
                         <img class="logos" src="./img/loguitos/icon_six.svg" alt="">
                         <p class="text-dark mt-2">Trabaja con Nosotros</p>
                     </a>
@@ -373,7 +367,7 @@
 
             <!-- Section de medicamentos y juguetes -->
             <section class="my-5">
-                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
+                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
                         src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Nuestras
                         Secciones</span></h2>
                 <div class="row g-2 g-lg-5">
@@ -406,74 +400,76 @@
                 </div>
             </section>
         </main>
-    </div>
 
-    <footer class="footer">
-        <div class=" bg-primario-black border border-dark my-3">
-            <div class="row px-0 py-4 m-auto container d-none d-sm-flex">
-                <h2 class="col-4 fs-5 text-light m-0">Nosotros</h2>
-                <h2 class="col-4 fs-5 text-light m-0">Tienda Online</h2>
-                <h2 class="col-4 fs-5 text-light m-0">Suscripción</h2>
+
+        <footer class="footer">
+            <div class=" bg-primario-black border border-dark my-3">
+                <div class="row px-0 py-4 m-auto container d-none d-sm-flex">
+                    <h2 class="col-4 fs-5 text-light m-0">Nosotros</h2>
+                    <h2 class="col-4 fs-5 text-light m-0">Tienda Online</h2>
+                    <h2 class="col-4 fs-5 text-light m-0">Suscripción</h2>
+                </div>
             </div>
-        </div>
 
-        <div class="container">
+            <div class="container">
 
-            <div class="row">
-                <div class="col-lg-4 col-sm-4 col-xs-12">
-                    <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Nosotros</h2>
-                    <div class="single_footer">
-                        <ul class="text-center text-sm-start">
-                            <li><a href="#">Sobre 101apatita</a></li>
-                            <li><a href="#">Trabaja con nosotros</a></li>
-                            <li><a href="#">Sucursales</a></li>
-                            <li><a href="#">Proovedores</a></li>
-                            <li><a href="#">Franquicias</a></li>
-                            <li><a href="#">Volver a Inicio</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!--- END COL -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Tienda Online</h2>
-                    <div class="single_footer">
-                        <ul class="text-center text-sm-start">
-                            <li><a href="#">Envio Programado</a></li>
-                            <li><a href="#">Formas de Entrega</a></li>
-                            <li><a href="#">Descuentos Bancarios</a></li>
-                            <li><a href="#">Cyber Monday 2022</a></li>
-                            <li><a href="#">Hot Sale 2022</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!--- END COL -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Suscripción</h2>
-                    <div>
-                        <div class="mt-4 mt-sm-0">
-                            <form class="d-flex subscribe__input">
-                                <input type="text" class="border-0 " placeholder="Ingrese su correo">
-                                <button type="button" class=""><i class="fas fa-paper-plane"></i></button>
-                            </form>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Nosotros</h2>
+                        <div class="single_footer">
+                            <ul class="text-center text-sm-start">
+                                <li><a href="#">Sobre 101apatita</a></li>
+                                <li><a href="#">Trabaja con nosotros</a></li>
+                                <li><a href="#">Sucursales</a></li>
+                                <li><a href="#">Proovedores</a></li>
+                                <li><a href="#">Franquicias</a></li>
+                                <li><a href="#">Volver a Inicio</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="social_profile">
-                        <ul class="d-flex justify-content-center justify-content-sm-start">
-                            <li><a href="#"><img src="./img/icon/instagram.svg" alt="Instagram"></a></li>
-                            <li><a href="#"><img src="./img/icon/facebook.svg" alt="Facebook 101Patita"></a></li>
-                            <li><a href="#"><img src="./img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a></li>
-                        </ul>
+                    <!--- END COL -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Tienda Online</h2>
+                        <div class="single_footer">
+                            <ul class="text-center text-sm-start">
+                                <li><a href="#">Envio Programado</a></li>
+                                <li><a href="#">Formas de Entrega</a></li>
+                                <li><a href="#">Descuentos Bancarios</a></li>
+                                <li><a href="#">Cyber Monday 2022</a></li>
+                                <li><a href="#">Hot Sale 2022</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--- END COL -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Suscripción</h2>
+                        <div>
+                            <div class="mt-4 mt-sm-0">
+                                <form class="d-flex subscribe__input">
+                                    <input type="text" class="border-0 " placeholder="Ingrese su correo">
+                                    <button type="button" class=""><i class="fas fa-paper-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="social_profile">
+                            <ul class="d-flex justify-content-center justify-content-sm-start">
+                                <li><a href="#"><img src="./img/icon/instagram.svg" alt="Instagram"></a></li>
+                                <li><a href="#"><img src="./img/icon/facebook.svg" alt="Facebook 101Patita"></a></li>
+                                <li><a href="#"><img src="./img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <p class="copyright">Grupo 3 - Mindhud © 2022 <a href="#"><span
+                                    id="sfooter">101Apatita</span></a>.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12 col-sm-12 col-xs-12">
-                    <p class="copyright">Grupo 3 - Mindhud © 2022 <a href="#"><span id="sfooter">101apatita</span></a>.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <!-- Script bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -482,6 +478,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+
     <script src="./js/index.js"></script>
 </body>
 
