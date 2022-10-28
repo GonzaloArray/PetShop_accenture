@@ -98,13 +98,18 @@
 
                                         <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
                                             ${{cestaTotal}}</a>
+                                        <div v-if="cesta.length > 0">
+                                            <a href="./seccionTarjeta.html"
+                                                class="fw-bold btn btn-success w-100">Comprar Producto</a>
+                                        </div>
                                     </ul>
                                 </div>
                                 <div class="position-absolute top-0">
                                     <p class="px-2 bg-white rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
                                 </div>
                             </div>
-                            <p class="text-light my-0 ms-2 d-none d-lg-block btn bg-primario rounded-pill">${{cestaTotal}}</p>
+                            <p class="text-light my-0 ms-2 d-none d-lg-block btn bg-primario rounded-pill">
+                                ${{cestaTotal}}</p>
 
                         </div>
                     </div>
@@ -180,7 +185,8 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end" href="./promocionesbancarias.html">
+                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end"
+                            href="./promocionesbancarias.html">
                             <div class="btn rounded-pill bg-primario-black text-light">
                                 <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Contactos">
                                 Promociones

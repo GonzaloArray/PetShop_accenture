@@ -76,16 +76,20 @@ try {
                 },
             ],
             adoptar: [],
-            
+
             //tarjeta
             numerostarjeta: [],
             fechaexpiracion: [],
             codigoseguridad: [],
             cuotas: [],
             nombreyapellido: [],
+
              // Los primeros 4 productos
             primerosProductos: [],
             primerosProductosMedi: [],
+
+            // Cuando compre
+            productoSuccess: []
 
         }
     },
@@ -93,6 +97,9 @@ try {
         this.traerDatos();
         if (JSON.parse(localStorage.getItem('carrito'))) {
             this.cesta = JSON.parse(localStorage.getItem('carrito'));
+        }
+        if (JSON.parse(localStorage.getItem('producto'))) {
+            this.productoSuccess = JSON.parse(localStorage.getItem('producto'));
         }
     },
     mounted() {
@@ -182,7 +189,7 @@ try {
             tomandoPedido(){
                 this.productoSuccess = this.cesta;
                 localStorage.setItem('producto', JSON.stringify(this.productoSuccess));
-                console.log(this.productoSuccess)
+
                 window.location.href = "./compraRealizada.html";
             },
             vaciarCarrito(){
@@ -318,7 +325,7 @@ try {
     }).mount('#app')
 
 } catch (error) {
-    // window.location.href = "./error.html";
+    window.location.href = "./error.html";
 }
 
 

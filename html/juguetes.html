@@ -97,13 +97,18 @@
 
                                         <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
                                             ${{cestaTotal}}</a>
+                                        <div v-if="cesta.length > 0">
+                                            <a href="./seccionTarjeta.html"
+                                                class="fw-bold btn btn-success w-100">Comprar Producto</a>
+                                        </div>
                                     </ul>
                                 </div>
                                 <div class="position-absolute top-0">
                                     <p class="px-2 bg-white rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
                                 </div>
                             </div>
-                            <p class="text-light my-0 ms-2 d-none d-lg-block btn bg-primario rounded-pill">${{cestaTotal}}</p>
+                            <p class="text-light my-0 ms-2 d-none d-lg-block btn bg-primario rounded-pill">
+                                ${{cestaTotal}}</p>
 
                         </div>
                     </div>
@@ -179,7 +184,8 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end" href="./promocionesbancarias.html">
+                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end"
+                            href="./promocionesbancarias.html">
                             <div class="btn rounded-pill bg-primario-black text-light">
                                 <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Contactos">
                                 Promociones
@@ -278,8 +284,8 @@
                         <hr class="mt-4">
                         <form class="mt-3 d-flex position-relative">
                             <label class="me-3" for="search">Buscar: </label>
-                            <input v-model="search" class="bg-input border-0 fuente__pequeña py-1 px-1" type="text" name="search"
-                                id="search">
+                            <input v-model="search" class="bg-input border-0 fuente__pequeña py-1 px-1" type="text"
+                                name="search" id="search">
                             <!-- <button class="bg-primary border-0 rounded-0 px-2 me-3 position-absolute bottom-0 top-0 end-0" type="submit"><img src="../img/icon/searchProduct.svg" alt="Buscadorsearch2"><button> -->
                         </form>
                     </div>

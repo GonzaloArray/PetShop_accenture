@@ -91,6 +91,10 @@
 
                                         <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
                                             ${{cestaTotal}}</a>
+                                        <div v-if="cesta.length > 0">
+                                            <a href="./seccionTarjeta.html"
+                                                class="fw-bold btn btn-success w-100">Comprar Producto</a>
+                                        </div>
                                     </ul>
                                 </div>
                                 <div class="position-absolute top-0">
@@ -104,7 +108,7 @@
                     </div>
                 </div>
 
-                <section class="bg-primario collapse navbar-collapse py-2" id="navbarScroll">
+                <section class="bg-primario collapse navbar-collapse" id="navbarScroll">
                     <div class="container d-flex m-auto align-items-center justify-content-center flex-wrap py-2">
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
@@ -124,8 +128,7 @@
                                 </li>
                                 <li><a class="dropdown-item" href="./productos.html">
                                         <img class="mb-1 me-2" src="../img/iconosNav/allProducts.svg"
-                                            alt="Todos los productos">Todos los
-                                        productos</a></li>
+                                            alt="Todos los productos">Todos los productos</a></li>
                             </ul>
                         </li>
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
@@ -175,24 +178,18 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
-                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Productos">
-                                Roedores
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <a class="nav-link text-light" href="./contacto.html">
-                            <img class="mb-1" src="../img/iconosNav/otros.svg" alt="Contactos">
-                            Contactanos
+                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end"
+                            href="./promocionesbancarias.html">
+                            <div class="btn rounded-pill bg-primario-black text-light">
+                                <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Contactos">
+                                Promociones
+                            </div>
+                        </a>
+                        <a class="nav-link text-light col-6 col-md-2" href="./contacto.html">
+                            <div class="btn rounded-pill bg-primario-black text-light">
+                                <img class="mb-1" src="../img/iconosNav/otros.svg" alt="Contactos">
+                                Contactanos
+                            </div>
                         </a>
                     </div>
                 </section>

@@ -421,9 +421,9 @@ input[type="text"] {
     .widhtCard {
         width: 30rem;
         position: fixed;
-        top: 4rem!important;
+        top: 4.9rem!important;
         right: 10%!important;
-        margin: 0 0 0 auto;
+        margin: 0 0 0 auto!important;
     }
 }
 
