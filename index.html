@@ -34,7 +34,7 @@
 <body class="bg-blanco">
     <div id="app">
         <header>
-            <section class="bg-negro">
+            <section class="bg-primario-black">
                 <div class="container d-flex justify-content-between text-light py-1">
                     <p class="m-0 fw-bold">EN</p>
                     <div class="d-flex">
@@ -68,11 +68,11 @@
                                 </div>
                             </form>
 
-                            <a class="d-none d-lg-block ms-3 btn btn-dark rounded-pill" href="#"><img
+                            <a class="d-none d-lg-block ms-3 btn bg-primario rounded-pill" href="#"><img
                                     src="./img/icon/user.svg" alt="User Login"></a>
                             <div class="position-relative ms-2">
                                 <div class="dropdown">
-                                    <button class="btn btn-dark rounded-pill dropdown-toggle" type="button"
+                                    <button class="btn bg-primario rounded-pill dropdown-toggle" type="button"
                                         id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="./img/icon/carrito.svg" alt="Carrito compra">
                                     </button>
@@ -98,13 +98,18 @@
 
                                         <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
                                             ${{cestaTotal}}</a>
+
+                                        <div v-if="cesta.length > 0">
+                                            <button class="fw-bold btn btn-success w-100">Comprar Producto</button>
+                                        </div>
                                     </ul>
                                 </div>
                                 <div class="position-absolute top-0">
-                                    <p class="px-1 bg-blanco rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
+                                    <p class="px-2 bg-white rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
                                 </div>
                             </div>
-                            <p class="my-0 ms-2 d-none d-lg-block btn btn-dark rounded-pill">${{cestaTotal}}</p>
+                            <p class="text-light my-0 ms-2 d-none d-lg-block btn bg-primario rounded-pill">
+                                ${{cestaTotal}}</p>
 
                         </div>
                     </div>
@@ -206,7 +211,7 @@
         </nav>
         <main class="container-lg mt-5">
             <!-- Indice -->
-            <h1 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img
+            <h1 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
                     src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Home</span></h1>
 
             <!-- Bienvenida -->
@@ -264,7 +269,7 @@
             </div>
 
             <!-- Animales en adoptcion -->
-            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
                     src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Adopción</span></h2>
 
             <h3 class="fs-6">Adopta con solo un click <img src="./img/icon/dogAdoptaBlack.svg" alt=""></h3>
@@ -272,8 +277,8 @@
                 <!-- <h3 class="fw-bold fs-6">Adopta con un solo click</h3> -->
                 <div class="col-6 col-sm-3" v-for=" perritos in perritosAdoptar">
                     <div>
-                        <a target="_blank" :href="'./html/detailsAdopcion.html?id='+perritos.id">
-                            <img cla :src="perritos.imagen" :alt="perritos.nombre">
+                        <a :href="'./html/detailsAdopcion.html?id='+perritos.id">
+                            <img class="hover-shawdon rounder-per" :src="perritos.imagen" :alt="perritos.nombre">
                         </a>
                     </div>
                 </div>
@@ -281,46 +286,94 @@
 
             <!-- Carousel con ofertas -->
             <!-- Animales en adoptcion -->
-            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img
-                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Nuestros
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Nuestras
                     Ofertas</span></h2>
+
             <div id="carouselExampleInterval" class="carousel slide bg-dark" data-bs-ride="carousel">
                 <div class="carousel-inner">
+                    <div class="carousel-item ">
+                        <img src="./img/loguitos/banner_gif_two.gif" class="value" alt="Anuncio Seguro">
+                    </div>
                     <div class="carousel-item active" data-bs-interval="10000">
-                        <!-- <img src="./img/loguitos/carousel_alimento.svg" class="vwValue" alt="Anuncio Alimentos"> -->
+                        <img src="./img/loguitos/banner_care.png" class="value" alt="Anuncio Alimentos">
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
-                        <!-- <img src="./img/loguitos/carousel_bebedero.svg" class="vwValue" alt="Anuncio Bebedero"> -->
-                    </div>
-                    <div class="carousel-item">
-                        <!-- <img src="./img/loguitos/carousel_seguro.svg" class="vwValue" alt="Anuncio Seguro"> -->
+                        <img src="./img/loguitos/banner_gif.gif" class="value" alt="Anuncio Bebedero">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                <button class="z-index-0 carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                <button class="z-index-0 carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
 
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Juguetes más
+                    vendidos</span></h2>
+            <section class="row g-2">
+                <div class="col-6 col-md-3 position-relative" v-for=" producto in primerosProductos">
+                    <img class="card-imagen" :src="producto.imagen" alt="">
+
+                    <img class="position-absolute ms-3 start-0 top-0 descuento" src="./img/imgIndex/descuento.png"
+                        :alt="producto.nombre">
+                </div>
+            </section>
+
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Medicamentos
+                    recomendados</span></h2>
+            <section class="row g-2">
+                <div class="col-6 col-md-3 position-relative" v-for=" producto in primerosProductosMedi">
+                    <img class="card-imagen" :src="producto.imagen" :alt="producto.nombre">
+
+                    <img class="position-absolute ms-3 start-0 top-0 descuento" src="./img/imgIndex/descuento.png"
+                        :alt="producto.nombre">
+                </div>
+            </section>
+
             <!-- Espacio para banner de details de formas de pago sucursales -->
             <section class="metodosPago">
-                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img
+                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
                         src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Metodos de
                         Pago</span></h2>
-                <div>
-                    <H2 class="text-center">Metodos de pago</H2>
+                <div class="row">
+                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                        <img class="logos" src="./img/loguitos/icon_one.svg" alt="">
+                        <p class="text-dark mt-2">Horarios</p>
+                    </a>
+                    <a href="" class="col-6 col-sm-4 col-md-2  d-flex justify-content-center flex-column align-items-center">
+                        <img class="logos" src="./img/loguitos/icon_two.svg" alt="">
+                        <p class="text-dark mt-2">Sucursales</p>
+                    </a>
+                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                        <img class="logos" src="./img/loguitos/icon_three.svg" alt="">
+                        <p class="text-dark mt-2">Medios de Pago</p>
+                    </a>
+                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                        <img class="logos" src="./img/loguitos/icon_four.svg" alt="">
+                        <p class="text-dark mt-2">Sustentabilidad</p>
+                    </a>
+                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                        <img class="logos" src="./img/loguitos/icon_five.svg" alt="">
+                        <p class="text-dark mt-2">Compra Local</p>
+                    </a>
+                    <a href="" class="col-6 col-sm-4 col-md-2 d-flex justify-content-center flex-column align-items-center">
+                        <img class="logos" src="./img/loguitos/icon_six.svg" alt="">
+                        <p class="text-dark mt-2">Trabaja con Nosotros</p>
+                    </a>
                 </div>
             </section>
 
             <!-- Section de medicamentos y juguetes -->
             <section class="my-5">
-                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Patitas <img
+                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101aPatita <img
                         src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Nuestras
                         Secciones</span></h2>
                 <div class="row g-2 g-lg-5">
