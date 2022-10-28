@@ -75,17 +75,10 @@ createApp({
                 },
             ],
             adoptar: [],
-            
-            //tarjeta
-            numerostarjeta: [],
-            fechaexpiracion: [],
-            codigoseguridad: [],
-            cuotas: [],
-            nombreyapellido: [],
-             // Los primeros 4 productos
+
+            // Los primeros 4 productos
             primerosProductos: [],
             primerosProductosMedi: [],
-
         }
     },
     created() {
