@@ -6,17 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="../img/loguitos/favicon.svg" type="image/x-icon">
-
     <link rel="stylesheet" href="../css/style.css">
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
-    <title>101Apatita - Carrito de compra</title>
+    <!-- Fivicon -->
+    <link rel="shortcut icon" href="../img/loguitos/favicon.svg" type="image/x-icon">
+    <title>Pagos</title>
 
 </head>
 
@@ -39,8 +35,8 @@
             <div class="d-md-flex flex-md-column shadow justify-content-between w-100">
                 <div class="bg-primario-black py-2 py-lg-1">
                     <div class="container d-flex justify-content-between flex-wrap">
-                        <a class="navbar-brand" href="../index.html"><img class="logo" src="../img/loguitos/favicon.svg"
-                                alt="Logo 101Apatita"></a>
+                        <a class="navbar-brand" href="../index.html"><img class="logo"
+                                src="../img/loguitos/logo_nuevo.png" alt="Logo 101Apatita"></a>
                         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -187,7 +183,7 @@
                             ${{cestaTotal}}</p>
                     </div>
 
-                    <div class="d-none d-md-block">
+                    <div class="d-none d-lg-block">
                         <div class="card border-0">
 
                             <div class="card__container">
@@ -249,7 +245,8 @@
                 <div class="col-12 col-md-6">
                     <!-- Mercado libre -->
                     <div class="my-5" v-if="cesta.length == 0">
-                        <h2 class="fs-6">Una vez que alla completado el carrito podra tener la opción de pago que desees</h2>
+                        <h2 class="fs-6">Una vez que alla completado el carrito podra tener la opción de pago que desees
+                        </h2>
                         <div class="d-flex justify-content-center">
                             <img class="" src="../img/loguitos/nocompres_gif.gif" alt="">
                         </div>
@@ -282,14 +279,14 @@
                                     <input class="form-control" type="text" placeholder="Ej: 37123456">
                                 </div>
 
-                                <div class="col-3 form-group mt-3">
+                                <div class="col-6 form-group mt-3">
                                     <label class="">Cod. de Seguridad</label>
                                     <div class="mercadotarjeta-input-container">
                                         <input class="form-control" type="number" placeholder="Ej: 123">
                                     </div>
                                 </div>
 
-                                <div class="col-3 form-group mt-3">
+                                <div class="col-6 form-group mt-3">
                                     <label class="">Vencimiento(mm/aa)</label>
                                     <div class="mercadotarjeta-form-vencimiento">
                                         <input class="form-control" v-model="fechaexpiracion" type="text"
@@ -304,8 +301,7 @@
                                         type="text" placeholder="Ej: 1" required>
                                 </div>
 
-                                <button  class="mx-auto w-50 btn btn-success mt-4"
-                                    type="submit">
+                                <button class="mx-auto w-50 btn btn-success mt-4" type="submit">
                                     <span>Pagar</span>
                                 </button>
 
@@ -322,14 +318,15 @@
                         class="logos position-absolute border-orange top-0 bottom-0 mt-4 mt-md-3 bg-white p-2 rounded-2"
                         src="../img/loguitos/logo_nuevo.svg" alt="Logo 101Apatita"></a>
                 <div class="col-lg-12 col-sm-12 col-xs-12">
-                    <p class="py-3 m-0 text-center border-top-orange text-light">Grupo 3 © 2022 <a href="#"><span class="text-light">101Apatita</span></a>.</p>
+                    <p class="py-3 m-0 text-center border-top-orange text-light">Grupo 3 © 2022 <a href="#"><span
+                                class="text-light">101Apatita</span></a>.</p>
                 </div>
             </div>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../js/index.js"></script>
 </body>
