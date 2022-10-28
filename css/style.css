@@ -1,8 +1,9 @@
 :root {
     --white: #f0ede8;
     --blank: #000;
-    --primario: #F57923;
+    --primario: #31AEC0;
     --primario-black: #f1741a;
+    /* --primario-black: #f1741a; */
     --secundario: #4e9469;
     --terciario: #31AEC0;
     --terciario-sombra: #069dd3;
@@ -31,7 +32,7 @@ button {
 }
 a {
     color: var(--white);
-    text-decoration: none;
+    text-decoration: none!important;
     font-weight: 600;
     font-family: var(--font2);
 }
@@ -84,6 +85,16 @@ input[type="text"]::placeholder {
 .vwValue {
     height: 17vw;
     object-fit: cover;
+}
+.value{
+    height: 13vh;
+    object-fit: cover;
+}
+@media (min-width: 768px) {
+    .value{
+        width: 100%;
+        height: auto;
+    }
 }
 
 .objContain {
@@ -212,7 +223,7 @@ input[type="text"]::placeholder {
     font-weight: 300;
 }
 .single_footer ul li a:hover {
-    color: var(--primario);
+    color: var(--primario-black);
 }
 
 .contact_social ul {
@@ -580,4 +591,14 @@ input[type="text"] {
 }
 .linkPaginas{
     width: 50rem;
+}
+.rounder-per{
+    border-radius: 1rem;
+}
+
+.z-index-0{
+    z-index: 0;
+}
+.descuento{
+    width: 4rem;
 }

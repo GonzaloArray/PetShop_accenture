@@ -34,14 +34,14 @@
 <body>
     <div id="app" class="d-flex flex-column vh-100">
         <header>
-            <section class="bg-negro">
+            <section class="bg-primario-black">
                 <div class="container d-flex justify-content-between text-light py-1">
                     <p class="m-0 fw-bold">EN</p>
                     <div class="d-flex">
                         <a class="me-3" href=""><img src="../img/icon/instagram.svg" alt="Instagram"></a>
-                        <a class="me-3" href=""><img src="../img/icon/facebook.svg" alt="Facebook 101Patita"></a>
-                        <a class="me-3" href=""><img src="../img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a>
-                        <a href=""><img src="../img/icon/dogAdopta.svg" alt="Adopta 101patita"></a>
+                        <a class="me-3" href=""><img src="../img/icon/facebook.svg" alt="Facebook 101Apatita"></a>
+                        <a class="me-3" href=""><img src="../img/icon/linkedin.svg" alt="Linkedin 101Apatita"></a>
+                        <a href=""><img src="../img/icon/dogAdopta.svg" alt="Adopta 101Apatita"></a>
                     </div>
                 </div>
             </section>
@@ -51,7 +51,7 @@
                 <div class="bg-primario-black py-2 py-lg-1">
                     <div class="container d-flex justify-content-between flex-wrap">
                         <a class="navbar-brand" href="../index.html"><img class="logo" src="../img/loguitos/favicon.svg"
-                                alt="Logo 101Patitas"></a>
+                                alt="Logo 101Apatita"></a>
                         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -68,11 +68,11 @@
                                 </div>
                             </form>
 
-                            <a class="d-none d-lg-block ms-3 btn btn-dark rounded-pill" href="#"><img
+                            <a class="d-none d-lg-block ms-3 btn btn bg-primario rounded-pill" href="#"><img
                                     src="../img/icon/user.svg" alt="User Login"></a>
                             <div class="position-relative ms-2">
                                 <div class="dropdown">
-                                    <button class="btn btn-dark rounded-pill dropdown-toggle" type="button"
+                                    <button class="btn bg-primario rounded-pill dropdown-toggle" type="button"
                                         id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="../img/icon/carrito.svg" alt="Carrito compra">
                                     </button>
@@ -101,16 +101,16 @@
                                     </ul>
                                 </div>
                                 <div class="position-absolute top-0">
-                                    <p class="px-1 bg-blanco rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
+                                    <p class="px-2 bg-white rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
                                 </div>
                             </div>
-                            <p class="my-0 ms-2 d-none d-lg-block btn btn-dark rounded-pill">${{cestaTotal}}</p>
+                            <p class="text-light my-0 ms-2 d-none d-lg-block btn bg-primario rounded-pill">${{cestaTotal}}</p>
 
                         </div>
                     </div>
                 </div>
 
-                <section class="bg-primario collapse navbar-collapse" id="navbarScroll">
+                <section class="bg-primario collapse navbar-collapse py-2" id="navbarScroll">
                     <div class="container d-flex m-auto align-items-center justify-content-center flex-wrap py-2">
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
@@ -195,8 +195,7 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-
-                        <a class="nav-link text-light" href="./html/contacto.html">
+                        <a class="nav-link text-light" href="./contacto.html">
                             <img class="mb-1" src="../img/iconosNav/otros.svg" alt="Contactos">
                             Contactanos
                         </a>
@@ -267,7 +266,7 @@
                         <label for="mensaje" class="form-label">Mensaje</label>
                         <textarea class="form-control" id="mensaje" rows="3" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-danger">Enviar</button>
+                    <button type="submit" class="btn text-light bg-primario-black">Enviar</button>
                 </form>
                 <!-- 2 -->
                 <form v-if="seleccionado == 'formulario2'">
@@ -310,7 +309,7 @@
                         <label for="mensaje" class="form-label">Mensaje</label>
                         <textarea class="form-control" id="mensaje" rows="3" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-success">Enviar</button>
+                    <button type="submit" class="text-light btn bg-primario-black">Enviar</button>
 
                 </form>
             </div>
@@ -318,7 +317,7 @@
         <footer class="footercontact">
             <div class="container pt-5 position-relative">
                 <a href="../index.html"><img class="logos position-absolute border-orange top-0 bottom-0 mt-4 mt-md-3 bg-white p-2 rounded-2"
-                    src="../img/loguitos/logo_nuevo.svg" alt="Logo 101Patita"></a>
+                    src="../img/loguitos/logo_nuevo.svg" alt="Logo 101Apatita"></a>
                 <div class="col-lg-12 col-sm-12 col-xs-12">
                     <p class="py-3 m-0 text-center border-top-orange text-light">Grupo 3 © 2022 <a href="#"><span
                                 id="sfooter">101Apatita</span></a>.</p>
