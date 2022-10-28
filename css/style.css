@@ -32,7 +32,7 @@ button {
 }
 a {
     color: var(--white);
-    text-decoration: none;
+    text-decoration: none!important;
     font-weight: 600;
     font-family: var(--font2);
 }
