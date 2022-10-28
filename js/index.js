@@ -36,78 +36,72 @@ try {
                 //contacto
                 seleccionado: [],
 
-                // Adoptción
-                perritosAdoptar: [
-                    {
-                        nombre: 'Chiky',
-                        descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
-                        telefono: '+54 9 11 23123221',
-                        ciudad: 'Buenos Aires',
-                        id: '1',
-                        imagen: 'https://i.imgur.com/VI5FoK7.jpg',
-                        tipo: "Perro"
-                    },
-                    {
-                        nombre: 'Lula',
-                        descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
-                        telefono: '+54 9 11 23123221',
-                        ciudad: 'Buenos Aires',
-                        id: '2',
-                        imagen: 'https://i.imgur.com/JasYOI5.jpg',
-                        tipo: "Perro"
-                    },
-                    {
-                        nombre: 'Pochi y Misha',
-                        descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
-                        telefono: '+54 9 11 23123221',
-                        ciudad: 'Buenos Aires',
-                        id: '3',
-                        imagen: 'https://i.imgur.com/1n8j3NK.jpg',
-                        tipo: "Perro y Gato"
-                    },
-                    {
-                        nombre: 'Poli',
-                        descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
-                        telefono: '+54 9 11 23123221',
-                        ciudad: 'Buenos Aires',
-                        id: '4',
-                        imagen: 'https://i.imgur.com/FUVQqgm.jpg',
-                        tipo: "Perro"
-                    },
-                ],
-                adoptar: [],
-                //tarjeta
-                numerostarjeta: [],
-                fechaexpiracion: [],
-                codigoseguridad: [],
-                cuotas: [],
-                nombreyapellido: [],
+            // Adoptción
+            perritosAdoptar: [
+                {
+                    nombre: 'Chiky',
+                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                    telefono: '+54 9 11 23123221',
+                    ciudad: 'Buenos Aires',
+                    id: '1',
+                    imagen: 'https://i.imgur.com/VI5FoK7.jpg',
+                    tipo: "Perro"
+                },
+                {
+                    nombre: 'Lula',
+                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                    telefono: '+54 9 11 23123221',
+                    ciudad: 'Buenos Aires',
+                    id: '2',
+                    imagen: 'https://i.imgur.com/JasYOI5.jpg',
+                    tipo: "Perro"
+                },
+                {
+                    nombre: 'Pochi y Misha',
+                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                    telefono: '+54 9 11 23123221',
+                    ciudad: 'Buenos Aires',
+                    id: '3',
+                    imagen: 'https://i.imgur.com/1n8j3NK.jpg',
+                    tipo: "Perro y Gato"
+                },
+                {
+                    nombre: 'Poli',
+                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                    telefono: '+54 9 11 23123221',
+                    ciudad: 'Buenos Aires',
+                    id: '4',
+                    imagen: 'https://i.imgur.com/FUVQqgm.jpg',
+                    tipo: "Perro"
+                },
+            ],
+            adoptar: [],
+            
+            //tarjeta
+            numerostarjeta: [],
+            fechaexpiracion: [],
+            codigoseguridad: [],
+            cuotas: [],
+            nombreyapellido: [],
+             // Los primeros 4 productos
+            primerosProductos: [],
+            primerosProductosMedi: [],
 
-                // Los primeros 4 productos
-                primerosProductos: [],
-                primerosProductosMedi: [],
-
-                // Compras success
-                productoSuccess: []
-
-            }
-        },
-        created() {
-            this.traerDatos();
-            if (JSON.parse(localStorage.getItem('carrito'))) {
-                this.cesta = JSON.parse(localStorage.getItem('carrito'));
-            }
-            if (JSON.parse(localStorage.getItem('producto'))) {
-                this.productoSuccess = JSON.parse(localStorage.getItem('producto'));
-            }
-        },
-        mounted() {
-        },
-        methods: {
-            traerDatos() {
-                fetch(this.url).then(response => response.json())
-                    .then(data => {
-                        this.productos = data.response;
+        }
+    },
+    created() {
+        this.traerDatos();
+        if (JSON.parse(localStorage.getItem('carrito'))) {
+            this.cesta = JSON.parse(localStorage.getItem('carrito'));
+        }
+    },
+    mounted() {
+    },
+    methods: {
+        traerDatos() {
+            fetch(this.url).then(response => response.json())
+                .then(data => {
+                    this.productos = data.response;
 
                         // Medicamentos
                         this.productoSeccion.medicamentos = this.productos.filter(event => event.tipo.toLowerCase() === "medicamento");
