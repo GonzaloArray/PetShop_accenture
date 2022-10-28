@@ -1,0 +1,17 @@
+select{
+    flex: 1;
+    color: var(--white);
+    background-color: var(--terciario);
+    cursor: pointer;
+    border-radius: 3px;
+}
+.h3Form{
+    border-top: 1.1px solid var(--primario);
+}
+form p{
+    padding: 0;
+    margin: 0;
+}
+.iconSucursales{
+    margin-left: 1rem;
+}
