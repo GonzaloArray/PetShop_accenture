@@ -297,9 +297,13 @@
                     </div>
 
                     <section class="row g-0 mt-0 gx-2 gy-4 mb-5 col-12 col-lg-9">
-                        <div v-if="productos.length === 0" class="text-center">
+                        <div v-if="productos.length === 0 && error === false" class="text-center">
                             <img class="notFound" src="../img/error/cat.svg" alt="not found" />
                             <p class="text-dark rounded px-3 py-1 fs-4">No se ha encontrado el producto.</p>
+                        </div>
+                        <div v-if="error">
+                            <img class="notFound border-per" src="../img/loguitos/perrito_footer.gif" alt="not found fetch" />
+                            <p class="text-dark rounded  px-3 py-1 fs-4">Ooops... Algo salió mal.</p>
                         </div>
                         <div v-for=" product in productos" class="col-6 col-md-4 col-lg-4 col-xl-3">
                             <div class="card card-hover height-copia shadow d-flex align-items-center">
@@ -309,6 +313,12 @@
                                     <button @click="agregarCesta(product)"
                                         class="fw-bold fuente__pequeña bg-primary rounded-2 py-1 px-2 px-md-3 py-md-2 text-light">Comprar</button>
                                 </div>
+                                <div class="d-flex justify-content-start w-100">
+                                    <h2 class="py-1 ms-3 px-2 fs-7 bg-danger text-light rounded-3 mt-1" v-if="product.stock < 4">
+                                        Poco stock!
+                                    </h2>
+                                </div>
+
                                 <div class="text-hidden">
                                     <h5 class="text-start fw-bold fuente-title">{{product.nombre}}</h5>
                                     <p class="text-start fuente-parrafo m-0">{{product.tipo}}</pc>

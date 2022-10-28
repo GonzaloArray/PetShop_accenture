@@ -622,7 +622,11 @@ input[type="text"] {
 .img-success{
     width: 25rem;
 }
-
+.border-per{
+    border-bottom-left-radius: 6rem;
+    border-bottom-right-radius: 6rem;
+    width: 18rem;
+}
 
 /* Tarjeta de credito */
 .card {

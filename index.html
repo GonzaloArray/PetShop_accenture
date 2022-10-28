@@ -326,8 +326,9 @@
                     recomendados</span></h2>
             <section class="row g-2">
                 <div class="col-6 col-md-3 position-relative" v-for=" producto in primerosProductosMedi">
-                    <img class="card-imagen" :src="producto.imagen" :alt="producto.nombre">
-
+                    <a :href="'./html/detailsCard.html?id='+producto._id">
+                        <img class="card-imagen" :src="producto.imagen" :alt="producto.nombre">
+                    </a>
                     <img class="position-absolute ms-3 start-0 top-0 descuento" src="./img/imgIndex/descuento.png"
                         :alt="producto.nombre">
                 </div>

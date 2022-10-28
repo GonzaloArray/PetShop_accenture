@@ -31,84 +31,84 @@ try {
                 cesta: [],
 
                 // Error Fetch
-                error: '',
+                error: false,
 
                 //contacto
                 seleccionado: [],
 
-            // Adoptción
-            perritosAdoptar: [
-                {
-                    nombre: 'Chiky',
-                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
-                    telefono: '+54 9 11 23123221',
-                    ciudad: 'Buenos Aires',
-                    id: '1',
-                    imagen: 'https://i.imgur.com/VI5FoK7.jpg',
-                    tipo: "Perro"
-                },
-                {
-                    nombre: 'Lula',
-                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
-                    telefono: '+54 9 11 23123221',
-                    ciudad: 'Buenos Aires',
-                    id: '2',
-                    imagen: 'https://i.imgur.com/JasYOI5.jpg',
-                    tipo: "Perro"
-                },
-                {
-                    nombre: 'Pochi y Misha',
-                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
-                    telefono: '+54 9 11 23123221',
-                    ciudad: 'Buenos Aires',
-                    id: '3',
-                    imagen: 'https://i.imgur.com/1n8j3NK.jpg',
-                    tipo: "Perro y Gato"
-                },
-                {
-                    nombre: 'Poli',
-                    descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
-                    telefono: '+54 9 11 23123221',
-                    ciudad: 'Buenos Aires',
-                    id: '4',
-                    imagen: 'https://i.imgur.com/FUVQqgm.jpg',
-                    tipo: "Perro"
-                },
-            ],
-            adoptar: [],
+                // Adoptción
+                perritosAdoptar: [
+                    {
+                        nombre: 'Chiky',
+                        descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                        telefono: '+54 9 11 23123221',
+                        ciudad: 'Buenos Aires',
+                        id: '1',
+                        imagen: 'https://i.imgur.com/VI5FoK7.jpg',
+                        tipo: "Perro"
+                    },
+                    {
+                        nombre: 'Lula',
+                        descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                        telefono: '+54 9 11 23123221',
+                        ciudad: 'Buenos Aires',
+                        id: '2',
+                        imagen: 'https://i.imgur.com/JasYOI5.jpg',
+                        tipo: "Perro"
+                    },
+                    {
+                        nombre: 'Pochi y Misha',
+                        descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                        telefono: '+54 9 11 23123221',
+                        ciudad: 'Buenos Aires',
+                        id: '3',
+                        imagen: 'https://i.imgur.com/1n8j3NK.jpg',
+                        tipo: "Perro y Gato"
+                    },
+                    {
+                        nombre: 'Poli',
+                        descripcion: 'Este perrito fue encontrado en una plaza solo sin nadie que le de amor',
+                        telefono: '+54 9 11 23123221',
+                        ciudad: 'Buenos Aires',
+                        id: '4',
+                        imagen: 'https://i.imgur.com/FUVQqgm.jpg',
+                        tipo: "Perro"
+                    },
+                ],
+                adoptar: [],
 
-            //tarjeta
-            numerostarjeta: [],
-            fechaexpiracion: [],
-            codigoseguridad: [],
-            cuotas: [],
-            nombreyapellido: [],
+                //tarjeta
+                numerostarjeta: [],
+                fechaexpiracion: [],
+                codigoseguridad: [],
+                cuotas: [],
+                nombreyapellido: [],
 
-             // Los primeros 4 productos
-            primerosProductos: [],
-            primerosProductosMedi: [],
+                // Los primeros 4 productos
+                primerosProductos: [],
+                primerosProductosMedi: [],
 
-            // Cuando compre
-            productoSuccess: []
+                // Cuando compre
+                productoSuccess: []
 
-        }
-    },
-    created() {
-        this.traerDatos();
-        if (JSON.parse(localStorage.getItem('carrito'))) {
-            this.cesta = JSON.parse(localStorage.getItem('carrito'));
-        }
-        if (JSON.parse(localStorage.getItem('producto'))) {
-            this.productoSuccess = JSON.parse(localStorage.getItem('producto'));
-        }
-    },
-    mounted() {
-    },
-    methods: {
-        traerDatos() {
-            fetch(this.url).then(response => response.json())
-                .then(data => {
-                    this.productos = data.response;
+            }
+        },
+        created() {
+            this.traerDatos();
+            if (JSON.parse(localStorage.getItem('carrito'))) {
+                this.cesta = JSON.parse(localStorage.getItem('carrito'));
+            }
+            if (JSON.parse(localStorage.getItem('producto'))) {
+                this.productoSuccess = JSON.parse(localStorage.getItem('producto'));
+            }
+        },
+        mounted() {
+        },
+        methods: {
+            traerDatos() {
+                fetch(this.url).then(response => response.json())
+                    .then(data => {
+                        this.productos = data.response;
 
                         // Medicamentos
                         this.productoSeccion.medicamentos = this.productos.filter(event => event.tipo.toLowerCase() === "medicamento");
@@ -139,7 +139,7 @@ try {
 
                     })
                     .catch(() => {
-                        this.error = "There was an error, please try again later";
+                        this.error = true;
                     })
             },
             agregarCesta(producto) {
@@ -186,13 +186,38 @@ try {
                 })
 
             },
-            tomandoPedido(){
+            tomandoPedido() {
                 this.productoSuccess = this.cesta;
                 localStorage.setItem('producto', JSON.stringify(this.productoSuccess));
 
-                window.location.href = "./compraRealizada.html";
+                let timerInterval
+                Swal.fire({
+                    title: 'Estamos procesando su pago, ya casi es tuyo!',
+                    html: 'Los productos ya casi son tuyos.',
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading()
+                        const b = Swal.getHtmlContainer().querySelector('b')
+                        timerInterval = setInterval(() => {
+                            b.textContent = Swal.getTimerLeft()
+                        }, 100)
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                }).then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        console.log('I was closed by the timer')
+                        window.location.href = "./compraRealizada.html";
+
+                    }
+                })
+
+
             },
-            vaciarCarrito(){
+            vaciarCarrito() {
                 this.cesta = []
                 localStorage.setItem('carrito', JSON.stringify(this.cesta));
             }
