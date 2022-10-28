@@ -1,8 +1,9 @@
 :root {
     --white: #f0ede8;
     --blank: #000;
-    --primario: #F57923;
+    --primario: #31AEC0;
     --primario-black: #f1741a;
+    /* --primario-black: #f1741a; */
     --secundario: #4e9469;
     --terciario: #31AEC0;
     --terciario-sombra: #069dd3;
@@ -580,4 +581,11 @@ input[type="text"] {
 }
 .linkPaginas{
     width: 50rem;
+}
+.rounder-per{
+    border-radius: 1rem;
+}
+
+.z-index-0{
+    z-index: 0;
 }
