@@ -213,7 +213,7 @@ input[type="text"]::placeholder {
     font-weight: 300;
 }
 .single_footer ul li a:hover {
-    color: var(--primario);
+    color: var(--primario-black);
 }
 
 .contact_social ul {
