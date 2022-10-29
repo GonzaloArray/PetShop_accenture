@@ -221,11 +221,14 @@
                         </div>
                     </div>
                     <p class="mt-5">Ya estan siendo preparados y listo para enviar a su domicilio, si tiene algún
-                        problema con el pedido o se equivoco de domicilio <a class="text-success"
+                        problema con el pedido o se equivoco de domicilio <a class="text-warning"
                             href="./contacto.html">Contactenos.</a></p>
 
-                    <p>Podes mantener tus productos comprados o deseas <button @click="vaciarCarrito"
-                            class="ms-2 btn btn-success">Vaciar Carrito!</button></p>
+                    <p>Podes mantener tus productos comprados haciendo un click! <button @click="llenarCarrito"
+                            class="ms-2 btn bg-primario-black text-light">Agregar nuevamente lo comprado!</button></p>
+
+                    <p v-if="cesta.length > 0"> Comprar los productos sellecionados! <a class="btn btn-success"
+                        href="./contacto.html">Pagar Productos.</a> o podes </p>
                     <a class="text-light btn btn-primary" href="./productos.html">Seguir comprando!</a>
 
                     <a class="text-dark ms-4" href="../index.html">Volver a inicio</a>

@@ -153,11 +153,39 @@ input[type="text"]::placeholder {
 
 .card-hover:hover>.text-hidden {
     color: rgba(48, 47, 47, 0.685);
-    transition: .3s linear;
+    transition: .1s linear;
     padding: .5rem 1rem;
     width: 100%;
     background-color: #fff;
 }
+.card-index{
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+@media (min-width: 768px) {
+    .card-index{
+        height: 30vh;
+    }
+}
+@media (min-width: 900px) {
+    .card-index{
+        height: 34vh;
+    }
+}
+@media (min-width: 1400px) {
+    .card-index{
+        height: 30vh;
+    }
+}
+
 
 .card-hover:hover>.text-hidden p {
     font-size: 14px;

@@ -306,8 +306,7 @@
                                 <div class="d-flex justify-content-between align-items-center w-100 px-3 flex-auto">
                                     <p class="m-0">${{product.precio.toLocaleString()}}</p>
                                     <button @click="agregarCesta(product)"
-                                        class="fw-bold fuente__pequeña bg-primary rounded-2 py-1 px-2 px-md-3 py-md-2 text-light"
-                                        href="">Comprar</button>
+                                    class="fw-bold fs-7 btn bg-primary rounded-3 py-1 px-2 text-light">Comprar</button>
                                 </div>
                                 <div class="d-flex justify-content-start w-100">
                                     <h2 class="py-1 ms-3 px-2 fs-7 bg-danger text-light rounded-3 mt-1" v-if="product.stock < 4">

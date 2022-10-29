@@ -89,7 +89,10 @@ try {
                 primerosProductosMedi: [],
 
                 // Cuando compre
-                productoSuccess: []
+                productoSuccess: [],
+
+                // Ultima compra
+                ultimaCompra: []
 
             }
         },
@@ -100,6 +103,9 @@ try {
             }
             if (JSON.parse(localStorage.getItem('producto'))) {
                 this.productoSuccess = JSON.parse(localStorage.getItem('producto'));
+            }
+            if (JSON.parse(localStorage.getItem('ultimaCompra'))) {
+                this.ultimaCompra = JSON.parse(localStorage.getItem('ultimaCompra'));
             }
         },
         mounted() {
@@ -190,6 +196,12 @@ try {
                 this.productoSuccess = this.cesta;
                 localStorage.setItem('producto', JSON.stringify(this.productoSuccess));
 
+                this.ultimaCompra = this.productoSuccess.slice(0, 4);
+                localStorage.setItem('ultimaCompra', JSON.stringify(this.ultimaCompra));
+
+                console.log(this.ultimaCompra)
+
+
                 let timerInterval
                 Swal.fire({
                     title: 'Estamos procesando su pago, ya casi es tuyo!',
@@ -209,7 +221,9 @@ try {
                 }).then((result) => {
                     /* Read more about handling dismissals below */
                     if (result.dismiss === Swal.DismissReason.timer) {
-                        console.log('I was closed by the timer')
+                        this.cesta = []
+                        localStorage.setItem('carrito', JSON.stringify(this.cesta));
+
                         window.location.href = "./compraRealizada.html";
 
                     }
@@ -217,8 +231,8 @@ try {
 
 
             },
-            vaciarCarrito() {
-                this.cesta = []
+            llenarCarrito() {
+                this.cesta = this.productoSuccess;
                 localStorage.setItem('carrito', JSON.stringify(this.cesta));
             }
         },
@@ -350,7 +364,7 @@ try {
     }).mount('#app')
 
 } catch (error) {
-    window.location.href = "./error.html";
+    // window.location.href = "./error.html";
 }
 
 
