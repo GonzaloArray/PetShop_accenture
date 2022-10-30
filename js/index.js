@@ -97,7 +97,10 @@ try {
                 // Card Details Product
                 cardProduct: [],
 
-                valorCompra: 1
+                valorCompra: 1,
+
+                // Error seccion detailsCard
+                errorCard: false
 
             }
         },
@@ -111,6 +114,9 @@ try {
             }
             if (JSON.parse(localStorage.getItem('ultimaCompra'))) {
                 this.ultimaCompra = JSON.parse(localStorage.getItem('ultimaCompra'));
+            }
+            if (JSON.parse(localStorage.getItem('cardProduct'))) {
+                this.cardProduct = JSON.parse(localStorage.getItem('cardProduct'));
             }
         },
         mounted() {
@@ -147,11 +153,27 @@ try {
                         // details
                         let id = new URLSearchParams(location.search).get('id');
                         this.adoptar = this.perritosAdoptar.find(element => element.id === id);
+                        if (id !== null) {
+                            this.cardProduct = this.productos.find(element => element._id === id);
+                            console.log(this.cardProduct)
 
-                        this.cardProduct = this.productos.find(element => element._id === id);
+                            const valor = this.cesta.filter(element => {
+                                if (element.producto._id == this.cardProduct._id) {
+                                    console.log(element)
+                                    return element.producto;
+                                }
+                            })
+
+                            if (valor.length > 0) {
+                                this.cardProduct = valor[0].producto;
+                            }
+
+                        }
+
 
                     })
-                    .catch(() => {
+                    .catch((error) => {
+                        console.log(error)
                         this.error = true;
                     })
             },
@@ -170,21 +192,32 @@ try {
 
                 if (exitente.length && cant1 > 1) {
                     this.cesta[prodExistente].cant = this.cesta[prodExistente].cant + cant1;
+                    this.cesta[prodExistente].stock = this.cesta[prodExistente].stock - cant1;
                     localStorage.setItem('carrito', JSON.stringify(this.cesta));
+
                     return;
 
                 } else if (exitente.length) {
                     this.cesta[prodExistente].cant++;
+                    this.cesta[prodExistente].stock--;
                     localStorage.setItem('carrito', JSON.stringify(this.cesta));
+
                     return;
+
                 } else if (cant1 > 1 && exitente.length == 0) {
+                    producto.stock = producto.stock - cant1;
                     this.cesta.push({ producto: producto, cant: cant1 })
                     localStorage.setItem('carrito', JSON.stringify(this.cesta));
+
                     return;
+
                 } else {
+                    producto.stock = producto.stock--;
                     this.cesta.push({ producto: producto, cant: 1 })
                     localStorage.setItem('carrito', JSON.stringify(this.cesta));
+
                     return;
+
                 }
             },
             quitarCesta(producto) {
@@ -214,8 +247,6 @@ try {
 
                 this.ultimaCompra = this.productoSuccess.slice(0, 4);
                 localStorage.setItem('ultimaCompra', JSON.stringify(this.ultimaCompra));
-
-                console.log(this.ultimaCompra)
 
 
                 let timerInterval
@@ -261,6 +292,9 @@ try {
                 if (this.valorCompra < this.cardProduct.stock) {
                     this.valorCompra++;
                 }
+            },
+            vaciarCarrito(){
+                this.cesta = []
             }
         },
         computed: {
@@ -391,7 +425,7 @@ try {
     }).mount('#app')
 
 } catch (error) {
-    // window.location.href = "./error.html";
+    window.location.href = "./error.html";
 }
 
 

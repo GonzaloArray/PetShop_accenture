@@ -84,13 +84,13 @@
                                                 productoAdd.producto.precio}}
 
                                                 <button
-                                                    class="px-2 pb-1 btn-danger ms-2 text-light fw-bold rounded-circle"
+                                                    class="px-2 pb-1 bg-danger btn-danger ms-2 text-light fw-bold rounded-circle"
                                                     @click.stop="quitarCesta(productoAdd.producto._id)">x</button>
                                             </li>
                                         </div>
 
-                                        <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
-                                            ${{cestaTotal}}</a>
+                                        <p class="border-top text-dark nav-link m-0 py-3"><b>Total:</b>
+                                            ${{cestaTotal}}</p>
                                         <div v-if="cesta.length > 0">
                                             <a href="./seccionTarjeta.html"
                                                 class="fw-bold btn btn-success w-100">Comprar Producto</a>

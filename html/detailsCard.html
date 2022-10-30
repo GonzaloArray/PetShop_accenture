@@ -194,7 +194,15 @@
             </div>
         </nav>
         <main class="container flex-auto position-relative">
-            <section class="row my-5">
+            <section v-if="errorCard">
+                <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-danger">Algo salio mal.</span></h2>
+                <h3 class="fs-6">Estamos sufriendo turbulencias, estamos trabajando duro. Vamos arreglar esto lo más pronto posible para solucionar el problema</h3>
+                <p>Hasta mientras ingrese a nuestro catalogo completo.</p>
+                <a class="btn btn-success" href="./productos.html">Ingrese aquí</a>
+                <img class="position-absolute bottom-0" src="../img/loguitos/nocompres_gif.gif" alt="Perrito animado no adopte">
+            </section>
+            <section v-else class="row my-5">
                 <div class="col-md-6">
                     <img class="card-details" :src="cardProduct.imagen" :alt="cardProduct.nombre">
                 </div>
@@ -208,7 +216,7 @@
 
                     <div>
                         <h2>{{cardProduct.nombre}}</h2>
-                        <h3 class="text-primario">${{cardProduct.precio.toFixed(2)}}</h3>
+                        <h3 class="text-primario">${{cardProduct.precio}} <span v-if="cardProduct.precio > 600" class="fs-6 mb-3 text-success">Envio gratis</span></h3>
                         <div class="row border-1 align-items-center border-top mt-3">
                             <p class="col-md-9 pt-2">{{cardProduct.descripcion}}</p>
                             <div class="d-none d-md-block col-md-3">
@@ -219,7 +227,7 @@
 
                         <div class="border-1 pt-2 border-top d-flex justify-content-between w-100">
                             <h2 class="fs-7 ">Stock:</h2>
-                            <span class="fs-7">{{cardProduct.stock}}</span>
+                            <span class="fs-7">{{cardProduct.stock > valorCompra ? cardProduct.stock - valorCompra : 'Stock no disponible'}}</span>
                         </div>
 
                         <div class="border-1 pt-2 border-top d-flex justify-content-between w-100">
@@ -228,19 +236,28 @@
                         </div>
 
                         <div class="d-flex align-items-center mt-5">
-                            <div class="d-flex align-items-center border-2">
+                            <div class="d-flex align-items-center border border-1">
                                 <button @click="restarValor" class="fw-bold btn btn-success rounded-0">-</button>
-                                <p class="px-3 fuente__pequeña m-0">{{valorCompra}}</p>
+                                <p v-if="cardProduct.stock === 0" class="px-3 fuente__pequeña m-0">0</p>
+                                <p v-else-if="cardProduct.stock > 0" class="px-3 fuente__pequeña m-0">{{valorCompra}}</p>
                                 <button @click="sumarValor" class="fw-bold btn btn-success rounded-0">+</button>
                             </div>
                             <div class="ms-4">
-                                <button @click="agregarCesta(cardProduct, valorCompra)"
-                                    class="btn bg-primario-40 fw-bold rounded-2 text-light">Añadir al carrito</button>
+                                <button v-if="cardProduct.stock >= valorCompra" @click="agregarCesta(cardProduct, valorCompra)"
+                                    class="btn bg-primario bg-primario-details fw-bold rounded-2 text-light">Añadir al carrito</button>
+
+                                <div v-if="cardProduct.stock === 0">
+                                    <p class="fs-7">Se agotó el stock de {{cardProduct.nombre}}. Gracias por comprar en 101Apatita. Si deseas comprar más de nuestros productos</p>
+                                    <div>
+                                        <a href="./productos.html" class="btn btn-success fuente__pequeña">Ingrese aquí</a>
+                                        <button class="btn ms-3 bg-primario-40 fw-bold rounded-2 text-light">Producto Agotado</button>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </section>
         </main>
         <footer class="footercontact">

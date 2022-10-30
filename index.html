@@ -88,8 +88,10 @@
                                         <div class="text-dark" v-for="productoAdd in cesta">
                                             <li class="d-flex justify-content-start align-items-center my-2">
 
-                                                <img class="logo" :src="productoAdd.producto.imagen"
-                                                    :alt="productoAdd.producto.nombre">
+                                                <a :href="'./html/detailsCard.html?id='+productoAdd.producto._id">
+                                                    <img class="logo" :src="productoAdd.producto.imagen"
+                                                        :alt="productoAdd.producto.nombre">
+                                                </a>
 
                                                 <span
                                                     class="px-2 fw-bold text-light bg-primary mx-2 rounded-1">{{productoAdd.cant}}</span>
@@ -98,15 +100,17 @@
                                                 productoAdd.producto.precio}}
 
                                                 <button
-                                                    class="px-2 pb-1 btn-danger ms-2 text-light fw-bold rounded-circle"
+                                                    class="px-2 pb-1 bg-danger btn-danger ms-2 text-light fw-bold rounded-circle"
                                                     @click.stop="quitarCesta(productoAdd.producto._id)">x</button>
                                             </li>
                                         </div>
 
-                                        <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
-                                            ${{cestaTotal}}</a>
+                                        <p class="border-top text-dark nav-link m-0 py-3"><b>Total:</b>
+                                            ${{cestaTotal}}</p>
 
                                         <div v-if="cesta.length > 0">
+                                            <button @click="vaciarCarrito"
+                                                class="fw-bold btn btn-danger w-100 mb-3">Vaciar carrito</button>
                                             <a href="./html/seccionTarjeta.html"
                                                 class="fw-bold btn btn-success w-100">Comprar Producto</a>
                                         </div>
@@ -131,7 +135,7 @@
                                 <img class="mb-1" src="./img/iconosNav/shopping.svg" alt="Productos">
                                 Productos
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <ul class="dropdown-menu width__ul__menu" aria-labelledby="navbarScrollingDropdown">
                                 <li><a class="dropdown-item" href="./html/juguetes.html"><img class="mb-1 me-2"
                                             src="./img/iconosNav/toys.svg" alt="Productos de juguetes"> Juguetes</a>
                                 </li>
@@ -150,7 +154,7 @@
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img class="mb-1" src="./img/iconosNav/cat.svg" alt="Productos Gatos">
-                                Gatitos
+                                Mascotas
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li><a class="dropdown-item" href="#">Proximamente</a></li>
@@ -160,7 +164,7 @@
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img class="mb-1" src="./img/iconosNav/fish.svg" alt="Productos">
-                                Pez
+                                Peces
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li><a class="dropdown-item" href="#">Proximamente</a></li>
@@ -171,10 +175,15 @@
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img class="mb-1" src="./img/iconosNav/bird.svg" alt="Productos">
-                                Pajaritos
+                                Historial
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Proximamente</a></li>
+                                <li><a class="dropdown-item" href="./html/favoritos.html">
+                                    <img class="mb-1 me-2" src="./img/icon/favoritoCheck.svg"
+                                        alt="Todos los productos">Favoritos</a></li>
+                                <li><a class="dropdown-item" href="./html/historialCompra.html">
+                                    <img class="mb-1 me-2" src="./img/icon/comprados.svg"
+                                        alt="Todos los productos">Compras</a></li>
                             </ul>
                         </li>
                         <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end"
@@ -311,13 +320,13 @@
             <div id="carouselExampleInterval" class="carousel slide bg-dark" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item ">
-                        <img src="./img/loguitos/banner_gif_two.gif" class="value" alt="Anuncio Seguro">
+                        <!-- <img src="./img/loguitos/banner_gif_two.gif" class="value" alt="Anuncio Seguro"> -->
                     </div>
                     <div class="carousel-item active" data-bs-interval="10000">
                         <img src="./img/loguitos/banner_care.png" class="value" alt="Anuncio Alimentos">
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
-                        <img src="./img/loguitos/banner_gif.gif" class="value" alt="Anuncio Bebedero">
+                        <!-- <img src="./img/loguitos/banner_gif.gif" class="value" alt="Anuncio Bebedero"> -->
                     </div>
                 </div>
                 <button class="z-index-0 carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
