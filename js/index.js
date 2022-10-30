@@ -92,7 +92,12 @@ try {
                 productoSuccess: [],
 
                 // Ultima compra
-                ultimaCompra: []
+                ultimaCompra: [],
+
+                // Card Details Product
+                cardProduct: [],
+
+                valorCompra: 1
 
             }
         },
@@ -143,12 +148,14 @@ try {
                         let id = new URLSearchParams(location.search).get('id');
                         this.adoptar = this.perritosAdoptar.find(element => element.id === id);
 
+                        this.cardProduct = this.productos.find(element => element._id === id);
+
                     })
                     .catch(() => {
                         this.error = true;
                     })
             },
-            agregarCesta(producto) {
+            agregarCesta(producto, cant1) {
 
                 let prodExistente;
                 let exitente = this.cesta.filter((item, index) => {
@@ -161,8 +168,17 @@ try {
                     }
                 });
 
-                if (exitente.length) {
+                if (exitente.length && cant1 > 1) {
+                    this.cesta[prodExistente].cant = this.cesta[prodExistente].cant + cant1;
+                    localStorage.setItem('carrito', JSON.stringify(this.cesta));
+                    return;
+
+                } else if (exitente.length) {
                     this.cesta[prodExistente].cant++;
+                    localStorage.setItem('carrito', JSON.stringify(this.cesta));
+                    return;
+                } else if (cant1 > 1 && exitente.length == 0) {
+                    this.cesta.push({ producto: producto, cant: cant1 })
                     localStorage.setItem('carrito', JSON.stringify(this.cesta));
                     return;
                 } else {
@@ -234,6 +250,17 @@ try {
             llenarCarrito() {
                 this.cesta = this.productoSuccess;
                 localStorage.setItem('carrito', JSON.stringify(this.cesta));
+            },
+            restarValor() {
+                if (this.valorCompra > 1) {
+                    this.valorCompra--;
+                }
+                return
+            },
+            sumarValor() {
+                if (this.valorCompra < this.cardProduct.stock) {
+                    this.valorCompra++;
+                }
             }
         },
         computed: {
