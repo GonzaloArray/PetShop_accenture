@@ -295,6 +295,7 @@ try {
             },
             vaciarCarrito(){
                 this.cesta = []
+                localStorage.setItem('carrito', JSON.stringify(this.cesta));
             }
         },
         computed: {
