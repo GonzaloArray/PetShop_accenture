@@ -70,14 +70,16 @@
                         </button>
 
                         <div class="d-flex align-items-center">
-                            <form class="">
+                            <div>
                                 <div class="d-flex rounded-pill position-relative">
-                                    <input class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
-                                        type="search" placeholder="Search" aria-label="Search">
-                                    <button class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"
-                                        type="submit"><img src="./img/icon/search.svg" alt="Buscador search"></button>
+                                    <input v-model="datalist" class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
+                                        type="search" placeholder="Search" aria-label="Search" list="browsers">
+                                    <datalist id="browsers">
+                                        <option v-for="producto in productos" :value="producto.nombre">
+                                    </datalist>
+                                    <button @click="dataList" class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"><img src="./img/icon/search.svg" alt="Buscador search"></button>
                                 </div>
-                            </form>
+                            </div>
 
                             <a class="d-none d-lg-block ms-3 btn bg-primario rounded-pill" href="#"><img
                                     src="./img/icon/user.svg" alt="User Login"></a>

@@ -203,60 +203,55 @@
                 </section>
             </div>
         </nav>
-        <main class="container-fluid container-lg flex-auto">
+        <main class="container-fluid container-lg flex-auto position-relative">
             <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
-                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Tu carrito</span></h2>
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Tu historial de
+                    compras</span></h2>
 
-            <div v-if="cesta.length == 0">
-                <h2 class="fw-bold">No hay productos seleccionados</h2>
+            <div v-if="historialCompra.length == 0">
+                <h2 class="fw-bold">No tienes historial de compra todavia, ve en busca de uno!</h2>
                 <a href="./productos.html" class="btn bg-primario mt-4 fw-bold text-light">Elegir producto</a>
+
+                <img class="position-absolute bottom-0" src="../img/loguitos/perrito_animado_noAdoptes.svg"
+                    alt="Perrito de ayuda">
             </div>
-
             <div v-else class="row">
-                <section class="col-12 col-md-8">
-                    <div v-for="productoAdd in cesta" class="position-relative shadow d-flex align-items-center flex-wrap p-4 justify-content-between bg-white rounded-3 mb-3">
-                        <img class="logos" :src="productoAdd.producto.imagen" :alt="productoAdd.producto.nombre">
-                        <div class="d-flex flex-column">
-                            <h2 class="fw-bold fs-6">{{productoAdd.producto.tipo}}</h2>
-                            <p class="m-0 fw-light">{{productoAdd.producto.nombre}}</p>
-                        </div>
-                        <div class="d-flex align-items-center border border-1 border-black">
-                            <button class="btn btn-success fw-bold">-</button>
-                            <p class="my-0 mx-3">{{productoAdd.cant}}</p>
-                            <button class="btn btn-success fw-bold">+</button>
-                        </div>
-                        <p class="fw-bold fs-5 m-0">${{productoAdd.producto.precio}}</p>
+                <section class="col-12 col-md-8 bg-white shadow d-flex flex-wrap">
+                    <div v-for="product in historialCompra[0]"
+                        class="position-relative d-flex justify-content-center align-items-center flex-column mx-3">
 
-                        <button class="fs-7 position-absolute bottom-0 end-0 m-3">Eliminar <img src="../img/icon/trash.svg" alt="Delete Icon"></button>
+                        <a class="position-relative" :href="'./detailsCard.html?id='+product.producto._id">
+                            <img :src="product.producto.imagen" class="logos rounded-circle"
+                                :alt="product.producto.nombre">
+                        </a>
+                        <h2 class="fw-bold fs-7 mt-3">{{product.producto.nombre}}</h2>
+                        <div class="d-flex justify-content-between w-100">
+                            <p class="m-0 fw-ligth fs-7">{{product.producto.tipo}}</p>
+                            <span class="fs-7 text-primario">$ {{product.producto.precio}}</span>
+                        </div>
                     </div>
+
                 </section>
                 <section class="col-12 col-md-4">
-                    <h2 class="fuente__pequeña border-bottom pb-2">Resumen de mi orden</h2>
-                    <h3 class="text-primary fuente__pequeña border-bottom py-4">Descuentos</h3>
-                    <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
-                        <p class="m-0 fw-bold fs-6">Cantidad total de productos:</p>
-                        <span class="fs-6">{{cantTotal}}</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
-                        <p class="m-0 fw-bold fs-6">Subtotal</p>
-                        <span class="fs-6">$ {{cestaTotal}}</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center pt-4  pb-5 border-bottom">
-                        <p class="m-0 fw-bold fs-6">Total estimado:</p>
-                        <span class="fw-bold text-primario">$ {{cestaTotal}}</span>
-                    </div>
-                    <div v-if="cesta.length > 0">
-                        <a href="./seccionTarjeta.html"
-                            class="fw-bold btn btn-success w-100">Finalizar Compra</a>
+                    <div class="bg-white shawdon p-3">
+                        <h2 class="fuente__pequeña border-bottom pb-2">Resumen total de compras</h2>
+                        <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+                            <p class="m-0 fw-bold fs-6">Cantidad total de productos:</p>
+                            <span class="fs-7"> Estamos trabajando duro para abrirlo proximamente!</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center pt-4  pb-5">
+                            <p class="m-0 fw-bold fs-6">Total:</p>
+                            <span class="fw-bold fs-7 text-primario">Estamos trabajando duro para abrirlo proximamente!</span>
+                        </div>
                     </div>
                 </section>
             </div>
-
         </main>
         <footer class="footercontact">
             <div class="container pt-5 position-relative">
-                <a href="../index.html"><img class="logos position-absolute border-orange top-0 bottom-0 mt-4 mt-md-3 bg-white p-2 rounded-2"
-                    src="../img/loguitos/logo_nuevo.svg" alt="Logo 101Apatita"></a>
+                <a href="../index.html"><img
+                        class="logos position-absolute border-orange top-0 bottom-0 mt-4 mt-md-3 bg-white p-2 rounded-2"
+                        src="../img/loguitos/logo_nuevo.svg" alt="Logo 101Apatita"></a>
                 <div class="col-lg-12 col-sm-12 col-xs-12">
                     <p class="py-3 m-0 text-center border-top-orange text-light">Grupo 3 © 2022 <a href="#"><span
                                 id="sfooter">101Apatita</span></a>.</p>

@@ -115,22 +115,32 @@ try {
                 favorito: false,
                 favoritosAdd: [],
 
+                // Historial compra
+                historialCompra: [],
+
+                // Datalist
+                datalist: "",
+
             }
         },
         created() {
             this.traerDatos();
             if (JSON.parse(localStorage.getItem('carrito'))) {
                 this.cesta = JSON.parse(localStorage.getItem('carrito'));
-            }
+            };
             if (JSON.parse(localStorage.getItem('producto'))) {
                 this.productoSuccess = JSON.parse(localStorage.getItem('producto'));
-            }
+            };
             if (JSON.parse(localStorage.getItem('ultimaCompra'))) {
                 this.ultimaCompra = JSON.parse(localStorage.getItem('ultimaCompra'));
-            }
+            };
             if (JSON.parse(localStorage.getItem('favoritos'))) {
                 this.favoritosAdd = JSON.parse(localStorage.getItem('favoritos'));
-            }
+            };
+            if (JSON.parse(localStorage.getItem('historialCompra'))) {
+                this.historialCompra = JSON.parse(localStorage.getItem('historialCompra'));
+            };
+            this.datalist = "";
         },
         mounted() {
         },
@@ -193,6 +203,8 @@ try {
                             }
                             this.favorito = false;
                         }
+
+                        console.log(this.datalist)
 
                     })
                     .catch((error) => {
@@ -273,9 +285,16 @@ try {
                 this.productoSuccess = this.cesta;
                 localStorage.setItem('producto', JSON.stringify(this.productoSuccess));
 
+                // Ultima compra
                 this.ultimaCompra = this.productoSuccess.slice(0, 4);
                 localStorage.setItem('ultimaCompra', JSON.stringify(this.ultimaCompra));
 
+                // Historial de compra
+                this.historialCompra.push(this.productoSuccess);
+                localStorage.setItem('historialCompra', JSON.stringify(this.historialCompra));
+
+
+                // Datos tarjeta
                 localStorage.setItem('datostarjeta', JSON.stringify(this.objTarjeta));
 
                 let timerInterval
@@ -378,10 +397,22 @@ try {
                 localStorage.setItem('favoritos', JSON.stringify(valor));
 
                 this.favorito = false;
+            },
+            dataList(){
+                // datalist
+                if (this.datalist.length > 0) {
+                    const valor = this.productos.filter(element => element.nombre.toLowerCase().includes(this.datalist.toLowerCase()));
+                    
+                    if(valor.length > 0){
+                        window.location.href = `./html/detailsCard.html?id=${valor[0]._id}`
+                        return
+                    }
+                }
             }
         },
         computed: {
             superFiltro() {
+
                 let filtro1 = this.backup.filter(event => event.nombre.toLowerCase().includes(this.search.toLowerCase()));
 
                 // Medicina
@@ -504,7 +535,7 @@ try {
                 return cant;
             },
 
-        }
+        },
     }).mount('#app')
 
 } catch (error) {
