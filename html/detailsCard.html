@@ -96,7 +96,7 @@
                                                 productoAdd.producto.precio}}
 
                                                 <button
-                                                    class="px-2 pb-1 btn-danger ms-2 text-light fw-bold rounded-circle"
+                                                    class="px-2 pb-1 btn-danger bg-danger ms-2 text-light fw-bold rounded-circle"
                                                     @click.stop="quitarCesta(productoAdd.producto._id)">x</button>
                                             </li>
                                         </div>
@@ -231,7 +231,7 @@
 
                         <div class="border-1 pt-2 border-top d-flex justify-content-between w-100">
                             <h2 class="fs-7 ">Stock:</h2>
-                            <span class="fs-7">{{cardProduct.stock > valorCompra ? cardProduct.stock - valorCompra : 'Stock no disponible'}}</span>
+                            <span class="fs-7">{{cardProduct.stock ? cardProduct.stock : 'Stock no disponible'}}</span>
                         </div>
 
                         <div class="border-1 pt-2 border-top d-flex justify-content-between w-100">
@@ -247,7 +247,7 @@
                                 <button @click="sumarValor" class="fw-bold btn btn-success rounded-0">+</button>
                             </div>
                             <div class="ms-4">
-                                <button v-if="cardProduct.stock >= valorCompra" @click="agregarCesta(cardProduct, valorCompra)"
+                                <button v-if="cardProduct.stock >= valorCompra || cardProduct.stock > 0" @click="agregarCesta(cardProduct, valorCompra)"
                                     class="btn bg-primario bg-primario-details fw-bold rounded-2 text-light">Añadir al carrito</button>
 
                                 <div v-if="cardProduct.stock === 0">

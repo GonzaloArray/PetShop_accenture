@@ -308,8 +308,10 @@
                             </a>
                             <div class="d-flex justify-content-between align-items-center w-100 px-3 flex-auto">
                                 <p class="m-0">${{producto.precio.toLocaleString()}}</p>
-                                <button @click="agregarCesta(producto)"
+                                <button v-if="producto.stock > 0" @click="agregarCesta(producto)"
                                     class="fw-bold fs-7 btn bg-primary rounded-3 py-1 px-2 text-light">Comprar</button>
+                                <button v-else
+                                    class="fw-bold fs-7 btn bg-primario-40 rounded-3 py-1 px-2 text-light">No disponible</button>
                             </div>
                             <div class="text-hidden">
                                 <h5 class="text-start fw-bold fuente-title">{{producto.nombre}}</h5>
@@ -334,7 +336,11 @@
                                 alt="Favorito no check"></button>
 
                         <h2 class="position-absolute mt-3 top-0 py-1 ms-3 px-2 fs-7 bg-danger text-light rounded-3"
-                            v-if="producto.stock < 4">
+                            v-if="producto.stock == 0">
+                            Sin stock!
+                        </h2>
+                        <h2 class="position-absolute mt-3 top-0 py-1 ms-3 px-2 fs-7 bg-warning text-light rounded-3"
+                            v-else-if="producto.stock < 4">
                             Poco stock!
                         </h2>
                     </div>

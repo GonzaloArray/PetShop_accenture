@@ -79,13 +79,13 @@ try {
 
                 //tarjeta
                 objTarjeta: {
-                numerostarjeta: [],
-                fechaexpiracion: [],
-                codigoseguridad: [],
-                cuotas: [],
-                nombreyapellido: [],
-                tipodni: [],
-                nrodni:[],
+                    numerostarjeta: [],
+                    fechaexpiracion: [],
+                    codigoseguridad: [],
+                    cuotas: [],
+                    nombreyapellido: [],
+                    tipodni: [],
+                    nrodni: [],
                 },
                 // //objetotarjeta
                 // objtarjeta: {},
@@ -103,7 +103,7 @@ try {
                 // Card Details Product
                 cardProduct: [],
 
-                valorCompra: 1,
+                valorCompra: 0,
 
                 // Error seccion detailsCard
                 errorCard: false,
@@ -175,21 +175,7 @@ try {
 
                         // details
                         let id = new URLSearchParams(location.search).get('id');
-                        this.adoptar = this.perritosAdoptar.find(element => element.id === id);
-                        if (id !== null) {
-                            this.cardProduct = this.productos.find(element => element._id === id);
 
-                            const valor = this.cesta.filter(element => {
-                                if (element.producto._id == this.cardProduct._id) {
-                                    return element.producto;
-                                }
-                            })
-
-                            if (valor.length > 0) {
-                                this.cardProduct = valor[0].producto;
-                            }
-
-                        }
 
                         if (true) {
                             const valor = this.favoritosAdd.filter(favorito => {
@@ -204,7 +190,56 @@ try {
                             this.favorito = false;
                         }
 
-                        console.log(this.datalist)
+
+                        // Juguete
+                        this.productoSeccion.juguetes.map(element => {
+                            this.cesta.filter(cesta => {
+                                if (cesta.producto._id === element._id) {
+                                    return element.stock = cesta.producto.stock;
+                                }
+                            })
+
+                            return element
+                        });
+                        // console.log(this.productoSeccion.juguetes)
+                        // Medicamentos
+                        this.productoSeccion.medicamentos.map(element => {
+                            this.cesta.filter(cesta => {
+                                if (cesta.producto._id === element._id) {
+                                    return element.stock = cesta.producto.stock;
+                                }
+                            })
+
+                            return element
+                        });
+                        // Productos en general
+                        this.productos.map(element => {
+                            this.cesta.filter(cesta => {
+                                if (cesta.producto._id === element._id) {
+                                    return element.stock = cesta.producto.stock;
+                                }
+                            })
+
+                            return element
+                        });
+
+                        console.log(document.title)
+
+                        // Logica de cardDetails
+                        this.adoptar = this.perritosAdoptar.find(element => element.id === id);
+                        if (id !== null) {
+
+
+                            this.cardProduct = this.productoSeccion.juguetes.find(element => element._id === id);
+
+                            /*  const valor = this.cesta.filter(element => {
+                                 if (element.producto._id == this.cardProduct._id) {
+                                     return element.producto;
+                                 }
+                             }) */
+
+                        }
+                        console.log(this.cesta)
 
                     })
                     .catch((error) => {
@@ -220,6 +255,7 @@ try {
 
 
                 let prodExistente;
+
                 let exitente = this.cesta.filter((item, index) => {
                     if (item.producto._id == producto._id) {
                         prodExistente = index;
@@ -232,27 +268,33 @@ try {
 
                 if (exitente.length && cant1 > 1) {
                     this.cesta[prodExistente].cant = this.cesta[prodExistente].cant + cant1;
-                    this.cesta[prodExistente].stock = this.cesta[prodExistente].stock - cant1;
+                    this.cesta[prodExistente].producto.stock = this.cesta[prodExistente].producto.stock - cant1;
+
+
                     localStorage.setItem('carrito', JSON.stringify(this.cesta));
 
                     return;
 
                 } else if (exitente.length) {
+                    console.log(this.cesta[prodExistente].cant)
                     this.cesta[prodExistente].cant++;
-                    this.cesta[prodExistente].stock--;
+                    this.cesta[prodExistente].producto.stock--;
+
                     localStorage.setItem('carrito', JSON.stringify(this.cesta));
 
                     return;
 
                 } else if (cant1 > 1 && exitente.length == 0) {
                     producto.stock = producto.stock - cant1;
+                    console.log(this.cesta)
                     this.cesta.push({ producto: producto, cant: cant1 })
                     localStorage.setItem('carrito', JSON.stringify(this.cesta));
 
                     return;
 
                 } else {
-                    producto.stock = producto.stock--;
+                    producto.stock--;
+                    console.log(this.cesta)
                     this.cesta.push({ producto: producto, cant: 1 })
                     localStorage.setItem('carrito', JSON.stringify(this.cesta));
 
@@ -261,6 +303,7 @@ try {
                 }
             },
             quitarCesta(producto) {
+
                 const valor = this.cesta.filter(element => {
                     if (element.producto._id == producto && element.cant >= 1) {
                         element.cant--;
@@ -268,8 +311,45 @@ try {
                     return element;
                 }).filter(element2 => element2.cant >= 1);
 
+
                 this.cesta = valor;
                 localStorage.setItem('carrito', JSON.stringify(this.cesta));
+
+                if (document.title == "101Apatita - Producto") {
+                    this.cardProduct.stock++;
+                    this.valorCompra--;
+                    return
+                } else {
+                    this.productoSeccion.juguetes.map(element => {
+                        this.cesta.filter(cesta => {
+                            if (cesta.producto._id === element._id) {
+                                return element.stock = cesta.cant;
+                            }
+                        })
+
+                        return element
+                    });
+                    // Mediccamentos
+                    this.productoSeccion.medicamentos.map(element => {
+                        this.cesta.filter(cesta => {
+                            if (cesta.producto._id === element._id) {
+                                return element.stock = cesta.cant;
+                            }
+                        })
+
+                        return element
+                    });
+                    this.productos.map(element => {
+                        this.cesta.filter(cesta => {
+                            if (cesta.producto._id === element._id) {
+                                return element.stock = cesta.cant;
+                            }
+                        })
+
+                        return element
+                    });
+                }
+
             },
             //Contact
             enviarsubmit() {
@@ -382,14 +462,14 @@ try {
             },
 
             // Agregar a fav
-            agregarFav(product){
-                this.favoritosAdd.push({product, fav: true});
+            agregarFav(product) {
+                this.favoritosAdd.push({ product, fav: true });
                 localStorage.setItem('favoritos', JSON.stringify(this.favoritosAdd));
 
                 this.favorito = true;
 
             },
-            eleminarFav(id){
+            eleminarFav(id) {
                 console.log("hola")
                 const valor = this.favoritosAdd.filter(producto => producto.product._id !== id)
                 this.favoritosAdd = valor;
@@ -398,12 +478,12 @@ try {
 
                 this.favorito = false;
             },
-            dataList(){
+            dataList() {
                 // datalist
                 if (this.datalist.length > 0) {
                     const valor = this.productos.filter(element => element.nombre.toLowerCase().includes(this.datalist.toLowerCase()));
-                    
-                    if(valor.length > 0){
+
+                    if (valor.length > 0) {
                         window.location.href = `./html/detailsCard.html?id=${valor[0]._id}`
                         return
                     }
@@ -541,5 +621,3 @@ try {
 } catch (error) {
     // window.location.href = "./error.html";
 }
-
-
