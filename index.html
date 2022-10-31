@@ -49,8 +49,8 @@
                 <div class="container d-flex justify-content-between text-light py-1">
                     <p class="m-0 fw-bold">EN</p>
                     <div class="d-flex">
-                        <a class="me-3" href=""><img src="../img/icon/instagram.svg" alt="Instagram"></a>
-                        <a class="me-3" href=""><img src="../img/icon/facebook.svg" alt="Facebook 101Patita"></a>
+                        <a class="me-3" target="_blank" href="https://www.instagram.com/sientounapatita/"><img src="../img/icon/instagram.svg" alt="Instagram"></a>
+                        <a class="me-3" target="_blank" href="https://www.facebook.com/profile.php?id=100087470436778"><img src="../img/icon/facebook.svg" alt="Facebook 101Patita"></a>
                         <a class="me-3" href=""><img src="../img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a>
                         <a href="#adopcion"><img src="../img/icon/dogAdopta.svg" alt="Adopta 101patita"></a>
                     </div>
@@ -72,12 +72,15 @@
                         <div class="d-flex align-items-center">
                             <div>
                                 <div class="d-flex rounded-pill position-relative">
-                                    <input v-model="datalist" class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
+                                    <input v-model="datalist"
+                                        class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
                                         type="search" placeholder="Search" aria-label="Search" list="browsers">
                                     <datalist id="browsers">
                                         <option v-for="producto in productos" :value="producto.nombre">
                                     </datalist>
-                                    <button @click="dataList" class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"><img src="./img/icon/search.svg" alt="Buscador search"></button>
+                                    <button @click="dataList"
+                                        class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"><img
+                                            src="./img/icon/search.svg" alt="Buscador search"></button>
                                 </div>
                             </div>
 
@@ -179,6 +182,12 @@
                                 <li><a class="dropdown-item" href="./html/contacto.html">
                                         <img class="mb-1 me-2" src="./img/icon/favoritoCheck.svg"
                                             alt="Todos los productos">Conctacto</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="./html/sucursales.html">
+                                        <img class="mb-1 me-2" src="./img/iconosNav/allProducts.svg"
+                                            alt="Todos los productos">Sucursales</a></li>
 
                             </ul>
                         </li>
@@ -197,6 +206,7 @@
                                             alt="Todos los productos">Compras</a></li>
                             </ul>
                         </li>
+
                         <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end"
                             href="./html/carritoCompra.html">
                             <div class="btn rounded-pill bg-primario-black text-light">

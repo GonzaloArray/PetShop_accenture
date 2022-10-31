@@ -163,7 +163,7 @@ try {
                                 this.categorias.push(event.tipo)
                             }
                         });
-
+                        console.log(document.title)
 
                         this.backup = this.productos;
                         this.backupJuguete = this.productoSeccion.juguetes;
@@ -483,8 +483,11 @@ try {
                 if (this.datalist.length > 0) {
                     const valor = this.productos.filter(element => element.nombre.toLowerCase().includes(this.datalist.toLowerCase()));
 
-                    if (valor.length > 0) {
+                    if (document.title === "101Apatita - Principal" && valor.length > 0) {
                         window.location.href = `./html/detailsCard.html?id=${valor[0]._id}`
+                        return
+                    }else{
+                        window.location.href = `./detailsCard.html?id=${valor[0]._id}`
                         return
                     }
                 }

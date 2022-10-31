@@ -42,10 +42,10 @@
                 <div class="container d-flex justify-content-between text-light py-1">
                     <p class="m-0 fw-bold">EN</p>
                     <div class="d-flex">
-                        <a class="me-3" href=""><img src="../img/icon/instagram.svg" alt="Instagram"></a>
-                        <a class="me-3" href=""><img src="../img/icon/facebook.svg" alt="Facebook 101Apatita"></a>
-                        <a class="me-3" href=""><img src="../img/icon/linkedin.svg" alt="Linkedin 101Apatita"></a>
-                        <a href=""><img src="../img/icon/dogAdopta.svg" alt="Adopta 101Apatita"></a>
+                        <a class="me-3" target="_blank" href="https://www.instagram.com/sientounapatita/"><img src="../img/icon/instagram.svg" alt="Instagram"></a>
+                        <a class="me-3" target="_blank" href="https://www.facebook.com/profile.php?id=100087470436778"><img src="../img/icon/facebook.svg" alt="Facebook 101Patita"></a>
+                        <a class="me-3" href=""><img src="../img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a>
+                        <a href="#adopcion"><img src="../img/icon/dogAdopta.svg" alt="Adopta 101patita"></a>
                     </div>
                 </div>
             </section>
@@ -54,8 +54,8 @@
             <div class="d-md-flex flex-md-column shadow justify-content-between w-100">
                 <div class="bg-primario-black py-2 py-lg-1">
                     <div class="container d-flex justify-content-between flex-wrap">
-                        <a class="navbar-brand" href="../index.html"><img class="logos"
-                            src="../img/loguitos/logo_nuevo.png" alt="Logo 101Patitas"></a>
+                        <a class="navbar-brand" href="../index.html"><img class="logos" src="../img/loguitos/logo_nuevo.png"
+                                alt="Logo 101Patitas"></a>
                         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -63,16 +63,21 @@
                         </button>
 
                         <div class="d-flex align-items-center">
-                            <form class="">
+                            <div>
                                 <div class="d-flex rounded-pill position-relative">
-                                    <input class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
-                                        type="search" placeholder="Search" aria-label="Search">
-                                    <button class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"
-                                        type="submit"><img src="../img/icon/search.svg" alt="Buscador search"></button>
+                                    <input v-model="datalist"
+                                        class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
+                                        type="search" placeholder="Search" aria-label="Search" list="browsers">
+                                    <datalist id="browsers">
+                                        <option v-for="producto in productos" :value="producto.nombre">
+                                    </datalist>
+                                    <button @click="dataList"
+                                        class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"><img
+                                            src="../img/icon/search.svg" alt="Buscador search"></button>
                                 </div>
-                            </form>
+                            </div>
 
-                            <a class="d-none d-lg-block ms-3 btn btn bg-primario rounded-pill" href="#"><img
+                            <a class="d-none d-lg-block ms-3 btn bg-primario rounded-pill" href="#"><img
                                     src="../img/icon/user.svg" alt="User Login"></a>
                             <div class="position-relative ms-2">
                                 <div class="dropdown">
@@ -85,8 +90,10 @@
                                         <div class="text-dark" v-for="productoAdd in cesta">
                                             <li class="d-flex justify-content-start align-items-center my-2">
 
-                                                <img class="logo" :src="productoAdd.producto.imagen"
-                                                    :alt="productoAdd.producto.nombre">
+                                                <a :href="'./html/detailsCard.html?id='+productoAdd.producto._id">
+                                                    <img class="logo" :src="productoAdd.producto.imagen"
+                                                        :alt="productoAdd.producto.nombre">
+                                                </a>
 
                                                 <span
                                                     class="px-2 fw-bold text-light bg-primary mx-2 rounded-1">{{productoAdd.cant}}</span>
@@ -102,27 +109,35 @@
 
                                         <p class="border-top text-dark nav-link m-0 py-3"><b>Total:</b>
                                             ${{cestaTotal}}</p>
+
+                                        <div v-if="cesta.length > 0">
+                                            <button @click="vaciarCarrito"
+                                                class="fw-bold btn btn-danger w-100 mb-3">Vaciar carrito</button>
+                                            <a href="./seccionTarjeta.html"
+                                                class="fw-bold btn btn-success w-100">Finalizar Compra</a>
+                                        </div>
                                     </ul>
                                 </div>
                                 <div class="position-absolute top-0">
                                     <p class="px-2 bg-white rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
                                 </div>
                             </div>
-                            <p class="text-light my-0 ms-2 d-none d-lg-block btn bg-primario rounded-pill">${{cestaTotal}}</p>
+                            <p class="text-light my-0 ms-2 d-none d-lg-block btn bg-primario rounded-pill">
+                                ${{cestaTotal}}</p>
 
                         </div>
                     </div>
                 </div>
 
                 <section class="bg-primario collapse navbar-collapse" id="navbarScroll">
-                    <div class="container d-flex m-auto align-items-center justify-content-center flex-wrap py-2 row">
+                    <div class="container d-flex m-auto align-items-center justify-content-center flex-wrap py-2">
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img class="mb-1" src="../img/iconosNav/shopping.svg" alt="Productos">
                                 Productos
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <ul class="dropdown-menu width__ul__menu" aria-labelledby="navbarScrollingDropdown">
                                 <li><a class="dropdown-item" href="./juguetes.html"><img class="mb-1 me-2"
                                             src="../img/iconosNav/toys.svg" alt="Productos de juguetes"> Juguetes</a>
                                 </li>
@@ -141,59 +156,55 @@
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img class="mb-1" src="../img/iconosNav/cat.svg" alt="Productos Gatos">
-                                Gatitos
+                                Mascotas
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Proximamente</a></li>
                             </ul>
                         </li>
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img class="mb-1" src="../img/iconosNav/fish.svg" alt="Productos">
-                                Pez
+                                Ayuda
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="./promocionesbancarias.html">
+                                        <img class="mb-1 me-2" src="../img/icon/favoritoCheck.svg"
+                                            alt="Todos los productos">Promociones</a></li>
+                                <li><a class="dropdown-item" href="./contacto.html">
+                                        <img class="mb-1 me-2" src="../img/icon/favoritoCheck.svg"
+                                            alt="Todos los productos">Conctacto</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </li>
+                                <li><a class="dropdown-item" href="./sucursales.html">
+                                        <img class="mb-1 me-2" src="../img/iconosNav/allProducts.svg"
+                                            alt="Todos los productos">Sucursales</a></li>
+
                             </ul>
                         </li>
                         <li class="text-md-center nav-item dropdown col-6 col-md-2">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img class="mb-1" src="../img/iconosNav/bird.svg" alt="Productos">
-                                Pajaritos
+                                Historial
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="./favoritos.html">
+                                        <img class="mb-1 me-2" src="../img/icon/favoritoCheck.svg"
+                                            alt="Todos los productos">Favoritos</a></li>
+                                <li><a class="dropdown-item" href="./historialCompra.html">
+                                        <img class="mb-1 me-2" src="../img/icon/comprados.svg"
+                                            alt="Todos los productos">Compras</a></li>
                             </ul>
                         </li>
-                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end" href="./promocionesbancarias.html">
+
+                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end"
+                            href="./carritoCompra.html">
                             <div class="btn rounded-pill bg-primario-black text-light">
                                 <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Contactos">
-                                Promociones
-                            </div>
-                        </a>
-                        <a class="nav-link text-light col-6 col-md-2" href="./contacto.html">
-                            <div class="btn rounded-pill bg-primario-black text-light">
-                                <img class="mb-1" src="../img/iconosNav/otros.svg" alt="Contactos">
-                                Contactanos
+                                Mi carrito
                             </div>
                         </a>
                     </div>
