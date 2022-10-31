@@ -213,6 +213,9 @@
             </div>
         </nav>
         <main class="container flex-auto position-relative">
+            <div v-if="modal" class="modalUser shadow py-2 px-3 z-index bg-white rounded-0 mt-4">
+                <h2 class="fs-5 m-0 text-success">Se agrego al carrito correctamente</h2>
+            </div>
             <section v-if="errorCard">
                 <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
                     src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-danger">Algo salio mal.</span></h2>
