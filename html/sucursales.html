@@ -211,9 +211,11 @@
         <main class="container flex-auto">
             <div class="mx-3 my-2 mt-4">
                 <h2 class="mt-5 fs-4">Seleccioná Tu Localidad</h2>
+                <p class=" fs-5">Seleccione una sucursal para verificar nuestra ubicación, horarios y los servicios que ofrecemos. Hoy 101Apatita se encuentra conformada por 5 sucursales en todo Buenos Aires.</p>
                 <form class="row">
                     <select v-model="seleccionado" class="mb-3 col-md-3 ms-md-3">
-                        <option selected value="formulario1" class="seleccionado">Almagro</option>
+                        <option selected="true" disabled>Elija una Sucursal</option>
+                        <option value="formulario1" >Almagro</option>
                         <option value="formulario2">Nuñez</option>
                         <option value="formulario3">Loma Hermosa</option>
                         <option value="formulario4">Hurlingham</option>
