@@ -14,6 +14,10 @@
     <meta name="keywords" content="Gato">
     <meta name="keywords" content="Eccomerce">
 
+    <!-- Sweet -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <!-- Fivicon -->
     <link rel="shortcut icon" href="./img/loguitos/favicon.svg" type="image/x-icon">
 
@@ -112,7 +116,7 @@
                                             <button @click="vaciarCarrito"
                                                 class="fw-bold btn btn-danger w-100 mb-3">Vaciar carrito</button>
                                             <a href="./html/seccionTarjeta.html"
-                                                class="fw-bold btn btn-success w-100">Comprar Producto</a>
+                                                class="fw-bold btn btn-success w-100">Finalizar Compra</a>
                                         </div>
                                     </ul>
                                 </div>
@@ -164,10 +168,15 @@
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img class="mb-1" src="./img/iconosNav/fish.svg" alt="Productos">
-                                Peces
+                                Ayuda
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Proximamente</a></li>
+                                <li><a class="dropdown-item" href="./html/promocionesbancarias.html">
+                                        <img class="mb-1 me-2" src="./img/icon/favoritoCheck.svg"
+                                            alt="Todos los productos">Promociones</a></li>
+                                <li><a class="dropdown-item" href="./html/contacto.html">
+                                        <img class="mb-1 me-2" src="./img/icon/favoritoCheck.svg"
+                                            alt="Todos los productos">Conctacto</a></li>
 
                             </ul>
                         </li>
@@ -179,37 +188,34 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li><a class="dropdown-item" href="./html/favoritos.html">
-                                    <img class="mb-1 me-2" src="./img/icon/favoritoCheck.svg"
-                                        alt="Todos los productos">Favoritos</a></li>
+                                        <img class="mb-1 me-2" src="./img/icon/favoritoCheck.svg"
+                                            alt="Todos los productos">Favoritos</a></li>
                                 <li><a class="dropdown-item" href="./html/historialCompra.html">
-                                    <img class="mb-1 me-2" src="./img/icon/comprados.svg"
-                                        alt="Todos los productos">Compras</a></li>
+                                        <img class="mb-1 me-2" src="./img/icon/comprados.svg"
+                                            alt="Todos los productos">Compras</a></li>
                             </ul>
                         </li>
                         <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end"
-                            href="./html/promocionesbancarias.html">
+                            href="./html/carritoCompra.html">
                             <div class="btn rounded-pill bg-primario-black text-light">
                                 <img class="mb-1" src="./img/iconosNav/roedores.svg" alt="Contactos">
-                                Promociones
-                            </div>
-                        </a>
-                        <a class="nav-link text-light col-6 col-md-2" href="./html/contacto.html">
-                            <div class="btn rounded-pill bg-primario-black text-light">
-                                <img class="mb-1" src="./img/iconosNav/otros.svg" alt="Contactos">
-                                Contactanos
+                                Mi carrito
                             </div>
                         </a>
                     </div>
                 </section>
             </div>
         </nav>
-        <main class="container-lg mt-5">
+        <main class="container-lg mt-5 position-relative">
+            <div v-if="modal" class="modalUser shadow py-2 px-3 z-index bg-white rounded-0">
+                <h2 class="fs-5 m-0 text-success">Se agrego al carrito correctamente</h2>
+            </div>
             <!-- Indice -->
             <h1 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
                     src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Home</span></h1>
 
             <!-- Bienvenida -->
-            <div class="bg-terciario border border-1 border-dark position-relative">
+            <div class="bg-terciario position-relative">
                 <div class="row py-4 align-items-start px-4">
                     <h2
                         class="position-relative text-light py-1 rounded-3 fw-bold bg-primario-black fs-4 text-center align-items-center col-md-5">
@@ -238,8 +244,6 @@
 
                     </div>
                 </div>
-                <img class="position-absolute end-0 ms-3 bottom-0 me-3  animacionBienvenida"
-                    src="./img/loguitos/logo_nuevo.svg" alt="Icono de bienvenida">
                 <img class="d-none d-md-block position-absolute bienvenida" src="./img/imgIndex/perroBienvenida.png"
                     alt="Perro de bienvenida">
             </div>
@@ -255,8 +259,7 @@
 
 
             <!-- Banner de adopta no compres -->
-            <div
-                class="adopcion d-flex justify-content-center align-items-center py-4 border-1 border border-dark position-relative">
+            <div class="adopcion d-flex justify-content-center align-items-center py-4 position-relative">
                 <h5 class="fs-2 m-0 text-center text-light">Adopta, no compres...</h5>
                 <img class="position-absolute logo-adopte" src="./img/loguitos/logo_nuevo.svg" alt="Adopta no compres">
                 <img src="./img/loguitos/perrito_animado_noAdoptes.svg" class="position-absolute perrito-adopte"
@@ -300,7 +303,8 @@
             <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
                     src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Adopción</span></h2>
 
-            <h3 class="fs-6">Adopta con solo un click <img src="./img/icon/dogAdoptaBlack.svg" alt="Adoptar con un solo click"></h3>
+            <h3 class="fs-6">Adopta con solo un click <img src="./img/icon/dogAdoptaBlack.svg"
+                    alt="Adoptar con un solo click"></h3>
             <div id="adopcion" class="row g-2 g-md-5">
                 <!-- <h3 class="fw-bold fs-6">Adopta con un solo click</h3> -->
                 <div class="col-6 col-sm-3" v-for=" perritos in perritosAdoptar">
@@ -450,8 +454,8 @@
 
 
         <footer class="footer">
-            <div class=" bg-primario-black border border-dark my-3">
-                <div class="row px-0 py-4 m-auto container d-none d-sm-flex">
+            <div class=" bg-primario-black my-3">
+                <div class="row px-0 py-3 m-auto container d-none d-sm-flex">
                     <h2 class="col-4 fs-5 text-light m-0">Nosotros</h2>
                     <h2 class="col-4 fs-5 text-light m-0">Tienda Online</h2>
                     <h2 class="col-4 fs-5 text-light m-0">Suscripción</h2>
@@ -492,10 +496,9 @@
                         <h2 class="fs-5 bg-primario-black py-2 text-light text-center d-sm-none">Suscripción</h2>
                         <div>
                             <div class="mt-4 mt-sm-0">
-                                <form class="d-flex subscribe__input">
-                                    <input type="text" class="border-0 " placeholder="Ingrese su correo">
-                                    <button type="button" class=""><i class="fas fa-paper-plane"></i></button>
-                                </form>
+                                <button @click="suscripcion"
+                                    class="btn hover-primario bg-primario text-light text-center">Suscribirse con un
+                                    click!</button>
                             </div>
                         </div>
                         <div class="social_profile">

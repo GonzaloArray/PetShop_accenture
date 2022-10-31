@@ -1167,3 +1167,21 @@ input[type="text"] {
 .width__ul__menu{
     width: 15rem;
 }
+.hover-primario:hover{
+    background-color: var(--terciario-sombra)!important;
+}
+.swal2-styled.swal2-confirm{
+    background-color: var(--primario);
+}
+.swal2-container.swal2-backdrop-show{
+    margin-top: 8rem;
+    background-color: transparent!important;
+}
+
+/* modal */
+.modalUser{
+    position: fixed;
+    top: 8.5rem;
+    right: 16%;
+    transition: all 0.5s ease-in-out;
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>101Apatita - Favoritos</title>
+
+    <meta name="description" content="Tus productos favoritos en un solo lugar, esperamos tener los productos adecuados para tu mayor felicidad para vos y tus peluditos.       ">
+
+    <link rel="shortcut icon" href="../img/loguitos/favicon.svg" type="image/x-icon">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;800&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Style Css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleHEADERYFOOTER.css">
+
+</head>
+
+<body class="bg-blanco">
+    <div id="app" class="d-flex flex-column vh-100">
+        <header>
+            <section class="bg-primario-black">
+                <div class="container d-flex justify-content-between text-light py-1">
+                    <p class="m-0 fw-bold">EN</p>
+                    <div class="d-flex">
+                        <a class="me-3" href=""><img src="../img/icon/instagram.svg" alt="Instagram"></a>
+                        <a class="me-3" href=""><img src="../img/icon/facebook.svg" alt="Facebook 101Patita"></a>
+                        <a class="me-3" href=""><img src="../img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a>
+                        <a href=""><img src="../img/icon/dogAdopta.svg" alt="Adopta 101patita"></a>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <nav class="position-sticky top-0 start-0 end-0 navbar navbar-expand-lg navbar-light z-index p-0">
+            <div class="d-md-flex flex-md-column shadow justify-content-between w-100">
+                <div class="bg-primario-black py-2 py-lg-1">
+                    <div class="container d-flex justify-content-between flex-wrap">
+                        <a class="navbar-brand" href="../index.html"><img class="logos"
+                                src="../img/loguitos/logo_nuevo.png" alt="Logo 101Patitas"></a>
+                        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <img src="../img/icon/menu.svg" alt="Menu hamburguesa">
+                        </button>
+
+                        <div class="d-flex align-items-center">
+                            <form class="">
+                                <div class="d-flex rounded-pill position-relative">
+                                    <input class="fw-bold fuente__pequeña rounded-pill border-0 px-4 py-2 me-2"
+                                        type="search" placeholder="Search" aria-label="Search">
+                                    <button class="border-0 rounded-pill px-4 position-absolute bottom-0 top-0 end-0"
+                                        type="submit"><img src="../img/icon/search.svg" alt="Buscador search"></button>
+                                </div>
+                            </form>
+
+                            <a class="d-none d-lg-block ms-3 btn btn bg-primario rounded-pill" href="#"><img
+                                    src="../img/icon/user.svg" alt="User Login"></a>
+                            <div class="position-relative ms-2">
+                                <div class="dropdown">
+                                    <button class="btn bg-primario rounded-pill dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="../img/icon/carrito.svg" alt="Carrito compra">
+                                    </button>
+
+                                    <ul class="dropdown-menu widhtCard px-3" aria-labelledby="dropdownMenuButton1">
+                                        <div class="text-dark" v-for="productoAdd in cesta">
+                                            <li class="d-flex justify-content-start align-items-center my-2">
+
+                                                <img class="logo" :src="productoAdd.producto.imagen"
+                                                    :alt="productoAdd.producto.nombre">
+
+                                                <span
+                                                    class="px-2 fw-bold text-light bg-primary mx-2 rounded-1">{{productoAdd.cant}}</span>
+
+                                                {{productoAdd.producto.nombre}} - ${{productoAdd.cant *
+                                                productoAdd.producto.precio}}
+
+                                                <button
+                                                    class="px-2 pb-1 btn-danger ms-2 text-light fw-bold rounded-circle"
+                                                    @click.stop="quitarCesta(productoAdd.producto._id)">x</button>
+                                            </li>
+                                        </div>
+
+                                        <a class="border-top text-dark nav-link" href="#"><b>Total:</b>
+                                            ${{cestaTotal}}</a>
+                                        <div v-if="cesta.length > 0">
+                                            <a href="./seccionTarjeta.html"
+                                                class="fw-bold btn btn-success w-100">Comprar Producto</a>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="position-absolute top-0">
+                                    <p class="px-2 bg-white rounded-circle fuente__pequeña fw-bold">{{cantTotal}}</p>
+                                </div>
+                            </div>
+                            <p class="text-light my-0 ms-2 d-none d-lg-block btn bg-primario rounded-pill">
+                                ${{cestaTotal}}</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <section class="bg-primario collapse navbar-collapse" id="navbarScroll">
+                    <div class="container d-flex m-auto align-items-center justify-content-center flex-wrap py-2">
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="../img/iconosNav/shopping.svg" alt="Productos">
+                                Productos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="./juguetes.html"><img class="mb-1 me-2"
+                                            src="../img/iconosNav/toys.svg" alt="Productos de juguetes"> Juguetes</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./medicamentos.html"><img class="mb-1 me-2"
+                                            src="../img/iconosNav/medicine.svg" alt="Productos de medicina">
+                                        Medicina</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="./productos.html">
+                                        <img class="mb-1 me-2" src="../img/iconosNav/allProducts.svg"
+                                            alt="Todos los productos">Todos los productos</a></li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="../img/iconosNav/cat.svg" alt="Productos Gatos">
+                                Gatitos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="../img/iconosNav/fish.svg" alt="Productos">
+                                Pez
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="text-md-center nav-item dropdown col-6 col-md-2">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="mb-1" src="../img/iconosNav/bird.svg" alt="Productos">
+                                Pajaritos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <a class="text-light col-6 col-md-2 d-md-flex justify-content-md-end"
+                            href="./promocionesbancarias.html">
+                            <div class="btn rounded-pill bg-primario-black text-light">
+                                <img class="mb-1" src="../img/iconosNav/roedores.svg" alt="Contactos">
+                                Promociones
+                            </div>
+                        </a>
+                        <a class="nav-link text-light col-6 col-md-2" href="./contacto.html">
+                            <div class="btn rounded-pill bg-primario-black text-light">
+                                <img class="mb-1" src="../img/iconosNav/otros.svg" alt="Contactos">
+                                Contactanos
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </nav>
+        <main class="container-fluid container-lg flex-auto position-relative">
+            <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Tu carrito</span></h2>
+
+            <div v-if="favoritosAdd.length == 0">
+                <h2 class="fw-bold">No tienes productos favoritos todavia, ve en busca de uno!</h2>
+                <a href="./productos.html" class="btn bg-primario mt-4 fw-bold text-light">Elegir producto</a>
+
+                <img class="position-absolute bottom-0" src="../img/loguitos/perrito_animado_noAdoptes.svg" alt="Perrito de ayuda">
+            </div>
+            <div v-else class="row">
+                <div v-for=" product in favoritosAdd " class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 position-relative">
+                    <div class="card-index card-hover d-flex align-items-center ">
+                        <a class="position-relative" :href="'./detailsCard.html?id='+product._id">
+                            <img :src="product.imagen" class="w-100" :alt="product.nombre">
+                        </a>
+                        <div class="d-flex justify-content-between align-items-start mt-2 w-100 px-3 flex-auto">
+                            <p class="m-0">${{product.precio.toLocaleString()}}</p>
+                            <button @click="agregarCesta(product.producto)"
+                                class="fw-bold fs-7 btn bg-primary rounded-2 py-1 px-2 text-light">Comprar</button>
+                        </div>
+                        <div class="d-flex justify-content-start w-100">
+                            <h2 class="py-1 ms-3 px-2 fs-7 bg-danger text-light rounded-3 mt-1"
+                                v-if="product.stock < 4">
+                                Poco stock!
+                            </h2>
+                        </div>
+
+                        <div class="text-hidden">
+                            <h5 class="text-start fw-bold fuente-title">{{product.nombre}}</h5>
+                            <p class="text-start fuente-parrafo m-0">{{product.tipo}}</pc>
+                        </div>
+                    </div>
+                    <button class="position-absolute top-0 end-0 me-4 mt-3" v-if="favorito" @click="eleminarFav(product._id)"><img src="../img/icon/favoritoRed.svg" alt="Favorito check"></button>
+                </div>
+            </div>
+
+        </main>
+        <footer class="footercontact">
+            <div class="container pt-5 position-relative">
+                <a href="../index.html"><img class="logos position-absolute border-orange top-0 bottom-0 mt-4 mt-md-3 bg-white p-2 rounded-2"
+                    src="../img/loguitos/logo_nuevo.svg" alt="Logo 101Apatita"></a>
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <p class="py-3 m-0 text-center border-top-orange text-light">Grupo 3 © 2022 <a href="#"><span
+                                id="sfooter">101Apatita</span></a>.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Script bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

@@ -216,7 +216,11 @@
 
                     <div>
                         <h2>{{cardProduct.nombre}}</h2>
-                        <h3 class="text-primario">${{cardProduct.precio}} <span v-if="cardProduct.precio > 600" class="fs-6 mb-3 text-success">Envio gratis</span></h3>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="text-primario">${{cardProduct.precio}} <span v-if="cardProduct.precio > 600" class="fs-6 mb-3 text-success">Envio gratis</span></h3>
+                            <button v-if="favorito" @click="eleminarFav(cardProduct._id)"><img src="../img/icon/favoritoRed.svg" alt="Favorito check"></button>
+                            <button v-else @click="agregarFav(cardProduct)"><img src="../img/icon/favoritosWhite.svg" alt="Favorito no check"></button>
+                        </div>
                         <div class="row border-1 align-items-center border-top mt-3">
                             <p class="col-md-9 pt-2">{{cardProduct.descripcion}}</p>
                             <div class="d-none d-md-block col-md-3">
@@ -250,7 +254,7 @@
                                     <p class="fs-7">Se agotó el stock de {{cardProduct.nombre}}. Gracias por comprar en 101Apatita. Si deseas comprar más de nuestros productos</p>
                                     <div>
                                         <a href="./productos.html" class="btn btn-success fuente__pequeña">Ingrese aquí</a>
-                                        <button class="btn ms-3 bg-primario-40 fw-bold rounded-2 text-light">Producto Agotado</button>
+                                        <button class="btn mt-3 mt-sm-0 ms-3 bg-primario-40 fw-bold rounded-2 text-light">Producto Agotado</button>
                                     </div>
 
                                 </div>

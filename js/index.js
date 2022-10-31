@@ -100,7 +100,14 @@ try {
                 valorCompra: 1,
 
                 // Error seccion detailsCard
-                errorCard: false
+                errorCard: false,
+
+                // Modal
+                modal: false,
+
+                // Favorito
+                favorito: false,
+                favoritosAdd: [],
 
             }
         },
@@ -115,8 +122,11 @@ try {
             if (JSON.parse(localStorage.getItem('ultimaCompra'))) {
                 this.ultimaCompra = JSON.parse(localStorage.getItem('ultimaCompra'));
             }
-            if (JSON.parse(localStorage.getItem('cardProduct'))) {
-                this.cardProduct = JSON.parse(localStorage.getItem('cardProduct'));
+            if (JSON.parse(localStorage.getItem('favoritos'))) {
+                this.favoritosAdd = JSON.parse(localStorage.getItem('favoritos'));
+            }
+            if (this.favoritosAdd.length > 0) {
+                this.favorito = true;
             }
         },
         mounted() {
@@ -169,7 +179,7 @@ try {
                             }
 
                         }
-
+                        console.log(this.favorito)
 
                     })
                     .catch((error) => {
@@ -178,6 +188,12 @@ try {
                     })
             },
             agregarCesta(producto, cant1) {
+
+                this.modal = true
+                setTimeout(() => {
+                    this.modal = false;
+                }, 2000);
+
 
                 let prodExistente;
                 let exitente = this.cesta.filter((item, index) => {
@@ -293,9 +309,59 @@ try {
                     this.valorCompra++;
                 }
             },
-            vaciarCarrito(){
+            vaciarCarrito() {
                 this.cesta = []
                 localStorage.setItem('carrito', JSON.stringify(this.cesta));
+            },
+
+            // Suscripcion
+            suscripcion() {
+                Swal.fire({
+                    title: 'Ingrese su correo electronico',
+                    input: 'text',
+                    inputAttributes: {
+                        autocapitalize: 'off'
+                    },
+                    showCancelButton: true,
+                    confirmButtonText: 'Enviar',
+                    showLoaderOnConfirm: true,
+                    preConfirm: (login) => {
+                        return fetch(`//api.github.com/users/${login}`)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(response.statusText)
+                                }
+                                return response.json()
+                            })
+                            .catch(error => {
+                                Swal.showValidationMessage(
+                                    `Request failed: ${error}`
+                                )
+                            })
+                    },
+                    allowOutsideClick: () => !Swal.isLoading()
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: `${result.value.login} gracias por Suscribirte a 101Apatita`,
+                        })
+                    }
+                })
+            },
+
+            // Agregar a fav
+            agregarFav(product){
+                this.favoritosAdd.push(product)
+                localStorage.setItem('favoritos', JSON.stringify(this.favoritosAdd));
+
+                this.favorito = true;
+            },
+            eleminarFav(id){
+                const valor = this.favoritosAdd.filter(producto => producto._id !== id)
+                this.favoritosAdd = valor;
+                localStorage.setItem('favoritos', JSON.stringify(valor));
+
+                this.favorito = false;
             }
         },
         computed: {
@@ -426,7 +492,7 @@ try {
     }).mount('#app')
 
 } catch (error) {
-    window.location.href = "./error.html";
+    // window.location.href = "./error.html";
 }
 
 
