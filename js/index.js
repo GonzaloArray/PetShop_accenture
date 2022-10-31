@@ -78,11 +78,17 @@ try {
                 adoptar: [],
 
                 //tarjeta
+                objTarjeta: {
                 numerostarjeta: [],
                 fechaexpiracion: [],
                 codigoseguridad: [],
                 cuotas: [],
                 nombreyapellido: [],
+                tipodni: [],
+                nrodni:[],
+                },
+                // //objetotarjeta
+                // objtarjeta: {},
 
                 // Los primeros 4 productos
                 primerosProductos: [],
@@ -270,6 +276,7 @@ try {
                 this.ultimaCompra = this.productoSuccess.slice(0, 4);
                 localStorage.setItem('ultimaCompra', JSON.stringify(this.ultimaCompra));
 
+                localStorage.setItem('datostarjeta', JSON.stringify(this.objTarjeta));
 
                 let timerInterval
                 Swal.fire({
