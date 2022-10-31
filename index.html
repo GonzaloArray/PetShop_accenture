@@ -49,8 +49,11 @@
                 <div class="container d-flex justify-content-between text-light py-1">
                     <p class="m-0 fw-bold">EN</p>
                     <div class="d-flex">
-                        <a class="me-3" target="_blank" href="https://www.instagram.com/sientounapatita/"><img src="./img/icon/instagram.svg" alt="Instagram"></a>
-                        <a class="me-3" target="_blank" href="https://www.facebook.com/profile.php?id=100087470436778"><img src="./img/icon/facebook.svg" alt="Facebook 101Patita"></a>
+                        <a class="me-3" target="_blank" href="https://www.instagram.com/sientounapatita/"><img
+                                src="./img/icon/instagram.svg" alt="Instagram"></a>
+                        <a class="me-3" target="_blank"
+                            href="https://www.facebook.com/profile.php?id=100087470436778"><img
+                                src="./img/icon/facebook.svg" alt="Facebook 101Patita"></a>
                         <a class="me-3" href=""><img src="./img/icon/linkedin.svg" alt="Linkedin 101Patitas"></a>
                         <a href="#adopcion"><img src="./img/icon/dogAdopta.svg" alt="Adopta 101patita"></a>
                     </div>
@@ -221,6 +224,32 @@
         <main class="container-lg mt-5 position-relative">
             <div v-if="modal" class="modalUser shadow py-2 px-3 z-index bg-white rounded-0">
                 <h2 class="fs-5 m-0 text-success">Se agrego al carrito correctamente</h2>
+            </div>
+
+            <!-- Ciber monday -->
+            <div v-if="promocionModal > 0" class="ciberMonday mt-5 d-flex justify-content-center z-index">
+                <div class="modalWidth d-flex  shadow py-2 px-3 z-index bg-white rounded-3">
+                    <div class="row align-items-center">
+                        <div class="col-4">
+                            <img src="./img/loguitos/favicon.svg" alt="101Apatita">
+                        </div>
+                        <div class="col-8">
+                            <h2 class="fs-5 m-0 text-primario">Se viene Cybermonday!</h2>
+                            <p>Suscribite y recibí primero las Ofertas</p>
+                            <div class="mt-4 mt-sm-0 d-flex flex-column">
+                                <button @click="suscripcion"
+                                    class="btn hover-primario bg-primario text-light text-center">Suscribirse con un
+                                    click!</button>
+                                <button @click="cerrarPromocion"
+                                    class="btn btn-secondary mt-3 text-light text-center">Salir</button>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
             </div>
             <!-- Indice -->
             <h1 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
@@ -531,6 +560,7 @@
                 </div>
             </div>
         </footer>
+
     </div>
 
     <!-- Script bootstrap -->

@@ -121,6 +121,9 @@ try {
                 // Datalist
                 datalist: "",
 
+                // Modal ciber monday
+                promocionModal: 1
+
             }
         },
         created() {
@@ -139,6 +142,9 @@ try {
             };
             if (JSON.parse(localStorage.getItem('historialCompra'))) {
                 this.historialCompra = JSON.parse(localStorage.getItem('historialCompra'));
+            };
+            if (localStorage.getItem('promociones')) {
+                this.promocionModal =  parseInt(localStorage.getItem('promociones'));
             };
             this.datalist = "";
         },
@@ -190,7 +196,7 @@ try {
                             this.favorito = false;
                         }
 
-
+                        console.log(this.promocionModal);
                         // Juguete
                         this.productoSeccion.juguetes.map(element => {
                             this.cesta.filter(cesta => {
@@ -201,7 +207,7 @@ try {
 
                             return element
                         });
-                        // console.log(this.productoSeccion.juguetes)
+
                         // Medicamentos
                         this.productoSeccion.medicamentos.map(element => {
                             this.cesta.filter(cesta => {
@@ -231,12 +237,6 @@ try {
 
 
                             this.cardProduct = this.productoSeccion.juguetes.find(element => element._id === id);
-
-                            /*  const valor = this.cesta.filter(element => {
-                                 if (element.producto._id == this.cardProduct._id) {
-                                     return element.producto;
-                                 }
-                             }) */
 
                         }
                         console.log(this.cesta)
@@ -443,6 +443,9 @@ try {
                                 if (!response.ok) {
                                     throw new Error(response.statusText)
                                 }
+                                this.promocionModal = 0;
+                                localStorage.setItem('promociones', JSON.stringify(this.promocionModal));
+
                                 return response.json()
                             })
                             .catch(error => {
@@ -486,11 +489,14 @@ try {
                     if (document.title === "101Apatita - Principal" && valor.length > 0) {
                         window.location.href = `./html/detailsCard.html?id=${valor[0]._id}`
                         return
-                    }else{
+                    } else {
                         window.location.href = `./detailsCard.html?id=${valor[0]._id}`
                         return
                     }
                 }
+            },
+            cerrarPromocion() {
+                this.promocionModal = false;
             }
         },
         computed: {
@@ -622,5 +628,5 @@ try {
     }).mount('#app')
 
 } catch (error) {
-    // window.location.href = "./error.html";
+    window.location.href = "./error.html";
 }
