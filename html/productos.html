@@ -50,8 +50,8 @@
             <div class="d-md-flex flex-md-column shadow justify-content-between w-100">
                 <div class="bg-primario-black py-2 py-lg-1">
                     <div class="container d-flex justify-content-between flex-wrap">
-                        <a class="navbar-brand" href="../index.html"><img class="logos" src="../img/loguitos/logo_nuevo.png"
-                            alt="Logo 101Patitas Productos"></a>
+                        <a class="navbar-brand" href="../index.html"><img class="logos"
+                                src="../img/loguitos/logo_nuevo.png" alt="Logo 101Patitas Productos"></a>
                         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -303,31 +303,48 @@
                             <p class="text-dark rounded px-3 py-1 fs-4">No se ha encontrado el producto.</p>
                         </div>
                         <div v-if="error">
-                            <img class="notFound border-per" src="../img/loguitos/perrito_footer.gif" alt="not found fetch" />
+                            <img class="notFound border-per" src="../img/loguitos/perrito_footer.gif"
+                                alt="not found fetch" />
                             <p class="text-dark rounded  px-3 py-1 fs-4">Ooops... Algo salió mal.</p>
                         </div>
-                        <div v-for=" product in productos" class="col-6 col-md-4 col-lg-4 col-xl-3">
-                            <div class="card card-hover height-copia shadow d-flex align-items-center">
-                                <a class="position-relative" :href="'./detailsCard.html?id='+product._id">
-                                    <img class="card-imagen" :src="product.imagen" :alt="product.nombre">
-                                </a>
-                                <div class="d-flex justify-content-between align-items-center w-100 px-3 flex-auto">
-                                    <p class="m-0">${{product.precio.toLocaleString()}}</p>
-                                    <button @click="agregarCesta(product)"
+                        <div v-for=" (producto, index) in productos"
+                        class="col-6 col-md-4 col-lg-4 col-xl-3 position-relative">
+                        <div class="card card-hover height-copia shadow d-flex align-items-center">
+                            <a class="position-relative" :href="'./detailsCard.html?id='+producto._id">
+                                <img class="card-imagen" :src="producto.imagen" :alt="producto.nombre">
+                            </a>
+                            <div class="d-flex justify-content-between align-items-center w-100 px-3 flex-auto">
+                                <p class="m-0">${{producto.precio.toLocaleString()}}</p>
+                                <button @click="agregarCesta(producto)"
                                     class="fw-bold fs-7 btn bg-primary rounded-3 py-1 px-2 text-light">Comprar</button>
-                                </div>
-                                <div class="d-flex justify-content-start w-100">
-                                    <h2 class="py-1 ms-3 px-2 fs-7 bg-danger text-light mt-1" v-if="product.stock < 4">
-                                        Poco stock!
-                                    </h2>
-                                </div>
-
-                                <div class="text-hidden">
-                                    <h5 class="text-start fw-bold fuente-title">{{product.nombre}}</h5>
-                                    <p class="text-start fuente-parrafo m-0">{{product.tipo}}</pc>
-                                </div>
+                            </div>
+                            <div class="text-hidden">
+                                <h5 class="text-start fw-bold fuente-title">{{producto.nombre}}</h5>
+                                <p class="text-start fuente-parrafo m-0">{{producto.tipo}}</pc>
                             </div>
                         </div>
+
+                        <div v-if="favoritosAdd.length > 0">
+                            <div v-for="product in favoritosAdd">
+                                <button v-if="product.product._id == producto._id && product.fav"
+                                    class="position-absolute top-0 end-0 me-3 mt-3"
+                                    @click="eleminarFav(producto._id)"><img src="../img/icon/favoritoRed.svg"
+                                        alt="Favorito check"></button>
+                                <button v-else
+                                    class="position-absolute top-0 end-0 me-3 mt-3"
+                                    @click="agregarFav(producto)"><img src="../img/icon/favoritosWhite.svg"
+                                        alt="Favorito no check"></button>
+                            </div>
+                        </div>
+                        <button v-else-if="favoritosAdd.length == 0" class="position-absolute top-0 end-0 me-3 mt-3"
+                            @click="agregarFav(producto)"><img src="../img/icon/favoritosWhite.svg"
+                                alt="Favorito no check"></button>
+
+                        <h2 class="position-absolute mt-3 top-0 py-1 ms-3 px-2 fs-7 bg-danger text-light rounded-3"
+                            v-if="producto.stock < 4">
+                            Poco stock!
+                        </h2>
+                    </div>
                     </section>
                 </div>
             </section>

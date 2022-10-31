@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>101Apatita - Favoritos</title>
 
-    <meta name="description" content="Tus productos favoritos en un solo lugar, esperamos tener los productos adecuados para tu mayor felicidad para vos y tus peluditos.       ">
+    <meta name="description"
+        content="Tus productos favoritos en un solo lugar, esperamos tener los productos adecuados para tu mayor felicidad para vos y tus peluditos.       ">
 
     <link rel="shortcut icon" href="../img/loguitos/favicon.svg" type="image/x-icon">
 
@@ -205,46 +206,50 @@
         </nav>
         <main class="container-fluid container-lg flex-auto position-relative">
             <h2 class="text-start fw-bold fs-5 my-5 border-bottom border-2 border-terciario pb-2">101Apatita <img
-                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Tu carrito</span></h2>
+                    src="../img/icon/arrow.svg" alt="Arrow section"> <span class="text-secondary">Tus favoritos</span>
+            </h2>
 
             <div v-if="favoritosAdd.length == 0">
                 <h2 class="fw-bold">No tienes productos favoritos todavia, ve en busca de uno!</h2>
                 <a href="./productos.html" class="btn bg-primario mt-4 fw-bold text-light">Elegir producto</a>
 
-                <img class="position-absolute bottom-0" src="../img/loguitos/perrito_animado_noAdoptes.svg" alt="Perrito de ayuda">
+                <img class="position-absolute bottom-0" src="../img/loguitos/perrito_animado_noAdoptes.svg"
+                    alt="Perrito de ayuda">
             </div>
             <div v-else class="row">
-                <div v-for=" product in favoritosAdd " class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 position-relative">
+                <div v-for=" product in favoritosAdd "
+                    class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 position-relative">
                     <div class="card-index card-hover d-flex align-items-center ">
-                        <a class="position-relative" :href="'./detailsCard.html?id='+product._id">
-                            <img :src="product.imagen" class="w-100" :alt="product.nombre">
+                        <a class="position-relative" :href="'./detailsCard.html?id='+product.product._id">
+                            <img :src="product.product.imagen" class="w-100" :alt="product.product.nombre">
                         </a>
                         <div class="d-flex justify-content-between align-items-start mt-2 w-100 px-3 flex-auto">
-                            <p class="m-0">${{product.precio.toLocaleString()}}</p>
-                            <button @click="agregarCesta(product.producto)"
+                            <p class="m-0">${{product.product.precio.toLocaleString()}}</p>
+                            <button @click="agregarCesta(product.product)"
                                 class="fw-bold fs-7 btn bg-primary rounded-2 py-1 px-2 text-light">Comprar</button>
-                        </div>
-                        <div class="d-flex justify-content-start w-100">
-                            <h2 class="py-1 ms-3 px-2 fs-7 bg-danger text-light rounded-3 mt-1"
-                                v-if="product.stock < 4">
-                                Poco stock!
-                            </h2>
                         </div>
 
                         <div class="text-hidden">
-                            <h5 class="text-start fw-bold fuente-title">{{product.nombre}}</h5>
-                            <p class="text-start fuente-parrafo m-0">{{product.tipo}}</pc>
+                            <h5 class="text-start fw-bold fuente-title">{{product.product.nombre}}</h5>
+                            <p class="text-start fuente-parrafo m-0">{{product.product.tipo}}</pc>
                         </div>
                     </div>
-                    <button class="position-absolute top-0 end-0 me-4 mt-3" v-if="favorito" @click="eleminarFav(product._id)"><img src="../img/icon/favoritoRed.svg" alt="Favorito check"></button>
+                    <button class="position-absolute top-0 end-0 me-4 mt-3" v-if="product.fav"
+                        @click="eleminarFav(product.product._id)"><img src="../img/icon/favoritoRed.svg"
+                            alt="Favorito check"></button>
+                    <h2 class="position-absolute mt-3 top-0 py-1 ms-3 px-2 fs-7 bg-danger text-light rounded-3"
+                        v-if="product.product.stock < 4">
+                        Poco stock!
+                    </h2>
                 </div>
             </div>
 
         </main>
         <footer class="footercontact">
             <div class="container pt-5 position-relative">
-                <a href="../index.html"><img class="logos position-absolute border-orange top-0 bottom-0 mt-4 mt-md-3 bg-white p-2 rounded-2"
-                    src="../img/loguitos/logo_nuevo.svg" alt="Logo 101Apatita"></a>
+                <a href="../index.html"><img
+                        class="logos position-absolute border-orange top-0 bottom-0 mt-4 mt-md-3 bg-white p-2 rounded-2"
+                        src="../img/loguitos/logo_nuevo.svg" alt="Logo 101Apatita"></a>
                 <div class="col-lg-12 col-sm-12 col-xs-12">
                     <p class="py-3 m-0 text-center border-top-orange text-light">Grupo 3 © 2022 <a href="#"><span
                                 id="sfooter">101Apatita</span></a>.</p>

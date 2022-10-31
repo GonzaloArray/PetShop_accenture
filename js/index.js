@@ -125,9 +125,6 @@ try {
             if (JSON.parse(localStorage.getItem('favoritos'))) {
                 this.favoritosAdd = JSON.parse(localStorage.getItem('favoritos'));
             }
-            if (this.favoritosAdd.length > 0) {
-                this.favorito = true;
-            }
         },
         mounted() {
         },
@@ -165,11 +162,9 @@ try {
                         this.adoptar = this.perritosAdoptar.find(element => element.id === id);
                         if (id !== null) {
                             this.cardProduct = this.productos.find(element => element._id === id);
-                            console.log(this.cardProduct)
 
                             const valor = this.cesta.filter(element => {
                                 if (element.producto._id == this.cardProduct._id) {
-                                    console.log(element)
                                     return element.producto;
                                 }
                             })
@@ -179,11 +174,22 @@ try {
                             }
 
                         }
-                        console.log(this.favorito)
+
+                        if (true) {
+                            const valor = this.favoritosAdd.filter(favorito => {
+                                if (favorito.product._id == this.cardProduct._id) {
+                                    return true;
+                                }
+                            })
+                            if (valor.length > 0) {
+                                this.favorito = valor[0].fav;
+                                return;
+                            }
+                            this.favorito = false;
+                        }
 
                     })
                     .catch((error) => {
-                        console.log(error)
                         this.error = true;
                     })
             },
@@ -351,14 +357,17 @@ try {
 
             // Agregar a fav
             agregarFav(product){
-                this.favoritosAdd.push(product)
+                this.favoritosAdd.push({product, fav: true});
                 localStorage.setItem('favoritos', JSON.stringify(this.favoritosAdd));
 
                 this.favorito = true;
+
             },
             eleminarFav(id){
-                const valor = this.favoritosAdd.filter(producto => producto._id !== id)
+                console.log("hola")
+                const valor = this.favoritosAdd.filter(producto => producto.product._id !== id)
                 this.favoritosAdd = valor;
+                console.log(valor)
                 localStorage.setItem('favoritos', JSON.stringify(valor));
 
                 this.favorito = false;
