@@ -5,6 +5,7 @@ try {
         data() {
             return {
                 // Guardado de contenido
+                url: 'https://apipetshop.herokuapp.com/api/articulos',
                 productos: [],
                 productoSeccion: {
                     medicamentos: [],
@@ -23,7 +24,6 @@ try {
                 backup: [],
                 backupJuguete: [],
                 backupMedicina: [],
-                url: 'https://apipetshop.herokuapp.com/api/articulos',
                 search: '',
                 buscadorProducto: '',
 
